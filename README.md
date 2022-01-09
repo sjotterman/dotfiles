@@ -9,6 +9,10 @@ Manage my dotfiles using GNU Stow
 
 `brew install stow`
 
+### Ubunto Installation
+
+`sudo apt install stow`
+
 
 ## Usage
 
