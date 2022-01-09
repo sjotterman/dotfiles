@@ -1,0 +1,119 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+let v:this_session=expand("<sfile>:p")
+silent only
+silent tabonly
+cd ~/workspace/bedbathbeyond.rn
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+argglobal
+%argdel
+edit src/components/Sort.tsx
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 104 + 104) / 209)
+exe 'vert 2resize ' . ((&columns * 104 + 104) / 209)
+argglobal
+balt src/lib/initialStartUp.ts
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=10
+setlocal fen
+silent! normal! zE
+26,26fold
+35,35fold
+38,42fold
+57,57fold
+60,60fold
+48,64fold
+73,73fold
+83,85fold
+95,98fold
+80,100fold
+106,110fold
+105,111fold
+48
+normal! zo
+48
+normal! zc
+80
+normal! zo
+80
+normal! zc
+105
+normal! zo
+105
+normal! zc
+let s:l = 2 - ((1 * winheight(0) + 25) / 51)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 2
+normal! 06|
+wincmd w
+argglobal
+if bufexists("src/lib/initialStartUp.ts") | buffer src/lib/initialStartUp.ts | else | edit src/lib/initialStartUp.ts | endif
+balt ~/workspace/noahsark/src/lib/registerSerializables.ts
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=10
+setlocal nofen
+silent! normal! zE
+20,20fold
+33,33fold
+let s:l = 6 - ((0 * winheight(0) + 25) / 51)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 6
+normal! 04|
+wincmd w
+exe 'vert 1resize ' . ((&columns * 104 + 104) / 209)
+exe 'vert 2resize ' . ((&columns * 104 + 104) / 209)
+tabnext 1
+badd +45 src/components/Sort.tsx
+badd +3 ~/workspace/noahsark/src/components/serializable/ProductData/ProductStepper.tsx
+badd +53 ~/workspace/noahsark/src/lib/registerSerializables.ts
+badd +1 ~/workspace/noahsark/src/components/serializable/ProductData/ProductData.tsx
+badd +1 /private/var/folders/ct/j4d1bc0134z2zfz6xgf3x0g00000gp/T/vUXfc03/317
+badd +121 ~/workspace/noahsark/src/styles/variables.ts
+badd +1002 ~/workspace/noahsark/src/screens/Canvas.tsx
+badd +27 ~/workspace/noahsark/src/components/serializable/ProductData/ProductText.tsx
+badd +27 ~/workspace/noahsark/src/components/serializable/SerializableText.tsx
+badd +41 ~/workspace/noahsark/src/components/CanvasInlineTextInput.tsx
+badd +13 ~/workspace/noahsark/src/styles/Global.ts
+badd +5 src/lib/initialStartUp.ts
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToOSI
+set winminheight=1 winminwidth=1
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if filereadable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

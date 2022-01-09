@@ -1,0 +1,769 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+let v:this_session=expand("<sfile>:p")
+silent only
+silent tabonly
+cd ~/workspace/noahsark
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+argglobal
+%argdel
+edit src/lib/ComponentsConfig.ts
+set splitbelow splitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+balt ~/workspace/bedbathbeyond.rn/src/components/Sort.tsx
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=2
+setlocal fml=1
+setlocal fdn=10
+setlocal fen
+silent! normal! zE
+35,38fold
+99,100fold
+91,102fold
+105,113fold
+124,124fold
+116,126fold
+129,136fold
+145,147fold
+150,150fold
+139,152fold
+161,163fold
+166,166fold
+155,168fold
+177,179fold
+182,182fold
+171,184fold
+193,195fold
+198,198fold
+187,200fold
+209,211fold
+214,214fold
+203,216fold
+226,228fold
+231,231fold
+219,233fold
+242,244fold
+247,247fold
+236,249fold
+258,260fold
+263,263fold
+252,265fold
+275,277fold
+280,280fold
+268,282fold
+291,293fold
+296,296fold
+285,298fold
+307,309fold
+312,312fold
+301,314fold
+323,325fold
+328,328fold
+317,330fold
+339,341fold
+344,344fold
+333,346fold
+355,357fold
+360,360fold
+349,362fold
+371,373fold
+376,376fold
+365,378fold
+387,389fold
+392,392fold
+381,394fold
+403,405fold
+408,408fold
+397,410fold
+419,421fold
+424,424fold
+413,426fold
+435,437fold
+440,440fold
+429,442fold
+451,453fold
+456,456fold
+445,458fold
+467,469fold
+472,472fold
+461,474fold
+483,485fold
+488,488fold
+477,490fold
+499,501fold
+504,504fold
+493,506fold
+515,517fold
+520,520fold
+509,522fold
+531,533fold
+536,536fold
+525,538fold
+547,549fold
+552,552fold
+541,554fold
+564,566fold
+569,569fold
+557,571fold
+580,582fold
+585,585fold
+574,587fold
+596,598fold
+601,601fold
+590,603fold
+612,614fold
+617,617fold
+606,619fold
+628,630fold
+633,633fold
+622,635fold
+644,646fold
+649,649fold
+638,651fold
+660,662fold
+665,665fold
+654,667fold
+676,678fold
+681,681fold
+670,683fold
+692,694fold
+697,697fold
+686,699fold
+708,710fold
+713,713fold
+702,715fold
+724,726fold
+729,729fold
+718,731fold
+741,743fold
+746,746fold
+734,748fold
+757,759fold
+762,762fold
+751,764fold
+774,776fold
+779,779fold
+767,781fold
+791,793fold
+796,796fold
+784,798fold
+807,809fold
+812,812fold
+801,814fold
+823,825fold
+828,828fold
+817,830fold
+839,841fold
+844,844fold
+833,846fold
+856,858fold
+861,861fold
+849,863fold
+872,874fold
+877,877fold
+866,879fold
+888,890fold
+893,893fold
+882,895fold
+904,904fold
+907,907fold
+910,910fold
+913,915fold
+898,917fold
+926,926fold
+920,928fold
+939,940fold
+931,942fold
+951,951fold
+956,956fold
+945,958fold
+968,969fold
+961,971fold
+980,980fold
+983,983fold
+974,985fold
+988,998fold
+1008,1008fold
+1001,1010fold
+1019,1019fold
+1013,1021fold
+1024,1030fold
+1033,1039fold
+1042,1048fold
+1051,1061fold
+1073,1075fold
+1078,1078fold
+1064,1080fold
+1090,1092fold
+1083,1094fold
+1097,1104fold
+1107,1114fold
+1117,1124fold
+1127,1137fold
+1140,1150fold
+1153,1163fold
+1196,1196fold
+1208,1211fold
+1215,1217fold
+1206,1219fold
+1227,1228fold
+1231,1232fold
+1236,1239fold
+1243,1243fold
+1253,1256fold
+35
+normal! zc
+91
+normal! zo
+99
+normal! zc
+91
+normal! zc
+105
+normal! zc
+116
+normal! zo
+124
+normal! zc
+116
+normal! zc
+129
+normal! zc
+139
+normal! zo
+145
+normal! zc
+150
+normal! zc
+139
+normal! zc
+155
+normal! zo
+161
+normal! zc
+166
+normal! zc
+155
+normal! zc
+171
+normal! zo
+177
+normal! zc
+182
+normal! zc
+171
+normal! zc
+187
+normal! zo
+193
+normal! zc
+198
+normal! zc
+187
+normal! zc
+203
+normal! zo
+209
+normal! zc
+214
+normal! zc
+203
+normal! zc
+219
+normal! zo
+226
+normal! zc
+231
+normal! zc
+219
+normal! zc
+236
+normal! zo
+242
+normal! zc
+247
+normal! zc
+236
+normal! zc
+252
+normal! zo
+258
+normal! zc
+263
+normal! zc
+252
+normal! zc
+268
+normal! zo
+275
+normal! zc
+280
+normal! zc
+268
+normal! zc
+285
+normal! zo
+291
+normal! zc
+296
+normal! zc
+285
+normal! zc
+301
+normal! zo
+307
+normal! zc
+312
+normal! zc
+301
+normal! zc
+317
+normal! zo
+323
+normal! zc
+328
+normal! zc
+317
+normal! zc
+333
+normal! zo
+339
+normal! zc
+344
+normal! zc
+333
+normal! zc
+349
+normal! zo
+355
+normal! zc
+360
+normal! zc
+349
+normal! zc
+365
+normal! zo
+371
+normal! zc
+376
+normal! zc
+365
+normal! zc
+381
+normal! zo
+387
+normal! zc
+392
+normal! zc
+381
+normal! zc
+397
+normal! zo
+403
+normal! zc
+408
+normal! zc
+397
+normal! zc
+413
+normal! zo
+419
+normal! zc
+424
+normal! zc
+413
+normal! zc
+429
+normal! zo
+435
+normal! zc
+440
+normal! zc
+429
+normal! zc
+445
+normal! zo
+451
+normal! zc
+456
+normal! zc
+445
+normal! zc
+461
+normal! zo
+467
+normal! zc
+472
+normal! zc
+461
+normal! zc
+477
+normal! zo
+483
+normal! zc
+488
+normal! zc
+477
+normal! zc
+493
+normal! zo
+499
+normal! zc
+504
+normal! zc
+493
+normal! zc
+509
+normal! zo
+515
+normal! zc
+520
+normal! zc
+509
+normal! zc
+525
+normal! zo
+531
+normal! zc
+536
+normal! zc
+525
+normal! zc
+541
+normal! zo
+547
+normal! zc
+552
+normal! zc
+541
+normal! zc
+557
+normal! zo
+564
+normal! zc
+569
+normal! zc
+557
+normal! zc
+574
+normal! zo
+580
+normal! zc
+585
+normal! zc
+574
+normal! zc
+590
+normal! zo
+596
+normal! zc
+601
+normal! zc
+590
+normal! zc
+606
+normal! zo
+612
+normal! zc
+617
+normal! zc
+606
+normal! zc
+622
+normal! zo
+628
+normal! zc
+633
+normal! zc
+622
+normal! zc
+638
+normal! zo
+644
+normal! zc
+649
+normal! zc
+638
+normal! zc
+654
+normal! zo
+660
+normal! zc
+665
+normal! zc
+654
+normal! zc
+670
+normal! zo
+676
+normal! zc
+681
+normal! zc
+670
+normal! zc
+686
+normal! zo
+692
+normal! zc
+697
+normal! zc
+686
+normal! zc
+702
+normal! zo
+708
+normal! zc
+713
+normal! zc
+702
+normal! zc
+718
+normal! zo
+724
+normal! zc
+729
+normal! zc
+718
+normal! zc
+734
+normal! zo
+741
+normal! zc
+746
+normal! zc
+734
+normal! zc
+751
+normal! zo
+757
+normal! zc
+762
+normal! zc
+751
+normal! zc
+767
+normal! zo
+774
+normal! zc
+779
+normal! zc
+767
+normal! zc
+784
+normal! zo
+791
+normal! zc
+796
+normal! zc
+784
+normal! zc
+801
+normal! zo
+807
+normal! zc
+812
+normal! zc
+801
+normal! zc
+817
+normal! zo
+823
+normal! zc
+828
+normal! zc
+817
+normal! zc
+833
+normal! zo
+839
+normal! zc
+844
+normal! zc
+833
+normal! zc
+849
+normal! zo
+856
+normal! zc
+861
+normal! zc
+849
+normal! zc
+866
+normal! zo
+872
+normal! zc
+877
+normal! zc
+866
+normal! zc
+882
+normal! zo
+888
+normal! zc
+893
+normal! zc
+882
+normal! zc
+898
+normal! zo
+904
+normal! zc
+907
+normal! zc
+910
+normal! zc
+913
+normal! zc
+898
+normal! zc
+920
+normal! zo
+926
+normal! zc
+920
+normal! zc
+931
+normal! zo
+939
+normal! zc
+931
+normal! zc
+945
+normal! zo
+951
+normal! zc
+956
+normal! zc
+945
+normal! zc
+961
+normal! zo
+968
+normal! zc
+961
+normal! zc
+974
+normal! zo
+980
+normal! zc
+983
+normal! zc
+974
+normal! zc
+988
+normal! zc
+1001
+normal! zo
+1008
+normal! zc
+1001
+normal! zc
+1013
+normal! zo
+1019
+normal! zc
+1013
+normal! zc
+1024
+normal! zc
+1033
+normal! zc
+1042
+normal! zc
+1051
+normal! zc
+1064
+normal! zo
+1073
+normal! zc
+1078
+normal! zc
+1064
+normal! zc
+1083
+normal! zo
+1090
+normal! zc
+1083
+normal! zc
+1097
+normal! zc
+1107
+normal! zc
+1117
+normal! zc
+1127
+normal! zc
+1140
+normal! zc
+1153
+normal! zc
+1196
+normal! zc
+1206
+normal! zo
+1208
+normal! zc
+1215
+normal! zc
+1206
+normal! zc
+1227
+normal! zc
+1231
+normal! zc
+1236
+normal! zc
+1243
+normal! zc
+1253
+normal! zc
+let s:l = 785 - ((34 * winheight(0) + 25) / 51)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 785
+normal! 01|
+tabnext 1
+badd +1 src/lib/ComponentsConfig.ts
+badd +47 ~/workspace/bedbathbeyond.rn/src/components/Sort.tsx
+badd +192 scripts/schema.ts
+badd +13 src/components/serializable/ProductData/ProductStepper.tsx
+badd +54 src/lib/registerSerializables.ts
+badd +32 src/components/serializable/ProductData/ProductData.tsx
+badd +1 /private/var/folders/ct/j4d1bc0134z2zfz6xgf3x0g00000gp/T/vUXfc03/317
+badd +121 src/styles/variables.ts
+badd +1002 src/screens/Canvas.tsx
+badd +27 src/components/serializable/ProductData/ProductText.tsx
+badd +27 src/components/serializable/SerializableText.tsx
+badd +41 src/components/CanvasInlineTextInput.tsx
+badd +13 src/styles/Global.ts
+badd +345 ~/.vimrc
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToOS
+set winminheight=1 winminwidth=1
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if filereadable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

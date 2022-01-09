@@ -1,0 +1,151 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+silent tabonly
+cd ~/
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+argglobal
+%argdel
+edit .vimrc
+set splitbelow splitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=10
+setlocal nofen
+silent! normal! zE
+55,58fold
+66,66fold
+68,68fold
+75,75fold
+75,75fold
+75,75fold
+75,75fold
+75,75fold
+75,75fold
+75,75fold
+75,75fold
+103,104fold
+103,104fold
+103,104fold
+103,104fold
+103,104fold
+103,104fold
+103,104fold
+103,104fold
+166,166fold
+166,166fold
+166,166fold
+166,166fold
+221,222fold
+240,251fold
+258,258fold
+291,293fold
+322,322fold
+324,324fold
+75
+normal! zo
+75
+normal! zo
+75
+normal! zo
+75
+normal! zo
+75
+normal! zo
+75
+normal! zo
+75
+normal! zo
+75
+normal! zc
+75
+normal! zc
+75
+normal! zc
+75
+normal! zc
+75
+normal! zc
+75
+normal! zc
+75
+normal! zc
+103
+normal! zo
+103
+normal! zo
+103
+normal! zo
+103
+normal! zo
+103
+normal! zo
+103
+normal! zo
+103
+normal! zo
+103
+normal! zc
+103
+normal! zc
+103
+normal! zc
+103
+normal! zc
+103
+normal! zc
+103
+normal! zc
+103
+normal! zc
+166
+normal! zo
+166
+normal! zo
+166
+normal! zo
+166
+normal! zc
+166
+normal! zc
+166
+normal! zc
+let s:l = 22 - ((21 * winheight(0) + 19) / 38)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+22
+normal! 0
+lcd ~/
+tabnext 1
+badd +0 ~/.vimrc
+badd +210 ~/.vim/plugin/which-key.vim
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToOS
+set winminheight=1 winminwidth=1
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
