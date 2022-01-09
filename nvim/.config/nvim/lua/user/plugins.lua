@@ -61,6 +61,7 @@ return packer.startup(function(use)
   use "tpope/vim-unimpaired"
   use "gcmt/taboo.vim"
   use "romainl/vim-qf"
+  use 'editorconfig/editorconfig-vim'
   use {
     'weilbith/nvim-code-action-menu',
     cmd = 'CodeActionMenu',
