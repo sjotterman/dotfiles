@@ -2,52 +2,14 @@
 " Samuel Otterman
 
 set nocompatible                 " use vim defaults (much better!)
-call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary' " Comment / uncomment code
-" Set comment string depending on where in the file you are, so commenting
-" works as expected in a JSX / TSX file
-Plug 'suy/vim-context-commentstring'
-Plug 'tpope/vim-unimpaired'
-" Work with variants of words. Plurals, change casing
-Plug 'tpope/vim-abolish'
-Plug 'yuezk/vim-js'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'liuchengxu/vim-which-key'
-" Start screen / project switcher
-Plug 'mhinz/vim-startify'
-" Syntax Highlighting for many languages
-Plug 'sheerun/vim-polyglot'
-Plug 'pantharshit00/vim-prisma'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'itchyny/lightline.vim'
-Plug 'gcmt/taboo.vim'
-" Color schemes
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'sainnhe/sonokai'
-Plug 'rakr/vim-one'
-call plug#end()
 filetype plugin indent on
 
 " Display
 syntax on
 set termguicolors
 
-" Taboo tab name defaults to working directory
-let g:taboo_tab_format = " %P "
-
 " Do not use old regex engine. Recommended by yats
 set re=0
-
-let g:yats_host_keyword = 1
-
 
 "
 " Always show the signcolumn, otherwise it would shift the text each time
@@ -59,12 +21,7 @@ else
   set signcolumn=yes
 endif
 set guifont=Hack\ Nerd\ Font:h16
-if has("gui_running") || has("termguicolors")
-  " Left in so I can easily set up different color schemes if desired
-  colorscheme onedark
-else
-  colorscheme sonokai
-endif
+
 set background=dark
 
 set list                         " show me the unshowable!
@@ -75,7 +32,6 @@ set hidden                       " so we can more easily change buffers when
 set hlsearch                     " Highlights search items
 set incsearch                    "  show match as pattern is typed
 set nostartofline                " don't change that cursor column!
-" set nonumber                     " Hide line numbering
 set number                     " Show line numbering
 set ruler                        " show ruler
 set scrolloff=5                  " keep at least 5 lines around the cursor
@@ -213,149 +169,6 @@ if has ('autocmd') " Remain compatible with earlier versions
 endif " has autocmd
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-" plugin settings
-
-" Prettier command
-" command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-
-" Run prettier only if config file
-let g:prettier#autoformat_config_present = 1
-
-" NerdTree
-nmap <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeIgnore = ['^node_modules$']
-
-" Close vim if NERDTree is only window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Show hidden files in nerdtree
-let NERDTreeShowHidden=1
-
-" Lightline - status line replacement
-
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \            [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead',
-      \   'filetype': 'LightlineFiletype',
-      \  'cocstatus' : 'coc#status'
-      \ },
-      \ }
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
-  if path[:len(root)-1] ==# root
-    return path[len(root)+1:]
-  endif
-  return expand('%')
-endfunction
-
-
-" COC.nvim - Language Server / Code completion
-" I might re-add this
-  " \ 'coc-tslint-plugin',
-  " \ 'coc-snippets',
-let g:coc_global_extensions = [
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint',
-  \ 'coc-tslint-plugin',
-  \ 'coc-css',
-  \ 'coc-prettier',
-  \ 'coc-json',
-  \ ]
-
-" Auto close fugitive buffers that weren't closed correctly
-autocmd BufReadPost fugitive://* set bufhidden=delete
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? coc#_select_confirm() :
-"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-
-" let g:coc_snippet_next = '<tab>'
-
-" press CTRL + space to trigger autocomplete while in insert mode
-inoremap <silent><expr><C-Space> coc#refresh()
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap  gt :tabs
-
-nmap ]g <Plug>(coc-diagnostic-next)
-nmap [g <Plug>(coc-diagnostic-prev)
-command! ListAllTabs :tabs
-
 " Number of lines of autosuggestions
 set pumheight=7
 
-nnoremap <silent>gh :call CocActionAsync('doHover')<CR>
-
-
-let g:startify_bookmarks = [ {'v': '~/.vimrc'},
-      \ {'z': '~/.zshrc'},
-      \'~/.vim/plugin/which-key.vim']
-let g:startify_lists = [
-      \ { 'header': ['   Sessions'],       'type': 'sessions' },
-      \ { 'header': ['   Bookmarks'],       'type': 'bookmarks' },
-      \ { 'header': ['   MRU'],            'type': 'files' },
-      \ { 'header': ['   MRU '. getcwd()], 'type': 'dir' },
-      \ ]
-" " Update session automatically as you exit vim
-let g:startify_session_persistence = 1
-let g:startify_custom_header = [
- \ '      ',
- \ '             _         ',
- \ '      _   __(_)___ ___ ',
- \ '     | | / / / __ `__ \',
- \ '     | |/ / / / / / / /',
- \ '     |___/_/_/ /_/ /_/ ',
- \ '                         ',
- \ '        ',
- \]
-" autocmd User Startified %foldopen!
-"
-
-" Copy FZF results to the quick fix list by pressing CTRL+A, CTRL+Q
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
-
-" When using Ag, ignore file names that contain the search string
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
