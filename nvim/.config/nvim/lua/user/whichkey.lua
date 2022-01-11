@@ -233,7 +233,7 @@ local mappings = {
     s = { "<cmd>:mksession! ~/.config/nvim/config/default-session.vim<CR>", "Save default session" },
     l = { "<cmd>:source ~/.config/nvim/config/default-session.vim<CR>", "Load default session" },
   },
-  t = {
+  T = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
@@ -243,6 +243,17 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+  t = {
+    name = "Trouble",
+    t = { "<cmd>TroubleToggle<cr>", "toggle" },
+    r = { "<cmd>Trouble lsp_references<cr>", "References" },
+    R = { "<cmd>TroubleRefresh<cr>", "Refresh" },
+    f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+    d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+    w = { "<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics" },
+  }
 }
 
 which_key.setup(setup)

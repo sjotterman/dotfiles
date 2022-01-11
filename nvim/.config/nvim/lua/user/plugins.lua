@@ -76,6 +76,10 @@ return packer.startup(function(use)
     }
 
   use {"fatih/vim-go", run=":GoInstallBinaries"}
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons"
+  }
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"

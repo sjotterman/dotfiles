@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
   },
+  ["editorconfig-vim"] = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
+    url = "https://github.com/editorconfig/editorconfig-vim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -272,6 +277,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-bbye"] = {
     loaded = true,
