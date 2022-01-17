@@ -21,6 +21,7 @@ require "user.alpha"
 require "user.whichkey"
 require "user.vim-qf"
 require "user.autocommands"
+require "user.editorconfig"
 
 
 -- temporary hack; neovim requires a column for diagnostics,
