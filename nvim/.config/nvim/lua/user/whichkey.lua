@@ -208,6 +208,11 @@ local mappings = {
     t = { '<cmd>lua require("telekasten").goto_today()<CR>', "Today" },
     y = { '<cmd>lua require("telekasten").yank_notelink()<CR>', "Yank link to current note" }
   },
+  N = {
+    name = "NX",
+    b = { "<cmd>TermExec dir=\"~/workspace/shipyard\" cmd=\"npx nx run create-api:build-prisma --configuration=clean\"<cr>", "Build Prisma" },
+    C = { "<cmd>TermExec dir=\"~/workspace/shipyard\" cmd=\"npx nx run create-api:database --configuration=clean\"<cr>", "Clean Create DB" },
+  },
   s = {
     name = "Search",
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
@@ -236,6 +241,7 @@ local mappings = {
   T = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+    s = { "<cmd>lua _SHIPYARD_TOGGLE()<cr>", "Shipyard" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
     t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },

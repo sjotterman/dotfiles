@@ -53,6 +53,20 @@ function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
 
+local shipyard = Terminal:new({
+  hidden = true,
+  dir = "~/workspace/shipyard",
+  direction = "float",
+  -- float_opts = {
+  --   height = 40,
+  --   width = 70
+  -- }
+})
+
+function _SHIPYARD_TOGGLE()
+	shipyard:toggle()
+end
+
 
 -- TODO: fix command and dir
 local memorize = Terminal:new({
