@@ -42,6 +42,7 @@ vim.opt.listchars = { tab = ">-", trail = "x"}
 vim.g.markdown_fenced_languages = { 'typescript',
   'javascript',
   'typescript',
+  'php',
   'json',
   'bash=sh',
   'go',
