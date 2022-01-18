@@ -161,8 +161,9 @@ local mappings = {
   },
   l = {
     name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    A = { "<cmd>CodeActionMenu<cr>", "Advanced Code Action" },
+    A = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+    a = { "<cmd>CodeActionMenu<cr>", "Regular Code Action" },
+    c = { "^cwconstea =a f)a =>", "convert to arrow function"},
     d = {
       "<cmd>Telescope lsp_document_diagnostics<cr>",
       "Document Diagnostics",
@@ -225,8 +226,10 @@ local mappings = {
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     t = { "<cmd>Telescope live_grep<cr>", "Text" },
+    T = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find{}<cr>", "Text in buffer" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
+    v = { "<cmd>lua require('telescope.builtin').vim_options{}<cr>", "Vim Options" },
     p = {
       "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
       "Colorscheme with Preview",
@@ -276,3 +279,23 @@ which_key.register({
       "Prev Diagnostic",
   }
 })
+
+local visual_opts = {
+  mode = "v", -- NORMAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+
+local visual_mappings = {
+  l = {
+    name = "LSP",
+    a = { "<cmd>CodeActionMenu<cr><esc>", "Advanced Code Action" },
+    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+    f = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format selection" },
+  },
+}
+
+which_key.register(visual_mappings, visual_opts)
