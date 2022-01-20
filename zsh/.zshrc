@@ -199,6 +199,15 @@ alias gn="check-github-notifications"
 alias :q="exit"
 alias gg="lazygit"
 
+# requires cht.sh and rlwrap
+alias cht="cht.sh --shell"
+if type rlwrap &> /dev/null; then
+  alias cht="cht.sh --shell"
+else
+  alias cht="echo 'must have rlwrap installed'"
+fi
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
