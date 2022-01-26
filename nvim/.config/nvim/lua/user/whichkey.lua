@@ -151,6 +151,8 @@ local mappings = {
 
   k = {
     name = "+Keybinds for commands",
+    d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
+    n = { "<cmd>lua _LAZYNPM_TOGGLE()<CR>", "Lazynpm" },
     b = { "<cmd>TermExec cmd=\"build-component-typing\"<cr>", "Build NA Component Typing" },
     p = { "<cmd>TermExec cmd=\"publish-vNext\"<cr>", "Publish vNext" },
     i = { "<cmd>TermExec cmd=\"import-vNext\"<cr>", "Import vNext" },

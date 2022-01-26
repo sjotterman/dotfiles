@@ -45,7 +45,7 @@ local lazygit = Terminal:new({
   hidden = true,
   direction = "float",
   float_opts = {
-    height = vim.o.lines - 4
+    height = vim.o.lines - 6
   }
 })
 
@@ -53,14 +53,36 @@ function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
 
+local lazydocker = Terminal:new({
+  cmd = "lazydocker",
+  hidden = true,
+  direction = "float",
+  float_opts = {
+    height = vim.o.lines - 6
+  }
+})
+
+function _LAZYDOCKER_TOGGLE()
+	lazydocker:toggle()
+end
+
+local lazynpm = Terminal:new({
+  cmd = "lazynpm",
+  hidden = true,
+  direction = "float",
+  float_opts = {
+    height = vim.o.lines - 6
+  }
+})
+
+function _LAZYNPM_TOGGLE()
+	lazynpm:toggle()
+end
+
+
 local shipyard = Terminal:new({
   hidden = true,
   dir = "~/workspace/shipyard",
-  direction = "float",
-  -- float_opts = {
-  --   height = 40,
-  --   width = 70
-  -- }
 })
 
 function _SHIPYARD_TOGGLE()
