@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+# Stop docker container by searching for its name
+dockerPSOutput=`docker ps | tail -n +2`
+name=`echo "$dockerPSOutput" | grep -E -o '\s(\S*)$' | fzf`
+id=`echo "$dockerPSOutput" | grep "$name" | awk -F'  ' '{print $1}'  `
+echo "Stopping container ${id}..."
+docker stop $id
+
