@@ -1,11 +1,11 @@
-local status_ok, telekasten = pcall(require, "telekasten")
-if not status_ok then
-	return
-end
+-- local status_ok, telekasten = pcall(require, "telekasten")
+-- if not status_ok then
+-- 	return
+
 
 local home = vim.fn.expand("~/Dropbox/notes")
--- require('telekasten').setup({
-telekasten.setup({
+require('telekasten').setup({
+-- telekasten.setup({
     home         = home,
     dailies      = home,
     -- dailies      = home .. '/' .. 'daily',
