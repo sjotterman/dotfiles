@@ -88,7 +88,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm zsh-autosuggestions z nx-completion)
+plugins=(git npm zsh-autosuggestions z nx-completion command-not-found react-native golang gh)
 
 ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
@@ -198,6 +198,7 @@ alias grr="go run main.go"
 alias gn="check-github-notifications"
 alias :q="exit"
 alias gg="lazygit"
+alias lzn='lazynpm'
 
 # requires cht.sh and rlwrap
 alias cht="cht.sh --shell"
@@ -207,6 +208,21 @@ else
   alias cht="echo 'must have rlwrap installed'"
 fi
 
+# Repo specific config
+
+# Used to pre-cache tests / lints before committing
+alias nx-check="nx affected:test && nx affected:lint"
+
+# Search available npm commands
+alias ncl="npm run command-list"
+
+# Set the base for comparisons for "affected" files.
+# Should reduce the number of checks run
+export NX_BASE=upstream/main
+
+alias "nx affected:test && nx affected:lint"
+
+# End repo specific config
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export NVM_DIR="$HOME/.nvm"
