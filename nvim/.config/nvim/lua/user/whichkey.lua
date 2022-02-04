@@ -83,13 +83,12 @@ local opts = {
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["O"] = { "<C-W>o", "Close other windows"},
+  ['d'] = { '<cmd>lua require("telekasten").toggle_todo()<CR>', "toggle Done" },
   ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  -- ["w"] = { "<cmd>w!<CR>", "Save" },
-  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   -- ["f"] = {
@@ -205,9 +204,11 @@ local mappings = {
     f = { '<cmd>lua require("telekasten").find_notes()<CR>', "Find Notes" },
     g = { '<cmd>lua require("telekasten").follow_link()<CR>', "Go to link" },
     i = { '<cmd>lua require("telekasten").insert_link()<CR>', "Insert link" },
-    n = { '<cmd>lua require("telekasten").new_note()<CR>', "New note" },
+    N = { '<cmd>lua require("telekasten").new_note()<CR>', "New note" },
+    n = { ':Telekasten<cr>', "Telekasten Command" },
     s = { '<cmd>lua require("telekasten").search_notes()<CR>', "Search notes for word" },
     t = { '<cmd>lua require("telekasten").goto_today()<CR>', "Today" },
+    T = { '<cmd>lua require("telekasten").show_tags()<CR>', "Today" },
     y = { '<cmd>lua require("telekasten").yank_notelink()<CR>', "Yank link to current note" }
   },
   N = {

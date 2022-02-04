@@ -111,6 +111,7 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use 'renerocksai/telekasten.nvim'
+  use 'renerocksai/calendar-vim'
 
   -- Treesitter
   use {
