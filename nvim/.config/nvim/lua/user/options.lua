@@ -34,6 +34,7 @@ local options = {
   scrolloff = 5,                           -- is one of my fav
   sidescrolloff = 5,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  wildmode = "full:longest"
 }
 
 vim.api.nvim_set_option('list', true)
