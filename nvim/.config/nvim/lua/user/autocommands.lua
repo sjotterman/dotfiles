@@ -33,6 +33,11 @@ vim.cmd [[
     autocmd!
     autocmd FileType go setlocal nolist
   augroup end
+
+  augroup _term
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+  augroup end
 ]]
 
 -- Autoformat
