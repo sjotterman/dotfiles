@@ -8,9 +8,6 @@ filetype plugin indent on
 syntax on
 set termguicolors
 
-" Do not use old regex engine. Recommended by yats
-set re=0
-
 "
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -35,13 +32,14 @@ set nostartofline                " don't change that cursor column!
 set number                     " Show line numbering
 set ruler                        " show ruler
 set scrolloff=5                  " keep at least 5 lines around the cursor
+set sidescrolloff=5
 set showmatch                    " show matching braces
 set showmode                     " show insert/replace/visual message on bottom line
 set splitbelow                   " new window goes *below* current window
 set splitright                   " Open new vertical windows to the right
 set t_Co=256                     " 256 color mode
 set wildmenu                    " Enable tab autocompletion of file names
-set wildmode=list:longest       " Autocomplete to longest unambiguous string, like BASH
+set wildmode=full:longest
 set lazyredraw                  " do not redraw while running macros (much faster)
 set autoread                    " automatically reload files updated outside of Vim
 
@@ -67,7 +65,7 @@ set shiftwidth=2                 " numspaces to use for each step of (auto)inden
 set smartindent
 set tabstop=2                    " tabs at every two columns
 set textwidth=80                 " wrap after 80 columns
-set wrap                         " don't wrap long lines, i'll scroll if i want to see
+set wrap                         " wrap long lines
 set noswapfile                   " Disable swap file
 set diffopt=vertical             " Diffs should be displayed vertically
 set clipboard=unnamed            " Use system clipboard
@@ -111,9 +109,6 @@ set nofoldenable        "dont fold by default
 " Commands
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
                 \ | wincmd p | diffthis
-
-" Syntax check php files
-:autocmd FileType php noremap <F7> :w ! php -l<CR>
 
 " Spell check for md and text files files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
