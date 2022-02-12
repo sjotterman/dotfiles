@@ -217,7 +217,6 @@ alias ncl="npm run command-list"
 # Should reduce the number of checks run
 export NX_BASE=upstream/main
 
-alias "nx affected:test && nx affected:lint"
 
 # End repo specific config
 
