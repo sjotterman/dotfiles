@@ -88,7 +88,9 @@ return packer.startup(function(use)
   use 'wuelnerdotexe/vim-enfocado'
   use "olimorris/onedarkpro.nvim"
   use 'aonemd/kuroi.vim'
+  use 'sainnhe/edge'
   use "rebelot/kanagawa.nvim"
+  use "folke/tokyonight.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -124,6 +126,7 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use  "tpope/vim-fugitive"
   use  "tpope/vim-rhubarb"
+  use "mkotha/conflict3"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -124,10 +124,20 @@ _G.packer_plugins = {
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/colorschemes",
     url = "https://github.com/lunarvim/colorschemes"
   },
+  conflict3 = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/conflict3",
+    url = "https://github.com/mkotha/conflict3"
+  },
   ["darkplus.nvim"] = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
+  },
+  edge = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/edge",
+    url = "https://github.com/sainnhe/edge"
   },
   ["editorconfig-vim"] = {
     loaded = true,
@@ -283,6 +293,11 @@ _G.packer_plugins = {
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["trouble.nvim"] = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/trouble.nvim",
@@ -351,5 +366,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end
