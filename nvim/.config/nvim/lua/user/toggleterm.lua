@@ -90,22 +90,6 @@ function _SHIPYARD_TOGGLE()
 end
 
 
--- TODO: fix command and dir
-local memorize = Terminal:new({
-  cmd = "./memorize",
-  hidden = true,
-  dir = "~/golang/memorize",
-  direction = "float",
-  float_opts = {
-    height = 40,
-    width = 70
-  }
-})
-
-function _MEMORIZE_TOGGLE()
-	memorize:toggle()
-end
-
 local node = Terminal:new({ cmd = "node", hidden = true })
 
 function _NODE_TOGGLE()
