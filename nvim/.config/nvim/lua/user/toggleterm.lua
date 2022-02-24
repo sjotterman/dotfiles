@@ -117,7 +117,10 @@ end
 local prs_term = Terminal:new({
   cmd = "gh prs",
    hidden = true,
-   direction = "float"
+   direction = "float",
+    float_opts = {
+      height = vim.o.lines - 6,
+    }
 }
 )
 

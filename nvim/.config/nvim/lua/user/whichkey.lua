@@ -147,7 +147,8 @@ local mappings = {
       "Diff",
     },
     v = { "<cmd>:vertical Gdiffsplit!<CR>", "Git Diff (vertical)" },
-    V = { "<cmd>:vertical Git log<CR>", "git log (Vertical)" },
+    V = { "<cmd>:vertical Git log --decorate<CR>", "git log (Vertical)" },
+    q = { "<cmd>:Git! log --decorate<CR>", "git log (pretty)" },
   },
   G = {
     name = "+Go",
