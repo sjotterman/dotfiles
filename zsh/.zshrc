@@ -21,116 +21,56 @@ export PATH=$PATH:$HOME/go/bin
 
 # https://superuser.com/questions/602882/how-to-make-zsh-completion-like-bash
 setopt AUTO_LIST NO_MENUCOMPLETE
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 
 # This is only needed explicitly because of an issue with the gh-prs extension
 # https://github.com/dlvhdr/gh-prs/issues/82
 # once this issue is closed, this line can be deleted
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="avit"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# ohmyzsh plugins
+# plugins=(git npm zsh-autosuggestions z command-not-found react-native golang gh)
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# First install zgenom:
+# git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
+# load zgenom
+source "${HOME}/.zgenom/zgenom.zsh"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Check for plugin and zgenom updates every 7 days
+# This does not increase the startup time.
+zgenom autoupdate
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# to update all plugins and reset
+# zgenom update
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# if the init script doesn't exist
+if ! zgenom saved; then
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+  # specify plugins here
+  zgenom ohmyzsh
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+  zgenom ohmyzsh plugins/git
+  zgenom ohmyzsh plugins/npm
+  zgenom ohmyzsh plugins/z
+  zgenom ohmyzsh plugins/command-not-found
+  zgenom ohmyzsh plugins/react-native
+  zgenom ohmyzsh plugins/golang
+  zgenom ohmyzsh plugins/gh
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+  # completions
+  zgenom load zsh-users/zsh-completions
+  zgenom load zsh-users/zsh-autosuggestions
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+   # Install ohmyzsh osx plugin if on macOS
+  [[ "$(uname -s)" = Darwin ]] && zgenom ohmyzsh plugins/macos
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+  # generate the init script from plugins above
+  zgenom save
+fi
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm zsh-autosuggestions z command-not-found react-native golang gh)
-
-ZSH_DISABLE_COMPFIX=true
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-export EDITOR="vim"
-export VISUAL="vim"
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# export NVM_DIR="/Users/samuel.otterman/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
