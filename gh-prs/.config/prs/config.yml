@@ -1,8 +1,8 @@
 prSections:
-- title: My Pull Requests
-  filters: is:open author:@me
 - title: Needs Review
   filters: is:open review-requested:@me repo:brandingbrand/shipyard repo:brandingbrand/flagship.db repo:brandingbrand/accounts
+- title: My Pull Requests
+  filters: is:open author:@me
 - title: No Reviews
   filters: is:open repo:brandingbrand/shipyard repo:brandingbrand/flagship.db repo:brandingbrnad/accounts review:none draft:false
 - title: Subscribed
