@@ -58,6 +58,9 @@ if ! zgenom saved; then
   zgenom ohmyzsh plugins/golang
   zgenom ohmyzsh plugins/gh
 
+  zgenom load djui/alias-tips
+  zgenom load z-shell/zsh-diff-so-fancy
+
   # completions
   zgenom load zsh-users/zsh-completions
   zgenom load zsh-users/zsh-autosuggestions
