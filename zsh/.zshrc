@@ -72,7 +72,10 @@ if ! zgenom saved; then
   zgenom save
 fi
 
+alias vim="nvim"
 
+export EDITOR="vim"
+export VISUAL="vim"
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
