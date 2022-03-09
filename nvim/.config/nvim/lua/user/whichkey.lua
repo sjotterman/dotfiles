@@ -168,6 +168,7 @@ local mappings = {
     d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
     n = { "<cmd>lua _LAZYNPM_TOGGLE()<CR>", "Lazynpm" },
     b = { "<cmd>TermExec cmd=\"build-component-typing\"<cr>", "Build NA Component Typing" },
+    B = {":IndentBlanklineToggle<cr>", "Show Blankline indentation"},
     p = { "<cmd>TermExec cmd=\"publish-vNext\"<cr>", "Publish vNext" },
     i = { "<cmd>TermExec cmd=\"import-vNext\"<cr>", "Import vNext" },
     t = { "<cmd>TermExec cmd=\"pwd\"<cr>", "Test / pwd" },
