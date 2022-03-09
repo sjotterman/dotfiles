@@ -280,6 +280,8 @@ local mappings = {
     d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
     q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
     l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+    n = { "<cmd>lua require(\"trouble\").next({skip_groups = true, jump = true})<cr>", "Next" },
+    p = { "<cmd>lua require(\"trouble\").previous({skip_groups = true, jump = true})<cr>", "Prev" },
     w = { "<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics" },
   }
 }
