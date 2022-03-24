@@ -110,8 +110,8 @@ local mappings = {
 
   g = {
     name = "Git",
-    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-    G = { "<cmd>:vertical Git<CR>", "Git Status" },
+    G = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+    g = { "<cmd>:vertical Git<CR>", "Git Status" },
     C = { name = "Conflict3",
     -- https://github.com/mkotha/conflict3
     -- help conflict3.txt for more info
@@ -166,6 +166,7 @@ local mappings = {
   k = {
     name = "+Keybinds for commands",
     d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
+    c = { "<cmd>TermExec cmd=\"cd ~/workspace/shipyard && nx build create-nx\"<cr>", "Build create-nx" },
     n = { "<cmd>lua _LAZYNPM_TOGGLE()<CR>", "Lazynpm" },
     b = { "<cmd>TermExec cmd=\"build-component-typing\"<cr>", "Build NA Component Typing" },
     B = {":IndentBlanklineToggle<cr>", "Show Blankline indentation"},
