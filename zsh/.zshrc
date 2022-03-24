@@ -74,8 +74,8 @@ fi
 
 alias vim="nvim"
 
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -149,7 +149,6 @@ alias gg="lazygit"
 alias lzn='lazynpm'
 
 # requires cht.sh and rlwrap
-alias cht="cht.sh --shell"
 if type rlwrap &> /dev/null; then
   alias cht="cht.sh --shell"
 else
