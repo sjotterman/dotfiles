@@ -175,6 +175,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Ensure homebrew is in path
+eval "$(homebrew/bin/brew shellenv)"
+
 # brew install starship
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
 if type starship &> /dev/null; then
