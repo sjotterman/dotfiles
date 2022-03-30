@@ -273,6 +273,11 @@ _G.packer_plugins = {
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
+  ["reach.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/reach.nvim",
+    url = "https://github.com/toppair/reach.nvim"
+  },
   ["taboo.vim"] = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/taboo.vim",

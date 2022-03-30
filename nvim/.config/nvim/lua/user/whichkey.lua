@@ -234,6 +234,12 @@ local mappings = {
     b = { "<cmd>TermExec dir=\"~/workspace/shipyard\" cmd=\"npx nx run create-api:build-prisma --configuration=clean\"<cr>", "Build Prisma" },
     C = { "<cmd>TermExec dir=\"~/workspace/shipyard\" cmd=\"npx nx run create-api:database --configuration=clean\"<cr>", "Clean Create DB" },
   },
+  r = {
+    name = "Reach",
+    b = { "<cmd>ReachOpen buffers<cr>", "Buffers" },
+    m = { "<cmd>ReachOpen marks<cr>", "Marks" },
+    t = { "<cmd>ReachOpen tabpages<cr>", "Tabpages" },
+  },
   s = {
     name = "Search",
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },

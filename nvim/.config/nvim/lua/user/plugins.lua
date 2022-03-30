@@ -62,6 +62,7 @@ return packer.startup(function(use)
   use "gcmt/taboo.vim"
   use "romainl/vim-qf"
   use 'editorconfig/editorconfig-vim'
+  use 'toppair/reach.nvim'
   use {
     'weilbith/nvim-code-action-menu',
     cmd = 'CodeActionMenu',
@@ -85,7 +86,6 @@ return packer.startup(function(use)
   use "lunarvim/darkplus.nvim"
   use "lunarvim/colorschemes"
   use "pacokwon/onedarkhc.vim"
-  use 'wuelnerdotexe/vim-enfocado'
   use "olimorris/onedarkpro.nvim"
   use 'aonemd/kuroi.vim'
   use 'sainnhe/edge'
