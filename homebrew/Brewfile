@@ -1,6 +1,5 @@
 tap "adoptopenjdk/openjdk"
 tap "buo/cask-upgrade"
-tap "d12frosted/emacs-plus"
 tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/cask"
