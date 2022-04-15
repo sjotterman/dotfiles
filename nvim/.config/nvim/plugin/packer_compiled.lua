@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
   },
+  ["filetype.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/filetype.nvim",
+    url = "https://github.com/nathom/filetype.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -312,11 +317,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
-  },
-  ["vim-enfocado"] = {
-    loaded = true,
-    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/vim-enfocado",
-    url = "https://github.com/wuelnerdotexe/vim-enfocado"
   },
   ["vim-fugitive"] = {
     loaded = true,
