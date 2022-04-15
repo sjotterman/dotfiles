@@ -3,3 +3,4 @@
 # gh extensions
 gh extension install dlvhdr/gh-prs
 gh extension install mislav/gh-branch
+gh extension install seachicken/gh-poi
