@@ -45,7 +45,12 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim" -- Easily comment stuff
+  -- use "numToStr/Comment.nvim" -- Easily comment stuff
+  use {
+      'numToStr/Comment.nvim',
+  -- Use this tag until upgrading neovim to v0.7
+      tag = 'v0.6',
+  }
   use "nathom/filetype.nvim" -- faster than the default filetype plugin
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
