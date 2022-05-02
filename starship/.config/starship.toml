@@ -1,74 +1,116 @@
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[x](bold red)"
+vicmd_symbol = "[<](bold green)"
+
+[git_commit]
+tag_symbol = " tag "
+
+[git_status]
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
+
 [aws]
-symbol = "  "
+symbol = "aws "
+
+[cobol]
+symbol = "cobol "
 
 [conda]
-symbol = " "
+symbol = "conda "
+
+[crystal]
+symbol = "cr "
+
+[cmake]
+symbol = "cmake "
 
 [dart]
-symbol = " "
+symbol = "dart "
+
+[deno]
+symbol = "deno "
+
+[dotnet]
+symbol = ".NET "
 
 [directory]
-read_only = " "
+read_only = " ro"
 
 [docker_context]
-symbol = " "
+symbol = "docker "
 
 [elixir]
-symbol = " "
+symbol = "exs "
 
 [elm]
-symbol = " "
+symbol = "elm "
 
 [git_branch]
-symbol = " "
+symbol = "git "
 
 [golang]
-symbol = " "
+symbol = "go "
 
 [hg_branch]
-symbol = " "
+symbol = "hg "
 
 [java]
-symbol = " "
+symbol = "java "
 
 [julia]
-symbol = " "
+symbol = "jl "
 
-[memory_usage]
-symbol = " "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
+[kotlin]
+symbol = "kt "
 
 [nodejs]
-symbol = " "
+symbol = "nodejs "
+
+[memory_usage]
+symbol = "memory "
+
+[nim]
+symbol = "nim "
+
+[nix_shell]
+symbol = "nix "
+
+[ocaml]
+symbol = "ml "
 
 [package]
-symbol = " "
+symbol = "pkg "
 
 [perl]
-symbol = " "
+symbol = "pl "
 
 [php]
-symbol = " "
+symbol = "php "
+
+[pulumi]
+symbol = "pulumi "
+
+[purescript]
+symbol = "purs "
 
 [python]
-symbol = " "
+symbol = "py "
 
 [ruby]
-symbol = " "
+symbol = "rb "
 
 [rust]
-symbol = " "
+symbol = "rs "
 
 [scala]
-symbol = " "
+symbol = "scala "
 
-[shlvl]
-symbol = " "
+[sudo]
+symbol = "sudo "
 
 [swift]
-symbol = "ﯣ "
+symbol = "swift "
