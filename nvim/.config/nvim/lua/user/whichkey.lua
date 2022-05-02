@@ -82,7 +82,7 @@ local opts = {
 
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["O"] = { "<C-W>o", "Close other windows"},
+  ["o"] = { "<C-W>o", "Close other windows"},
   ['d'] = { '<cmd>lua require("telekasten").toggle_todo()<CR>', "toggle Done" },
   ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
