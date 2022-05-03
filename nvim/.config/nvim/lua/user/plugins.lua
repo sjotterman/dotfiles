@@ -74,15 +74,15 @@ return packer.startup(function(use)
     cmd = 'CodeActionMenu',
   }
   use {
-      "AckslD/nvim-neoclip.lua",
-      config = function()
-        require('neoclip').setup({
+    "AckslD/nvim-neoclip.lua",
+    config = function()
+      require('neoclip').setup({
         default_register = '+'
-        })
-      end,
-    }
+      })
+    end,
+  }
 
-  use {"fatih/vim-go", run=":GoInstallBinaries"}
+  use { "fatih/vim-go", run = ":GoInstallBinaries" }
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons"
@@ -130,8 +130,8 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
-  use  "tpope/vim-fugitive"
-  use  "tpope/vim-rhubarb"
+  use "tpope/vim-fugitive"
+  use "tpope/vim-rhubarb"
   use "mkotha/conflict3"
 
   -- Automatically set up your configuration after cloning packer.nvim
