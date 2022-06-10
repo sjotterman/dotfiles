@@ -146,6 +146,10 @@ local mappings = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
+    D = {
+      "<cmd>Gitsigns diffthis HEAD<cr>",
+      "DiffView Open",
+    },
     v = { "<cmd>:vertical Gdiffsplit!<CR>", "Git Diff (vertical)" },
     V = { "<cmd>:vertical Git log --decorate<CR>", "git log (Vertical)" },
     q = { "<cmd>:Git! log --decorate<CR>", "git log (pretty)" },

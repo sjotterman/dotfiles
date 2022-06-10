@@ -105,6 +105,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  use "MunifTanjim/prettier.nvim"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -133,6 +134,7 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive"
   use "tpope/vim-rhubarb"
   use "mkotha/conflict3"
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

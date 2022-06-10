@@ -4,7 +4,8 @@ require "user.plugins"
 require "user.colorscheme"
 require "user.cmp"
 require "user.comment"
-require "user.lsp"
+require "user.diffview"
+require "user.lspconfig"
 require "user.telescope"
 require "user.treesitter"
 require "user.autopairs"
@@ -31,11 +32,3 @@ require "user.editorconfig"
 -- https://github.com/neovim/neovim/issues/16673
 -- If this needs to stay here for a while, it might be moved to one of the
 -- included LSP files
-vim.diagnostic.set = (function(orig)
-    return function(namespace, bufnr, diagnostics, opts)
-        for _, v in ipairs(diagnostics) do
-            v.col = v.col or 0
-        end
-        return orig(namespace, bufnr, diagnostics, opts)
-    end
-end)(vim.diagnostic.set)
