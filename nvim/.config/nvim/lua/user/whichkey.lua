@@ -264,6 +264,8 @@ local mappings = {
       "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
       "Colorscheme with Preview",
     },
+    q = { "<cmd>lua require('telescope.builtin').quickfix{}<cr>", "quickfix list" },
+    Q = { "<cmd>lua require('telescope.builtin').quickfixhistory{}<cr>", "quickfix history" },
   },
   S = {
     name = "Sessions",
