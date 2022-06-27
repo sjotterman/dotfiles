@@ -119,10 +119,10 @@ _G.packer_plugins = {
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  colorschemes = {
+  ["colorbuddy.vim"] = {
     loaded = true,
-    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/colorschemes",
-    url = "https://github.com/lunarvim/colorschemes"
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/colorbuddy.vim",
+    url = "https://github.com/tjdevries/colorbuddy.vim"
   },
   conflict3 = {
     loaded = true,
@@ -253,6 +253,16 @@ _G.packer_plugins = {
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  onebuddy = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/onebuddy",
+    url = "https://github.com/Th3Whit3Wolf/onebuddy"
+  },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["onedarkhc.vim"] = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/onedarkhc.vim",
@@ -362,6 +372,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["zephyr-nvim"] = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/zephyr-nvim",
+    url = "https://github.com/glepnir/zephyr-nvim"
   }
 }
 

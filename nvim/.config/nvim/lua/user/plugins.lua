@@ -90,13 +90,21 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
-  use "lunarvim/colorschemes"
   use "pacokwon/onedarkhc.vim"
   use "olimorris/onedarkpro.nvim"
   use 'aonemd/kuroi.vim'
   use 'sainnhe/edge'
   use "rebelot/kanagawa.nvim"
   use "folke/tokyonight.nvim"
+  use({
+    'glepnir/zephyr-nvim',
+    requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
+  })
+  use({
+    'Th3Whit3Wolf/onebuddy',
+    requires = { 'tjdevries/colorbuddy.vim', opt = true },
+  })
+use 'navarasu/onedark.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
