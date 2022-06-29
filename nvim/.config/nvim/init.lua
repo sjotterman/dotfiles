@@ -5,7 +5,7 @@ require "user.colorscheme"
 require "user.cmp"
 require "user.comment"
 require "user.diffview"
-require "user.lspconfig"
+require "user.lsp"
 require "user.telescope"
 require "user.treesitter"
 require "user.autopairs"
@@ -16,6 +16,7 @@ require "user.reach"
 require "user.toggleterm"
 require "user.telekasten-plugin"
 require "user.taboo"
+require "user.prettier"
 require "user.project"
 require "user.impatient"
 require "user.indentline"
@@ -26,9 +27,6 @@ require "user.vim-qf"
 require "user.autocommands"
 require "user.editorconfig"
 
-
--- temporary hack; neovim requires a column for diagnostics,
--- but the current version of eslint lsp doesn't send it
--- https://github.com/neovim/neovim/issues/16673
--- If this needs to stay here for a while, it might be moved to one of the
--- included LSP files
+-- TODO: switch to new setup for lsp_installer
+-- https://github.com/williamboman/nvim-lsp-installer/discussions/636
+-- require "user.lspconfigs

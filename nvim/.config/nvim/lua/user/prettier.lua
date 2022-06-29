@@ -32,5 +32,5 @@ prettier.setup({
     "yaml",
   },
 
-  -- prettier format options (you can use config files too. ex: `.prettierrc`)
+  -- prettier format options (you can use config files too. for example, `.prettierrc`)
 })
