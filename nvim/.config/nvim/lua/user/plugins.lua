@@ -69,6 +69,7 @@ return packer.startup(function(use)
   use "romainl/vim-qf"
   use 'editorconfig/editorconfig-vim'
   use 'toppair/reach.nvim'
+  use 'vim-test/vim-test'
   use {
     'weilbith/nvim-code-action-menu',
     cmd = 'CodeActionMenu',

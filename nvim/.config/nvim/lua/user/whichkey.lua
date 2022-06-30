@@ -296,6 +296,15 @@ local mappings = {
     n = { "<cmd>lua require(\"trouble\").next({skip_groups = true, jump = true})<cr>", "Next" },
     p = { "<cmd>lua require(\"trouble\").previous({skip_groups = true, jump = true})<cr>", "Prev" },
     w = { "<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics" },
+  },
+  u = {
+    name = "Unit Test",
+    t = { "<cmd>:TestNearest<cr>", "TestNearest" },
+    T = { "<cmd>:TestFile<cr>", "TestFile" },
+    a = { "<cmd>:TestSuite<cr>", "TestSuite" },
+    l = { "<cmd>:TestLast<cr>", "TestLast" },
+    g = { "<cmd>:TestVisit<cr>", "TestVisit" },
+
   }
 }
 
