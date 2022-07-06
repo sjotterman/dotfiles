@@ -255,7 +255,7 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     v = { "<cmd>lua require('telescope.builtin').vim_options{}<cr>", "Vim Options" },
     p = {
-      "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
+      "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
       "Colorscheme with Preview",
     },
     q = { "<cmd>lua require('telescope.builtin').quickfix{}<cr>", "quickfix list" },
