@@ -96,7 +96,6 @@ return packer.startup(function(use)
   use 'aonemd/kuroi.vim'
   use 'sainnhe/edge'
   use "rebelot/kanagawa.nvim"
-  use "folke/tokyonight.nvim"
   use({
     'glepnir/zephyr-nvim',
     requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
