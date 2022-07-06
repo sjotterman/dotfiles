@@ -210,6 +210,7 @@ local mappings = {
     o = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open Float" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    R = { "<cmd>syntax sync fromstart<cr>", "Refresh Syntax (sync fromstart)" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -254,6 +255,8 @@ local mappings = {
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     n = { "<cmd>:Telescope neoclip<CR>", "Neoclip" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    s = { "<cmd>Telescope resume<cr>", "Resume Search" },
+    S = { "<cmd>Telescope spell_suggest<cr>", "Spell suggestions" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     t = { "<cmd>Telescope live_grep<cr>", "Text" },
     T = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find{}<cr>", "Text in buffer" },
