@@ -170,15 +170,11 @@ local mappings = {
   k = {
     name = "+Keybinds for commands",
     d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
-    c = { "<cmd>TermExec cmd=\"cd ~/workspace/shipyard && nx build create-nx\"<cr>", "Build create-nx" },
     n = { "<cmd>lua _LAZYNPM_TOGGLE()<CR>", "Lazynpm" },
     b = { "<cmd>TermExec cmd=\"build-component-typing\"<cr>", "Build NA Component Typing" },
     B = {":IndentBlanklineToggle<cr>", "Show Blankline indentation"},
-    p = { "<cmd>TermExec cmd=\"publish-vNext\"<cr>", "Publish vNext" },
-    i = { "<cmd>TermExec cmd=\"import-vNext\"<cr>", "Import vNext" },
     t = { "<cmd>TermExec cmd=\"pwd\"<cr>", "Test / pwd" },
     y = { "<cmd>TermExec cmd=\"yalc-push\"<cr>", "yalc-push" },
-    Y = { "<cmd>e /Users/samuel.otterman/bin/yalc-push<cr>", "yalc-push (edit)" },
     g = { "<cmd>TermExec cmd=\"go run .\"<cr>", "go run ." },
     G = { "<c-g>", "Ctrl-g (get file path)" },
   },
@@ -234,11 +230,6 @@ local mappings = {
     T = { '<cmd>lua require("telekasten").show_tags()<CR>', "Today" },
     y = { '<cmd>lua require("telekasten").yank_notelink()<CR>', "Yank link to current note" }
   },
-  N = {
-    name = "NX",
-    b = { "<cmd>TermExec dir=\"~/workspace/shipyard\" cmd=\"npx nx run create-api:build-prisma --configuration=clean\"<cr>", "Build Prisma" },
-    C = { "<cmd>TermExec dir=\"~/workspace/shipyard\" cmd=\"npx nx run create-api:database --configuration=clean\"<cr>", "Clean Create DB" },
-  },
   r = {
     name = "Reach",
     b = { "<cmd>ReachOpen buffers<cr>", "Buffers" },
@@ -279,7 +270,6 @@ local mappings = {
   T = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    s = { "<cmd>lua _SHIPYARD_TOGGLE()<cr>", "Shipyard" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
     t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python3" },

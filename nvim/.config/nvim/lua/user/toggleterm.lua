@@ -80,15 +80,6 @@ function _LAZYNPM_TOGGLE()
 end
 
 
-local shipyard = Terminal:new({
-  hidden = true,
-  dir = "~/workspace/shipyard",
-})
-
-function _SHIPYARD_TOGGLE()
-	shipyard:toggle()
-end
-
 
 local node = Terminal:new({ cmd = "node", hidden = true })
 
