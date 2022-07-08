@@ -303,6 +303,11 @@ _G.packer_plugins = {
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/reach.nvim",
     url = "https://github.com/toppair/reach.nvim"
   },
+  ["refactoring.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/refactoring.nvim",
+    url = "https://github.com/ThePrimeagen/refactoring.nvim"
+  },
   ["taboo.vim"] = {
     loaded = true,
     path = "/Users/samuel.otterman/.local/share/nvim/site/pack/packer/start/taboo.vim",

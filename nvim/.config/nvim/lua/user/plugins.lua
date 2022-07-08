@@ -82,6 +82,13 @@ return packer.startup(function(use)
       })
     end,
   }
+  use {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-treesitter/nvim-treesitter"}
+    }
+  }
 
   use { "fatih/vim-go", run = ":GoInstallBinaries" }
   use {

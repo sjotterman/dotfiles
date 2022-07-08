@@ -230,11 +230,17 @@ local mappings = {
     T = { '<cmd>lua require("telekasten").show_tags()<CR>', "Today" },
     y = { '<cmd>lua require("telekasten").yank_notelink()<CR>', "Yank link to current note" }
   },
-  r = {
+  R = {
     name = "Reach",
     b = { "<cmd>ReachOpen buffers<cr>", "Buffers" },
     m = { "<cmd>ReachOpen marks<cr>", "Marks" },
     t = { "<cmd>ReachOpen tabpages<cr>", "Tabpages" },
+  },
+  r = {
+    name = "refactoring",
+    i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR><cr>", "Inline Variable" },
+    b =  {"<Cmd>lua require('refactoring').refactor('Extract Block')<CR>", "Extract block"},
+    B =  {"<Cmd>lua require('refactoring').refactor('Extract Block To File')<CR>", "Extract block to file"},
   },
   s = {
     name = "Search",
@@ -331,6 +337,14 @@ local visual_mappings = {
     a = { "<cmd>CodeActionMenu<cr><esc>", "Advanced Code Action" },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     f = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format selection" },
+  },
+  r = {
+    name = "refactor",
+      r =  {"<Esc><Cmd>lua require('refactoring').select_refactor()<CR>", "Select Refactor"},
+      e =  {"<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract function"},
+      f =  {"<Esc><Cmd>lua require('refactoring').refactor('Extract Function to File')<CR>", "Extract function to file"},
+      v =  {"<Esc><Cmd>lua require('refactoring').refactor('Extract variable')<CR>", "Extract Variable"},
+      i =  {"<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable"},
   },
 }
 
