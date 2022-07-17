@@ -87,7 +87,6 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 # Git aliases from Sky Eckstrom
-alias git_diff_master="git diff upstream/master..`git rev-parse --abbrev-ref HEAD`"
 
 alias cleangit="git fetch --all && git remote prune \$(git remote | tr \"\\n\" \" \") && git gc --prune=now && git repack -a -d --depth=250 --window=250"
 alias cleanlocal="git branch --merged | grep -v '^* main$' | grep -v '^  main$' | xargs git branch -d"
@@ -179,8 +178,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Ensure homebrew is in path
-eval "$(homebrew/bin/brew shellenv)"
 
 # brew install starship
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
