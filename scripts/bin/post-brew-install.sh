@@ -22,3 +22,5 @@ if test -f "$PATH_DIR/cht.sh"; then
     curl https://cht.sh/:cht.sh > "$PATH_DIR/cht.sh"
     chmod +x "$PATH_DIR/cht.sh"
   fi
+
+git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
