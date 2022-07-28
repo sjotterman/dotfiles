@@ -73,13 +73,14 @@ local on_attach = function(client, bufnr)
   -- vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, bufopts)
   -- vim.keymap.set('n', '<space>la', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  -- vim.keymap.set('n', '<space>lf', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<space>lf', vim.lsp.buf.formatting, bufopts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 -- npm i -g pyright
 local servers = {  'pyright', 'tsserver'}
+local servers = {  'tsserver'}
 
 -- require("lspconfig").tsserver.setup({
 --     on_attach = function(client, bufnr)
