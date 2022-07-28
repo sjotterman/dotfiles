@@ -36,14 +36,16 @@ vim.cmd [[
 
   augroup _term
     autocmd!
-    autocmd TermOpen * setlocal nonumber norelativenumber
+    autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no
+    autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
   augroup end
 
 " Autoformat
- augroup Autoformat
-   autocmd!
-   autocmd BufWritePre * lua vim.lsp.buf.formatting()
- augroup end
+  augroup Autoformat
+    autocmd!
+    autocmd BufWritePre * lua vim.lsp.buf.formatting()
+  augroup end
+
 " Disable autoformat for certain projects
 " augroup DisabledAutoformat
 "     autocmd!
