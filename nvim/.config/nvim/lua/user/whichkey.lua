@@ -112,20 +112,6 @@ local mappings = {
     name = "Git",
     G = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     g = { "<cmd>:vertical Git<CR>", "Git Status" },
-    C = { name = "Conflict3",
-    -- https://github.com/mkotha/conflict3
-    -- help conflict3.txt for more info
-      h = {"<cmd>:Conflict3Highlight<cr>", "Highlight"},
-      c = {"<cmd>:Conflict3Clear<cr>", "Clear Highlight"},
-      r = {"<cmd>:Conflict3ResolveOne<cr>", "Resolve One Fragment"},
-      l = {"<cmd>:Conflict3TakeLocal<cr>", "Take Local Version"},
-      b = {"<cmd>:Conflict3TakeBase<cr>", "Take Base Version"},
-      T = {"<cmd>:Conflict3TakeRemote<cr>", "Take Remote Version"},
-      t = {"<cmd>:Conflict3TakeThis<cr>", "Take This Version"},
-      a = {"<cmd>:Conflict3ResolveAll<cr>", "Resolve All Fragments"},
-      R = {"<cmd>:Conflict3ResolveAll | Conflict3Shrink!<cr>", "Resolve / Shrink"},
-      s = {"<cmd>:Conflict3Shrink!<cr>", "Shrink diff"}
-  },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -135,6 +121,7 @@ local mappings = {
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+    S = { "<cmd>Telescope git_stash<cr>", "Stash Apply" },
     u = {
       "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
       "Undo Stage Hunk",
@@ -151,8 +138,7 @@ local mappings = {
       "DiffView Open",
     },
     v = { "<cmd>:vertical Gdiffsplit!<CR>", "Git Diff (vertical)" },
-    V = { "<cmd>:vertical Git log --decorate<CR>", "git log (Vertical)" },
-    q = { "<cmd>:Git! log --decorate<CR>", "git log (pretty)" },
+    q = { "<cmd>:vertical Git! log --decorate<CR>", "git log (pretty)" },
   },
   G = {
     name = "+Go",

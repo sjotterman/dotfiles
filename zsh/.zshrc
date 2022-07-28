@@ -18,6 +18,13 @@ export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/go/bin
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
+source /opt/homebrew/bin/virtualenvwrapper.sh
 
 # https://superuser.com/questions/602882/how-to-make-zsh-completion-like-bash
 setopt AUTO_LIST NO_MENUCOMPLETE
@@ -98,6 +105,7 @@ alias cleanremote-master="git branch -r --merged origin/master | grep origin | g
 alias cleanmerged-master="cleangit && cleanlocal && cleanremote"
 alias codeup='git checkout master && git pull upstream master && git push origin master && git clean -xfd'
 alias react-native-reset-button='git clean -xfd; yarn cache clean; watchman watch-del-all; '
+alias b='gh branch'
 
 # https://dave.cheney.net/2019/05/07/prefer-table-driven-tests#:~:text=packages%20to%20test.-,Spray,-some%20.bashrc%20on
 go-test-cover () {
@@ -178,9 +186,20 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Ensure homebrew is in path
+ # eval "$(homebrew/bin/brew shellenv)"
 
 # brew install starship
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
 if type starship &> /dev/null; then
   eval "$(starship init zsh)"
+fi
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
 fi

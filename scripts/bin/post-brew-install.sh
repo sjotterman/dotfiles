@@ -10,6 +10,8 @@ npm i -g pyright
 npm i -g tldr
 npm i -g vim-language-server
 npm i -g vscode-langservers-extracted
+npm i -g typescript
+npm i -g typescript-language-server
 
 
 # cht.sh https://github.com/chubin/cheat.sh
@@ -24,3 +26,5 @@ if test -f "$PATH_DIR/cht.sh"; then
   fi
 
 git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
+# install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
