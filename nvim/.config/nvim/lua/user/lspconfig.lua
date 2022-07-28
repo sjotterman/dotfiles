@@ -112,10 +112,10 @@ require'lspconfig'.eslint.setup{
     },
     -- this should be workspace.json if it's shipyard, else .git or .eslintrc.json
 root_dir = require'lspconfig'.util.root_pattern(
-      'workspace.json'
-      -- '.git',
-      -- '.eslintrc.json',
-      -- '.eslintrc.js'
+      -- 'workspace.json'
+      '.git',
+      '.eslintrc.json',
+      '.eslintrc.js'
     ),
 }
 for _, lsp in pairs(servers) do

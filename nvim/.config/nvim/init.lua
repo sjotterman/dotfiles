@@ -29,6 +29,7 @@ require "user.telescope"
 require "user.toggleterm"
 require "user.treesitter"
 require "user.vim-qf"
+require "user.vim-test"
 require "user.whichkey"
 
 -- TODO: switch to new setup for lsp_installer
