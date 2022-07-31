@@ -12,6 +12,7 @@ npm i -g vim-language-server
 npm i -g vscode-langservers-extracted
 npm i -g typescript
 npm i -g typescript-language-server
+npm i -g graphql-language-service-cli
 
 
 # cht.sh https://github.com/chubin/cheat.sh
