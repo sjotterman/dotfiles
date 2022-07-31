@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -183,6 +188,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/kuroi.vim",
     url = "https://github.com/aonemd/kuroi.vim"
+  },
+  ["lsp-zero.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
+    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
