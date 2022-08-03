@@ -173,6 +173,10 @@ local mappings = {
       "<cmd>Telescope diagnostics bufnr=0<cr>",
       "Document Diagnostics",
     },
+    e = {
+      "<cmd>:EslintFixAll<cr>",
+      "Eslint Fix All",
+    },
     w = {
       "<cmd>Telescope diagnostics<cr>",
       "Workspace Diagnostics",
