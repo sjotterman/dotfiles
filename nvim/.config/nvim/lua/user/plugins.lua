@@ -47,9 +47,9 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   -- use "numToStr/Comment.nvim" -- Easily comment stuff
   use {
-      'numToStr/Comment.nvim',
-  -- Use this tag until upgrading neovim to v0.7
-      tag = 'v0.6',
+    'numToStr/Comment.nvim',
+    -- Use this tag until upgrading neovim to v0.7
+    tag = 'v0.6',
   }
   use "nathom/filetype.nvim" -- faster than the default filetype plugin
   use "kyazdani42/nvim-web-devicons"
@@ -85,8 +85,8 @@ return packer.startup(function(use)
   use {
     "ThePrimeagen/refactoring.nvim",
     requires = {
-        {"nvim-lua/plenary.nvim"},
-        {"nvim-treesitter/nvim-treesitter"}
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" }
     }
   }
 
@@ -111,7 +111,9 @@ return packer.startup(function(use)
     'Th3Whit3Wolf/onebuddy',
     requires = { 'tjdevries/colorbuddy.vim', opt = true },
   })
-use 'navarasu/onedark.nvim'
+  use 'navarasu/onedark.nvim'
+  use 'B4mbus/oxocarbon-lua.nvim'
+  use 'humanoid-colors/vim-humanoid-colorscheme'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -132,20 +134,20 @@ use 'navarasu/onedark.nvim'
     'VonHeikemen/lsp-zero.nvim',
     requires = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/nvim-lsp-installer'},
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/nvim-lsp-installer' },
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
 
       -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
     }
   }
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
@@ -168,7 +170,10 @@ use 'navarasu/onedark.nvim'
   use "lewis6991/gitsigns.nvim"
   use "tpope/vim-fugitive"
   use "tpope/vim-rhubarb"
-  use "mkotha/conflict3"
+  -- todo: split out the setup function
+  use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
+    require('git-conflict').setup()
+  end }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim

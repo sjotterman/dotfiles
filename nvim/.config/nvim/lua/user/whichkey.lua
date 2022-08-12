@@ -139,7 +139,7 @@ local mappings = {
       "DiffView Open",
     },
     v = { "<cmd>:vertical Gdiffsplit!<CR>", "Git Diff (vertical)" },
-    q = { "<cmd>:vertical Git! log --decorate<CR>", "git log (pretty)" },
+    q = { "<cmd>:vertical Git log --decorate<CR>", "git log (pretty)" },
   },
   G = {
     name = "+Go",

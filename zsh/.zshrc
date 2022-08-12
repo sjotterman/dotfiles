@@ -166,15 +166,14 @@ fi
 
 # Repo specific config
 
-# Used to pre-cache tests / lints before committing
-alias nx-check="nx affected:test && nx affected:lint"
-
 # Search available npm commands
 alias ncl="npm run command-list"
 
 # Set the base for comparisons for "affected" files.
 # Should reduce the number of checks run
 export NX_BASE=upstream/main
+
+alias check="pre-commit run --all-files && npm run test"
 
 
 # End repo specific config
