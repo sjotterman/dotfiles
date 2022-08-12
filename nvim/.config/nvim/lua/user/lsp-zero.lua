@@ -9,9 +9,8 @@ require 'lspconfig'.eslint.setup {
     format = false,
   },
   root_dir = require 'lspconfig'.util.root_pattern(
-    '.git',
-    '.eslintrc.json',
-    '.eslintrc.js'
+    '.eslintrc.js',
+    '.eslintrc.json'
   ),
 }
 
