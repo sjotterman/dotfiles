@@ -12,7 +12,6 @@ null_ls.setup({
   debug = false,
   sources = {
     formatting.black,
-    formatting.stylua,
     formatting.prettier,
     -- diagnostics.flake8
   },
