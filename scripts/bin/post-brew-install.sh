@@ -8,6 +8,7 @@ gh extension install seachicken/gh-poi
 # npm packages
 npm i -g pyright
 npm i -g tldr
+npm i -g eslint
 npm i -g vim-language-server
 npm i -g vscode-langservers-extracted
 npm i -g typescript
