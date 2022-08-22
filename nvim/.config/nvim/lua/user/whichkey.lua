@@ -219,7 +219,8 @@ local mappings = {
     s = { '<cmd>lua require("telekasten").search_notes()<CR>', "Search notes for word" },
     t = { '<cmd>lua require("telekasten").goto_today()<CR>', "Today" },
     T = { '<cmd>lua require("telekasten").show_tags()<CR>', "Today" },
-    y = { '<cmd>lua require("telekasten").yank_notelink()<CR>', "Yank link to current note" }
+    y = { '<cmd>lua require("telekasten").yank_notelink()<CR>', "Yank link to current note" },
+    v = {'<cmd>NV<CR>', 'Notational FZF'},
   },
   R = {
     name = "Reach",

@@ -95,6 +95,9 @@ return packer.startup(function(use)
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons"
   }
+use 'https://github.com/alok/notational-fzf-vim'
+use{ 'junegunn/fzf',  run=  "fzf#install()"  }
+use 'junegunn/fzf.vim'
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
