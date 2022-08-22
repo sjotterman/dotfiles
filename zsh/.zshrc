@@ -173,7 +173,7 @@ alias ncl="npm run command-list"
 # Should reduce the number of checks run
 export NX_BASE=upstream/main
 
-alias check="pre-commit run --all-files && npm run test"
+alias check="pre-commit run --all-files"
 
 
 # End repo specific config
