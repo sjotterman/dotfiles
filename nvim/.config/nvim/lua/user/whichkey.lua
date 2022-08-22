@@ -184,6 +184,8 @@ local mappings = {
       "Workspace Diagnostics",
     },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    g = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature" },
+    h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
     F = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format selection" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
