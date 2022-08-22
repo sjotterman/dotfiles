@@ -156,11 +156,13 @@ local mappings = {
 
   k = {
     name = "+Keybinds for commands",
-    d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
+    l = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
+    D = { ":r !date +\"\\%Y-\\%m-\\%d - \\%A\"<cr>", "Insert Date and day" },
+    d = { ":r !date +\"\\%Y-\\%m-\\%d\"<cr>", "Insert Date" },
     n = { "<cmd>lua _LAZYNPM_TOGGLE()<CR>", "Lazynpm" },
     b = { "<cmd>TermExec cmd=\"build-component-typing\"<cr>", "Build NA Component Typing" },
     B = {":IndentBlanklineToggle<cr>", "Show Blankline indentation"},
-    t = { "<cmd>TermExec cmd=\"pwd\"<cr>", "Test / pwd" },
+    t = { ":r !date +\"\\%I:\\%M \\%p\"<cr>", "Insert Time" },
     y = { "<cmd>TermExec cmd=\"yalc-push\"<cr>", "yalc-push" },
     g = { "<cmd>TermExec cmd=\"go run .\"<cr>", "go run ." },
     G = { "<c-g>", "Ctrl-g (get file path)" },
