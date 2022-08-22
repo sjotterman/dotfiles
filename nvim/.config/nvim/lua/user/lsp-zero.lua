@@ -3,7 +3,7 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.setup()
 
-require 'lspconfig'.eslint.setup {
+lsp.configure('eslint', {
   settings = {
     workingDirectory = { mode = 'location' },
     format = false,
@@ -12,7 +12,7 @@ require 'lspconfig'.eslint.setup {
     '.eslintrc.js',
     '.eslintrc.json'
   ),
-}
+})
 
 -- https://github.com/typescript-language-server/typescript-language-server/issues/216#issuecomment-1005272952
 -- Ignore react/index.d.ts when going to definition of components
@@ -52,7 +52,7 @@ require 'lspconfig'.tsserver.setup {
   }
 }
 
-require 'lspconfig'.sumneko_lua.setup {
+lsp.configure('sumneko_lua', {
   settings = {
     Lua = {
       diagnostics = {
@@ -60,4 +60,4 @@ require 'lspconfig'.sumneko_lua.setup {
       }
     }
   }
-}
+})
