@@ -12,3 +12,18 @@
   echo "Closed ".closed." hidden buffers"
 endfunction
   ]]
+
+vim.cmd[[
+function! FullScreenToggle()
+    if g:neovide_fullscreen
+        let g:neovide_fullscreen = 0
+    else
+        let g:neovide_fullscreen = 1
+    endif
+endfunction
+]]
+
+vim.cmd[[
+command! W write
+]]
+

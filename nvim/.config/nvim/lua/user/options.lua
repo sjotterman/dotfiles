@@ -33,7 +33,7 @@ local options = {
   wrap = true,
   scrolloff = 5,                           -- is one of my fav
   sidescrolloff = 5,
-  guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  guifont = "FiraMono Nerd Font Mono:h17",               -- the font used in graphical neovim applications
   wildmode = "full:longest"
 }
 
