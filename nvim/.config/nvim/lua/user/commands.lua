@@ -27,3 +27,7 @@ vim.cmd[[
 command! W write
 ]]
 
+vim.cmd[[
+command! Vsp vsplit
+]]
+
