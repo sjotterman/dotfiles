@@ -3,7 +3,9 @@ require("onedarkpro").setup({
 })
 vim.cmd [[
 try
-   colorscheme onedarkpro
+    let g:sonokai_style = 'atlantis'
+    let g:sonokai_better_performance = 1
+    colorscheme sonokai
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark

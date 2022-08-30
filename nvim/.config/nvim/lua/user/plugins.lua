@@ -56,7 +56,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
-  use "akinsho/toggleterm.nvim"
+  use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -117,6 +117,7 @@ use 'junegunn/fzf.vim'
   use 'navarasu/onedark.nvim'
   use 'B4mbus/oxocarbon-lua.nvim'
   use 'humanoid-colors/vim-humanoid-colorscheme'
+  use 'sainnhe/sonokai'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
