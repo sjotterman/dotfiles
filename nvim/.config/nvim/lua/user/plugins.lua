@@ -134,12 +134,13 @@ use 'junegunn/fzf.vim'
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
       -- LSP Support
-      { 'neovim/nvim-lspconfig' },
-      { 'williamboman/nvim-lsp-installer' },
+    {'williamboman/mason.nvim'},
+    {'williamboman/mason-lspconfig.nvim'},
 
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
@@ -154,7 +155,6 @@ use 'junegunn/fzf.vim'
       { 'rafamadriz/friendly-snippets' },
     }
   }
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use { 'j-hui/fidget.nvim',  config = function()
