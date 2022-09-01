@@ -32,7 +32,13 @@ local function filter(arr, fn)
 end
 
 local function filterReactDTS(value)
-  return string.match(value.uri, 'react/index.d.ts') == nil
+  -- depending on the version of typescript, we might need to look at uri or
+  -- targetUri
+  local targetVal = value.uri
+  if targetVal == nil then
+    targetVal = value.targetUri
+  end
+  return string.match(value.targetUri, 'react/index.d.ts') == nil
 end
 
 require 'lspconfig'.tsserver.setup {
