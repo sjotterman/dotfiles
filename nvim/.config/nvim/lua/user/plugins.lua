@@ -160,6 +160,7 @@ use 'junegunn/fzf.vim'
   use { 'j-hui/fidget.nvim',  config = function()
     require('fidget').setup()
   end }
+  use "AndrewRadev/tagalong.vim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
