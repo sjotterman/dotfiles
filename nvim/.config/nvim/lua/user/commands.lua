@@ -28,6 +28,10 @@ command! W write
 ]]
 
 vim.cmd[[
+command! Wq wq
+]]
+
+vim.cmd[[
 command! Vsp vsplit
 ]]
 
