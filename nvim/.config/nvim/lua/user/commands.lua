@@ -32,6 +32,10 @@ command! Wq wq
 ]]
 
 vim.cmd[[
+command! Wqall wqall
+]]
+
+vim.cmd[[
 command! Vsp vsplit
 ]]
 
