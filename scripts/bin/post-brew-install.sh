@@ -31,3 +31,5 @@ if test -f "$PATH_DIR/cht.sh"; then
 git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
 # install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+pip3 install virtualenvwrapper

@@ -49,6 +49,7 @@ brew "neovim"
 brew "nghttp2"
 brew "ninja"
 brew "nvm"
+brew 'node'
 brew "openssl@3"
 brew "pango"
 brew "pipx"
