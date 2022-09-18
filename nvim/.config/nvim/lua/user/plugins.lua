@@ -111,14 +111,11 @@ use 'junegunn/fzf.vim'
     'glepnir/zephyr-nvim',
     requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
   })
-  use({
-    'Th3Whit3Wolf/onebuddy',
-    requires = { 'tjdevries/colorbuddy.vim', opt = true },
-  })
   use 'navarasu/onedark.nvim'
   use 'B4mbus/oxocarbon-lua.nvim'
   use 'humanoid-colors/vim-humanoid-colorscheme'
   use 'sainnhe/sonokai'
+  use 'Yazeed1s/minimal.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin

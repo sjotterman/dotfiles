@@ -129,12 +129,6 @@ _G.packer_plugins = {
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["colorbuddy.vim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/samuel/.local/share/nvim/site/pack/packer/opt/colorbuddy.vim",
-    url = "https://github.com/tjdevries/colorbuddy.vim"
-  },
   ["darkplus.nvim"] = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
@@ -232,6 +226,11 @@ _G.packer_plugins = {
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["minimal.nvim"] = {
+    loaded = true,
+    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/minimal.nvim",
+    url = "https://github.com/Yazeed1s/minimal.nvim"
+  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
@@ -295,11 +294,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  onebuddy = {
-    loaded = true,
-    path = "/Users/samuel/.local/share/nvim/site/pack/packer/start/onebuddy",
-    url = "https://github.com/Th3Whit3Wolf/onebuddy"
   },
   ["onedark.nvim"] = {
     loaded = true,
@@ -453,14 +447,14 @@ time([[Defining packer_plugins]], false)
 time([[Config for fidget.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vfidget\frequire\0", "config", "fidget.nvim")
 time([[Config for fidget.nvim]], false)
--- Config for: git-conflict.nvim
-time([[Config for git-conflict.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
-time([[Config for git-conflict.nvim]], false)
 -- Config for: nvim-neoclip.lua
 time([[Config for nvim-neoclip.lua]], true)
 try_loadstring("\27LJ\2\nO\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\21default_register\6+\nsetup\fneoclip\frequire\0", "config", "nvim-neoclip.lua")
 time([[Config for nvim-neoclip.lua]], false)
+-- Config for: git-conflict.nvim
+time([[Config for git-conflict.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
+time([[Config for git-conflict.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
