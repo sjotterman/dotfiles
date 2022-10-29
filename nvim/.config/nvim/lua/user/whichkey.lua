@@ -16,7 +16,7 @@ local setup = {
     presets = {
       operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
       -- should motions and text_objects be true?
-    -- https://github.com/LunarVim/Neovim-from-scratch/commit/6169d6a10b60226a9fca5272b1acbdae5d2d6239
+      -- https://github.com/LunarVim/Neovim-from-scratch/commit/6169d6a10b60226a9fca5272b1acbdae5d2d6239
       motions = false, -- adds help for motions
       text_objects = false, -- help for text objects triggered after entering an operator
       windows = true, -- default bindings on <c-w>
@@ -82,7 +82,7 @@ local opts = {
 
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["o"] = { "<C-W>o", "Close other windows"},
+  ["o"] = { "<C-W>o", "Close other windows" },
   ['d'] = { '<cmd>lua require("telekasten").toggle_todo()<CR>', "toggle Done" },
   ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -98,9 +98,9 @@ local mappings = {
   -- },
   ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+  ["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
-  p = {
+  P = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
     i = { "<cmd>PackerInstall<cr>", "Install" },
@@ -162,7 +162,7 @@ local mappings = {
     n = { "<cmd>lua _LAZYNPM_TOGGLE()<CR>", "Lazynpm" },
     b = { "<cmd>TermExec cmd=\"build-component-typing\"<cr>", "Build NA Component Typing" },
     f = { "<cmd>call FullScreenToggle()<CR>", "Toggle Neovide Full screen" },
-    B = {":IndentBlanklineToggle<cr>", "Show Blankline indentation"},
+    B = { ":IndentBlanklineToggle<cr>", "Show Blankline indentation" },
     t = { ":r !date +\"\\%I:\\%M \\%p\"<cr>", "Insert Time" },
     y = { "<cmd>TermExec cmd=\"yalc-push\"<cr>", "yalc-push" },
     g = { "<cmd>TermExec cmd=\"go run .\"<cr>", "go run ." },
@@ -225,7 +225,7 @@ local mappings = {
     t = { '<cmd>lua require("telekasten").goto_today()<CR>', "Today" },
     T = { '<cmd>lua require("telekasten").show_tags()<CR>', "Today" },
     y = { '<cmd>lua require("telekasten").yank_notelink()<CR>', "Yank link to current note" },
-    s = {'<cmd>NV<CR>', 'Search (Notational FZF)'},
+    s = { '<cmd>NV<CR>', 'Search (Notational FZF)' },
   },
   R = {
     name = "Reach",
@@ -236,8 +236,8 @@ local mappings = {
   r = {
     name = "refactoring",
     i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR><cr>", "Inline Variable" },
-    b =  {"<Cmd>lua require('refactoring').refactor('Extract Block')<CR>", "Extract block"},
-    B =  {"<Cmd>lua require('refactoring').refactor('Extract Block To File')<CR>", "Extract block to file"},
+    b = { "<Cmd>lua require('refactoring').refactor('Extract Block')<CR>", "Extract block" },
+    B = { "<Cmd>lua require('refactoring').refactor('Extract Block To File')<CR>", "Extract block to file" },
   },
   s = {
     name = "Search",
@@ -301,21 +301,26 @@ local mappings = {
     l = { "<cmd>:TestLast<cr>", "TestLast" },
     g = { "<cmd>:TestVisit<cr>", "TestVisit" },
 
+  },
+  w = {
+    name = "Unit Test",
+    t = { "<cmd>:tabnew<cr>", "new Tab" },
+    c = { "<cmd>:tabclose<cr>", "Close Tab" },
   }
 }
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register({
-["]c"] = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next hunk"},
-["[c"] = {"<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev hunk"},
-["]g"] = {
-      "<cmd>lua vim.diagnostic.goto_next()<CR>",
-      "Next Diagnostic",
-    },
-["[g"] = {
-      "<cmd>lua vim.diagnostic.goto_prev()<CR>",
-      "Prev Diagnostic",
+  ["]c"] = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next hunk" },
+  ["[c"] = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev hunk" },
+  ["]g"] = {
+    "<cmd>lua vim.diagnostic.goto_next()<CR>",
+    "Next Diagnostic",
+  },
+  ["[g"] = {
+    "<cmd>lua vim.diagnostic.goto_prev()<CR>",
+    "Prev Diagnostic",
   }
 })
 
@@ -337,11 +342,11 @@ local visual_mappings = {
   },
   r = {
     name = "refactor",
-      r =  {"<Esc><Cmd>lua require('refactoring').select_refactor()<CR>", "Select Refactor"},
-      e =  {"<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract function"},
-      f =  {"<Esc><Cmd>lua require('refactoring').refactor('Extract Function to File')<CR>", "Extract function to file"},
-      v =  {"<Esc><Cmd>lua require('refactoring').refactor('Extract variable')<CR>", "Extract Variable"},
-      i =  {"<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable"},
+    r = { "<Esc><Cmd>lua require('refactoring').select_refactor()<CR>", "Select Refactor" },
+    e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract function" },
+    f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function to File')<CR>", "Extract function to file" },
+    v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract variable')<CR>", "Extract Variable" },
+    i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
   },
 }
 
