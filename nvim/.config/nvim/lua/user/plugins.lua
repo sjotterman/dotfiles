@@ -101,7 +101,6 @@ use{ 'junegunn/fzf',  run=  "fzf#install()"  }
 use 'junegunn/fzf.vim'
 
   -- Colorschemes
-  use "lunarvim/darkplus.nvim"
   use "pacokwon/onedarkhc.vim"
   use "olimorris/onedarkpro.nvim"
   use 'aonemd/kuroi.vim'
