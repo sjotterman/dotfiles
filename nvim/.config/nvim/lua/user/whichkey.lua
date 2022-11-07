@@ -111,6 +111,8 @@ local mappings = {
 
   g = {
     name = "Git",
+    c = { "<cmd>:Git commit<cr>", "Commit" },
+    N = { "<cmd>:Git commit --no-verify<cr>", "Commit --no-verify" },
     G = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     g = { "<cmd>:vertical Git<CR>", "Git Status" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
@@ -129,7 +131,7 @@ local mappings = {
     },
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    C = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
     d = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
