@@ -43,7 +43,7 @@ vim.cmd [[
 " Autoformat
   augroup Autoformat
     autocmd!
-    autocmd BufWritePre * lua vim.lsp.buf.formatting()
+    autocmd BufWritePre * lua vim.lsp.buf.format { async = true }
   augroup end
 
 " Disable autoformat for certain projects

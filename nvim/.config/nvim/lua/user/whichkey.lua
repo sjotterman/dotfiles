@@ -184,7 +184,7 @@ local mappings = {
       "<cmd>Telescope diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format" },
     g = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature" },
     h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
     F = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format selection" },
