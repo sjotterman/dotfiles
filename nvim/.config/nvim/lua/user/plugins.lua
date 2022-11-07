@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
-  use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
+  use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -96,9 +96,9 @@ return packer.startup(function(use)
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons"
   }
-use 'https://github.com/alok/notational-fzf-vim'
-use{ 'junegunn/fzf',  run=  "fzf#install()"  }
-use 'junegunn/fzf.vim'
+  use 'https://github.com/alok/notational-fzf-vim'
+  use { 'junegunn/fzf', run = "fzf#install()" }
+  use 'junegunn/fzf.vim'
 
   -- Colorschemes
   use "pacokwon/onedarkhc.vim"
@@ -135,8 +135,8 @@ use 'junegunn/fzf.vim'
     'VonHeikemen/lsp-zero.nvim',
     requires = {
       -- LSP Support
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
 
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
@@ -153,7 +153,7 @@ use 'junegunn/fzf.vim'
   }
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use { 'j-hui/fidget.nvim',  config = function()
+  use { 'j-hui/fidget.nvim', config = function()
     require('fidget').setup()
   end }
   use "AndrewRadev/tagalong.vim"
