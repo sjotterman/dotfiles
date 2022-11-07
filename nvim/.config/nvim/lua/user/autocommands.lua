@@ -51,5 +51,8 @@ vim.cmd [[
 "     autocmd!
 "     autocmd BufNewFile,BufRead ~/workspace/accounts/**/* autocmd! Autoformat
 " augroup END
-]]
 
+  augroup make_typescript
+    autocmd FileType typescript,typescriptreact compiler tsc | setlocal makeprg=npx\ tsc
+  augroup END
+]]

@@ -209,6 +209,7 @@ local mappings = {
       "Workspace Symbols",
     },
   },
+  ["m"] = { "<cmd>:make<cr>", "Make" },
   n = {
     name = "+Notes",
     D = { '<cmd>lua require("telekasten").find_daily_notes()<CR>', "Daily notes" },
