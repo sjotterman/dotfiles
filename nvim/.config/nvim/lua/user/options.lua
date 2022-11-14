@@ -35,7 +35,7 @@ local options = {
   scrolloff = 5,                           -- is one of my fav
   sidescrolloff = 5,
   guifont = "FiraMono Nerd Font Mono:h17",               -- the font used in graphical neovim applications
-  winbar="%=%m %f",
+  winbar="%f %m ",
   wildmode = "full:longest"
 }
 

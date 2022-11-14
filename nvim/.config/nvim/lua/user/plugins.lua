@@ -111,7 +111,6 @@ return packer.startup(function(use)
     requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
   })
   use 'navarasu/onedark.nvim'
-  use 'B4mbus/oxocarbon-lua.nvim'
   use 'humanoid-colors/vim-humanoid-colorscheme'
   use 'sainnhe/sonokai'
   use 'Yazeed1s/minimal.nvim'
