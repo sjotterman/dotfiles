@@ -83,7 +83,16 @@ local opts = {
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["o"] = { "<C-W>o", "Close other windows" },
-  ['d'] = { '<cmd>lua require("telekasten").toggle_todo()<CR>', "toggle Done" },
+
+  d = {
+    name = "DiffView",
+    c = { "<cmd>:DiffviewClose<cr>", "Close" },
+    o = { "<cmd>:DiffviewOpen<cr>", "Open" },
+    h = { "<cmd>:DiffviewFileHistory %<cr>", "History (this file)" },
+    H = { "<cmd>:DiffviewFileHistory<cr>", "History" },
+    t = { "<cmd>:DiffviewToggleFiles<cr>", "Toggle files" },
+    r = { "<cmd>:DiffviewRefresh<cr>", "Refresh" },
+  },
   ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",
