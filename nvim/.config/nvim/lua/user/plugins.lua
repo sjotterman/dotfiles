@@ -99,6 +99,7 @@ return packer.startup(function(use)
   use 'https://github.com/alok/notational-fzf-vim'
   use { 'junegunn/fzf', run = "fzf#install()" }
   use 'junegunn/fzf.vim'
+  use 'christoomey/vim-tmux-navigator'
 
   -- Colorschemes
   use "pacokwon/onedarkhc.vim"
