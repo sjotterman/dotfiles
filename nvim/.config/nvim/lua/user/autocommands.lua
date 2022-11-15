@@ -21,7 +21,8 @@ vim.cmd [[
 
   augroup _auto_resize
     autocmd!
-    autocmd VimResized * tabdo wincmd = 
+  " resize all tabs then reopen the one that was open originally
+    autocmd VimResized let curr_tab_num = tabpagenr() | * tabdo wincmd = | exe "tabn ".curr_tab_num
   augroup end
 
   augroup _alpha
