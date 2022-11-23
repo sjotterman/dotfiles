@@ -179,6 +179,7 @@ return packer.startup(function(use)
     require('git-conflict').setup()
   end }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use "github/copilot.vim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
