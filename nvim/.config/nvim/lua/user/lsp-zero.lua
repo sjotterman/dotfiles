@@ -57,7 +57,7 @@ require 'lspconfig'.tsserver.setup {
   }
 }
 
-lsp.configure('sumneko_lua', {
+require'lspconfig'.sumneko_lua.setup{
   settings = {
     Lua = {
       diagnostics = {
@@ -65,4 +65,7 @@ lsp.configure('sumneko_lua', {
       }
     }
   }
+}
+vim.diagnostic.config({
+  virtual_text = true,
 })
