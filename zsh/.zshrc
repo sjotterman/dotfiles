@@ -8,6 +8,7 @@ export PATH=$PATH:~/bin
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH
 
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
