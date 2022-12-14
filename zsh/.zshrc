@@ -225,3 +225,6 @@ _gt_yargs_completions()
 compdef _gt_yargs_completions gt
 ###-end-gt-completions-###
 
+
+# sh <(curl https://tea.xyz)
+add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
