@@ -171,7 +171,7 @@ local mappings = {
     D = { ":r !date +\"\\%Y-\\%m-\\%d - \\%A\"<cr>", "Insert Date and day" },
     d = { ":r !date +\"\\%Y-\\%m-\\%d\"<cr>", "Insert Date" },
     n = { "<cmd>lua _LAZYNPM_TOGGLE()<CR>", "Lazynpm" },
-    b = { "<cmd>TermExec cmd=\"build-component-typing\"<cr>", "Build NA Component Typing" },
+    c = { "<cmd>TermExec cmd=\"z django && make clean-run-backend && exit\"<cr>", "make clean-run-backend" },
     f = { "<cmd>call FullScreenToggle()<CR>", "Toggle Neovide Full screen" },
     B = { ":IndentBlanklineToggle<cr>", "Show Blankline indentation" },
     t = { ":r !date +\"\\%I:\\%M \\%p\"<cr>", "Insert Time" },
