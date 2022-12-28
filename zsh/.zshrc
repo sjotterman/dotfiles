@@ -228,3 +228,7 @@ compdef _gt_yargs_completions gt
 
 # sh <(curl https://tea.xyz)
 add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
+
+function command_not_found_handler {
+  tea -X $*
+}
