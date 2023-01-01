@@ -226,6 +226,10 @@ compdef _gt_yargs_completions gt
 ###-end-gt-completions-###
 
 
+# update tea or run it remotely
+
+alias tea-remote=sh <(curl https://tea.xyz)
+
 # sh <(curl https://tea.xyz)
 add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
 
