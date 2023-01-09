@@ -53,32 +53,6 @@ function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
 
-local lazydocker = Terminal:new({
-  cmd = "lazydocker",
-  hidden = true,
-  direction = "float",
-  float_opts = {
-    height = vim.o.lines - 6
-  }
-})
-
-function _LAZYDOCKER_TOGGLE()
-	lazydocker:toggle()
-end
-
-local lazynpm = Terminal:new({
-  cmd = "lazynpm",
-  hidden = true,
-  direction = "float",
-  float_opts = {
-    height = vim.o.lines - 6
-  }
-})
-
-function _LAZYNPM_TOGGLE()
-	lazynpm:toggle()
-end
-
 
 
 local node = Terminal:new({ cmd = "node", hidden = true })

@@ -122,7 +122,6 @@ local mappings = {
     name = "Git",
     c = { "<cmd>:Git commit<cr>", "Commit" },
     N = { "<cmd>:Git commit --no-verify<cr>", "Commit --no-verify" },
-    G = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     g = { "<cmd>:vertical Git<CR>", "Git Status" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
@@ -167,16 +166,19 @@ local mappings = {
 
   k = {
     name = "+Keybinds for commands",
-    l = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
     D = { ":r !date +\"\\%Y-\\%m-\\%d - \\%A\"<cr>", "Insert Date and day" },
     d = { ":r !date +\"\\%Y-\\%m-\\%d\"<cr>", "Insert Date" },
-    n = { "<cmd>lua _LAZYNPM_TOGGLE()<CR>", "Lazynpm" },
+    g = {
+      name = "Generate Types",
+      d = { "<cmd>TermExec cmd=\"z django && make generate-schema && exit\"<cr>", "Generate Django Schema" },
+      w = { "<cmd>TermExec cmd=\"z web && yarn generate && exit\"<cr>", "Generate Web Types" },
+      m = { "<cmd>TermExec cmd=\"z frontend && npm run generate && exit\"<cr>", "Generate Mobile Types" },
+    },
     c = { "<cmd>TermExec cmd=\"z django && make clean-run-backend && exit\"<cr>", "make clean-run-backend" },
     f = { "<cmd>call FullScreenToggle()<CR>", "Toggle Neovide Full screen" },
     B = { ":IndentBlanklineToggle<cr>", "Show Blankline indentation" },
     t = { ":r !date +\"\\%I:\\%M \\%p\"<cr>", "Insert Time" },
     y = { "<cmd>TermExec cmd=\"yalc-push\"<cr>", "yalc-push" },
-    g = { "<cmd>TermExec cmd=\"go run .\"<cr>", "go run ." },
     G = { "<c-g>", "Ctrl-g (get file path)" },
   },
   l = {
