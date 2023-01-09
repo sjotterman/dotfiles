@@ -11,6 +11,8 @@ local formatting = null_ls.builtins.formatting
 null_ls.setup({
   debug = false,
   sources = {
+    -- depends on jose-elias-alvarez/typescript.nvim
+    require("typescript.extensions.null-ls.code-actions"),
     formatting.black,
     formatting.prettier,
     -- diagnostics.flake8

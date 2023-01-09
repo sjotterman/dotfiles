@@ -152,6 +152,7 @@ return packer.startup(function(use)
     require('fidget').setup()
   end }
   use "AndrewRadev/tagalong.vim"
+  use 'jose-elias-alvarez/typescript.nvim'
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
