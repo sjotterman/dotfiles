@@ -104,17 +104,12 @@ return packer.startup(function(use)
   -- Colorschemes
   use "pacokwon/onedarkhc.vim"
   use "olimorris/onedarkpro.nvim"
-  use 'aonemd/kuroi.vim'
-  use 'sainnhe/edge'
   use "rebelot/kanagawa.nvim"
-  use({
-    'glepnir/zephyr-nvim',
-    requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
-  })
   use 'navarasu/onedark.nvim'
   use 'humanoid-colors/vim-humanoid-colorscheme'
-  use 'sainnhe/sonokai'
-  use 'Yazeed1s/minimal.nvim'
+  use "VDuchauffour/neodark.nvim"
+  use "yonlu/omni.vim"
+  use "cpea2506/one_monokai.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
