@@ -329,9 +329,10 @@ local mappings = {
 
   },
   w = {
-    name = "Unit Test",
+    name = "Window",
     t = { "<cmd>:tabnew<cr>", "new Tab" },
     c = { "<cmd>:tabclose<cr>", "Close Tab" },
+    n = { "<cmd>lua goto_neovim_config()<cr>", "Go to Neovim COnfig" },
   }
 }
 

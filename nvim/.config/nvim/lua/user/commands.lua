@@ -39,3 +39,7 @@ vim.cmd[[
 command! Vsp vsplit
 ]]
 
+function _G.goto_neovim_config()
+  vim.api.nvim_command("tcd ~/dotfiles/nvim/.config/nvim")
+  require('telescope.builtin').find_files()
+end
