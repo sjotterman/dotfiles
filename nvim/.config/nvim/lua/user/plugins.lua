@@ -153,6 +153,15 @@ return packer.startup(function(use)
   end }
   use "AndrewRadev/tagalong.vim"
   use 'jose-elias-alvarez/typescript.nvim'
+  use {
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    tag = "*"
+  }
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
