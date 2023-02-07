@@ -83,6 +83,7 @@ fi
 alias vim="nvim"
 
 export EDITOR="nvim"
+export KIT_EDITOR="nvim"
 export VISUAL="nvim"
 
 alias upgrade-cask="brew cu"
@@ -233,6 +234,9 @@ alias tea-remote="sh <(curl https://tea.xyz)"
 # sh <(curl https://tea.xyz)
 add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
 
-function command_not_found_handler {
-  tea -X $*
-}
+if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
+  # https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/#configure-your-shell
+  source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+  source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+  chruby ruby-3.1.3
+fi
