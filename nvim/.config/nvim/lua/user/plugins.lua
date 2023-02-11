@@ -155,7 +155,4 @@ require("lazy").setup({
   end },
   { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
   "github/copilot.vim"
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
 })
