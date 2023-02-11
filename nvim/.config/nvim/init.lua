@@ -1,3 +1,11 @@
+--Remap space as leader key
+vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+require "user.notational-fzf-vim"
+require "user.plugins"
+
 require "user.alpha"
 require "user.autocommands"
 require "user.autopairs"
@@ -18,10 +26,8 @@ require "user.nvim-code-action-menu"
 require "user.nvim-tree"
 require "user.null-ls"
 require "user.options"
-require "user.plugins"
 require "user.prettier"
 require "user.project"
-require "user.notational-fzf-vim"
 require "user.reach"
 require "user.refactoring"
 require "user.taboo"
