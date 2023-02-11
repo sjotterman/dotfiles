@@ -21,12 +21,7 @@ require("lazy").setup({
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-  -- "numToStr/Comment.nvim", -- Easily comment stuff
-  {
-    "numToStr/Comment.nvim",
-    -- Use this tag until upgrading neovim to v0.7
-    version = "v0.6",
-  },
+  "numToStr/Comment.nvim",
   "nathom/filetype.nvim", -- faster than the default filetype plugin
   "kyazdani42/nvim-web-devicons",
   "kyazdani42/nvim-tree.lua",
