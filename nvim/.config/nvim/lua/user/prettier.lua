@@ -2,11 +2,10 @@ local null_ls = require("null-ls")
 local prettier = require("prettier")
 
 null_ls.setup({
-  on_attach = function(client, bufnr)
+  on_attach = function(client, _)
     if client.server_capabilities.document_formatting then
       -- format on save
-      vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.format { async = true }")
-
+      vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.format()")
     end
   end,
 })
@@ -27,6 +26,5 @@ prettier.setup({
     "typescriptreact",
     "yaml",
   },
-
   -- prettier format options (you can use config files too. for example, `.prettierrc`)
 })

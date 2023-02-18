@@ -1,5 +1,3 @@
-
-
 -- https://github.com/typescript-language-server/typescript-language-server/issues/216#issuecomment-1005272952
 -- Ignore react/index.d.ts when going to definition of components
 local function filter(arr, fn)
@@ -27,6 +25,21 @@ local function filterReactDTS(value)
   return string.match(value.targetUri, 'react/index.d.ts') == nil
 end
 
+require 'lspconfig'.tsserver.setup {
+  on_attach = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+  end,
+  handlers = {
+    ['textDocument/definition'] = function(err, result, method, ...)
+      if vim.tbl_islist(result) and #result > 1 then
+        local filtered_result = filter(result, filterReactDTS)
+        return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
+      end
+
+      vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
+    end
+  }
+}
 
 require 'lspconfig'.lua_ls.setup {
   settings = {
