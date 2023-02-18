@@ -21,7 +21,6 @@ require("lazy").setup({
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-  "numToStr/Comment.nvim",
   "nathom/filetype.nvim", -- faster than the default filetype plugin
   "kyazdani42/nvim-web-devicons",
   "kyazdani42/nvim-tree.lua",
@@ -70,6 +69,7 @@ require("lazy").setup({
   { "junegunn/fzf", build = "fzf#install()" },
   "junegunn/fzf.vim",
   "christoomey/vim-tmux-navigator",
+  'tpope/vim-commentary',
 
   -- Colorschemes
   "pacokwon/onedarkhc.vim",
@@ -96,8 +96,10 @@ require("lazy").setup({
 
   -- LSP
   "neovim/nvim-lspconfig", -- enable LSP
+      { "williamboman/mason.nvim" },
   {
     "VonHeikemen/lsp-zero.nvim",
+    branch = "v1.x",
     dependencies = {
       -- LSP Support
       { "williamboman/mason.nvim" },
