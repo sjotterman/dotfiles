@@ -110,12 +110,10 @@ local mappings = {
   ["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
   P = {
-    name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
+    name = "Plugins",
+    c = { "<cmd>Lazy clean<cr>", "Clean" },
+    s = { "<cmd>Lazy sync<cr>", "Sync" },
+    u = { "<cmd>Lazy update<cr>", "Update" },
   },
 
   g = {
@@ -185,7 +183,8 @@ local mappings = {
     name = "LSP",
     A = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     a = { "<cmd>CodeActionMenu<cr>", "Regular Code Action" },
-    d = {
+    d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to Definition" },
+    D = {
       "<cmd>Telescope diagnostics bufnr=0<cr>",
       "Document Diagnostics",
     },
@@ -271,10 +270,12 @@ local mappings = {
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    m = { "<cmd>Telescope marks<cr>", "Man Pages" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     n = { "<cmd>:Telescope neoclip<CR>", "Neoclip" },
     F = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     r = { "<cmd>Telescope lsp_references<cr>", "References" },
+    r = { "<cmd>Telescope treesitter<cr>", "tReesitter symbols" },
     s = { "<cmd>Telescope resume<cr>", "Resume Search" },
     S = { "<cmd>Telescope spell_suggest<cr>", "Spell suggestions" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },

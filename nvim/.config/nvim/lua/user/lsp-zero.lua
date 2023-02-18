@@ -1,6 +1,9 @@
-local lsp = require('lsp-zero')
+local lsp = require('lsp-zero').preset('recommended')
 
-lsp.preset('recommended')
+lsp.ensure_installed({
+  'tsserver'
+})
+
 lsp.setup()
 
 lsp.configure('eslint', {
@@ -57,7 +60,7 @@ require 'lspconfig'.tsserver.setup {
   }
 }
 
-require'lspconfig'.sumneko_lua.setup{
+require 'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
