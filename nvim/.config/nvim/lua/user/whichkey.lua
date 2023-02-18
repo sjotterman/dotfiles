@@ -83,7 +83,6 @@ local opts = {
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["o"] = { "<C-W>o", "Close other windows" },
-
   d = {
     name = "DiffView",
     c = { "<cmd>:DiffviewClose<cr>", "Close" },
@@ -108,14 +107,12 @@ local mappings = {
   ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
-
   P = {
     name = "Plugins",
     c = { "<cmd>Lazy clean<cr>", "Clean" },
     s = { "<cmd>Lazy sync<cr>", "Sync" },
     u = { "<cmd>Lazy update<cr>", "Update" },
   },
-
   g = {
     name = "Git",
     c = { "<cmd>:Git commit<cr>", "Commit" },
@@ -161,7 +158,6 @@ local mappings = {
     B = { "<cmd>TermExec cmd=\"go test -v --bench .\"<cr>", "go test benchmarks" },
     G = { "<cmd>TermExec cmd=\"go-test-cover\"<cr>", "go-test-cover" },
   },
-
   k = {
     name = "+Keybinds for commands",
     D = { ":r !date +\"\\%Y-\\%m-\\%d - \\%A\"<cr>", "Insert Date and day" },
@@ -275,7 +271,7 @@ local mappings = {
     n = { "<cmd>:Telescope neoclip<CR>", "Neoclip" },
     F = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     r = { "<cmd>Telescope lsp_references<cr>", "References" },
-    r = { "<cmd>Telescope treesitter<cr>", "tReesitter symbols" },
+    y = { "<cmd>Telescope treesitter<cr>", "treesitter symbols" },
     s = { "<cmd>Telescope resume<cr>", "Resume Search" },
     S = { "<cmd>Telescope spell_suggest<cr>", "Spell suggestions" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },

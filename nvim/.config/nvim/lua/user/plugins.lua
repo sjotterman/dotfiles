@@ -60,13 +60,13 @@ require("lazy").setup({
     }
   },
 
-  { "fatih/vim-go", build = ":GoInstallBinaries" },
+  { "fatih/vim-go",            build = ":GoInstallBinaries" },
   {
     "folke/trouble.nvim",
     dependencies = "kyazdani42/nvim-web-devicons"
   },
   "https://github.com/alok/notational-fzf-vim",
-  { "junegunn/fzf", build = "fzf#install()" },
+  { "junegunn/fzf",           build = "fzf#install()" },
   "junegunn/fzf.vim",
   "christoomey/vim-tmux-navigator",
   'tpope/vim-commentary',
@@ -96,7 +96,7 @@ require("lazy").setup({
 
   -- LSP
   "neovim/nvim-lspconfig", -- enable LSP
-      { "williamboman/mason.nvim" },
+  { "williamboman/mason.nvim" },
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v1.x",
@@ -116,7 +116,37 @@ require("lazy").setup({
       -- Snippets
       { "L3MON4D3/LuaSnip" },
       { "rafamadriz/friendly-snippets" },
-    }
+    },
+    config = function()
+      local lsp = require('lsp-zero').preset({
+        name = 'recommended',
+        set_lsp_keymaps = {
+          preserve_mappings = false
+        }
+      })
+
+      -- (Optional) Configure lua language server for neovim
+      lsp.nvim_workspace()
+
+      lsp.setup()
+
+      lsp.ensure_installed({
+        'tsserver',
+        'eslint',
+        "jsonls"
+      })
+
+      lsp.configure('eslint', {
+        settings = {
+          workingDirectory = { mode = 'location' },
+          format = false,
+        },
+        root_dir = require 'lspconfig'.util.root_pattern(
+          '.eslintrc.js',
+          '.eslintrc.json'
+        ),
+      })
+    end,
   },
   "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
   "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
