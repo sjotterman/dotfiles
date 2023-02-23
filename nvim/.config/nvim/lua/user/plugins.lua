@@ -121,7 +121,7 @@ require("lazy").setup({
       local lsp = require('lsp-zero').preset({
         name = 'recommended',
         set_lsp_keymaps = {
-          omit = {'<C-k>'},
+          omit = { '<C-k>' },
           preserve_mappings = false
         }
       })
@@ -174,6 +174,12 @@ require("lazy").setup({
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require 'nvim-treesitter.configs'.setup {
+        ensure_installed = {"typescript", "vim", "json", "lua", "help", "python", "go", "javascript"}
+      }
+    end,
     build = ":TSUpdate",
   },
   "JoosepAlviste/nvim-ts-context-commentstring",
