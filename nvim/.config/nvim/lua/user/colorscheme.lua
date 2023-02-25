@@ -7,6 +7,7 @@ vim.cmd [[
 " catch /^Vim\%((\a\+)\)\=:E185/
 "   colorscheme default
 " endtry
+colorscheme monokai-advanced
 ]]
 
 require("one_monokai").setup({
