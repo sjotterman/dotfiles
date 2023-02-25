@@ -37,7 +37,7 @@ local theme = lush(function(injected_functions)
     TroublePreview                         { Search }, -- TroublePreview xxx links to Search
     MoreMsg                                { fg="#f6f6ec", gui="bold", }, -- MoreMsg        xxx ctermfg=121 gui=bold guifg=#f6f6ec
     ModeMsg                                { fg="#f6f6ec", gui="bold", }, -- ModeMsg        xxx cterm=bold gui=bold guifg=#f6f6ec
-    LineNr                                 { fg="#4d5154", bg="#26292c", }, -- LineNr         xxx ctermfg=11 guifg=#4d5154 guibg=#26292c
+    LineNr                                 { fg=hsl(60,06,45), bg=hsl(210,7,14), }, -- LineNr         xxx ctermfg=11 guifg=#4d5154 guibg=#26292c
     LineNrAbove                            { LineNr }, -- LineNrAbove    xxx links to LineNr
     LineNrBelow                            { LineNr }, -- LineNrBelow    xxx links to LineNr
     TelescopeResultsLineNr                 { LineNr }, -- TelescopeResultsLineNr xxx links to LineNr
@@ -110,7 +110,7 @@ local theme = lush(function(injected_functions)
     GitSignsDeletePreview                  { DiffDelete }, -- GitSignsDeletePreview xxx links to DiffDelete
     GitSignsDeleteVirtLn                   { DiffDelete }, -- GitSignsDeleteVirtLn xxx links to DiffDelete
     DiffText                               { bg="#23324d", }, -- DiffText       xxx cterm=bold ctermbg=9 guibg=#23324d
-    SignColumn                             { fg="#f6f6ec", bg="#26292c", }, -- SignColumn     xxx ctermfg=14 ctermbg=242 guifg=#f6f6ec guibg=#26292c
+    SignColumn                             { LineNr }, -- SignColumn     xxx ctermfg=14 ctermbg=242 guifg=#f6f6ec guibg=#26292c
     CursorLineSign                         { SignColumn }, -- CursorLineSign xxx links to SignColumn
     Conceal                                { fg="#72696a", }, -- Conceal        xxx ctermfg=7 ctermbg=242 guifg=#72696a
     SpellBad                               { sp="red", gui="undercurl", fg="#f3005f", }, -- SpellBad       xxx ctermbg=9 gui=undercurl guifg=#f3005f guisp=Red
@@ -142,7 +142,7 @@ local theme = lush(function(injected_functions)
     WinBarNC                               { WinBar }, -- WinBarNC       xxx links to WinBar
     Cursor                                 { gui="reverse", }, -- Cursor         xxx gui=reverse
     lCursor                                { gui="reverse", }, -- lCursor        xxx gui=reverse
-    Normal                                 { fg="#f6f6ec", bg="#26292c", }, -- Normal         xxx guifg=#f6f6ec guibg=#26292c
+    Normal                                 { fg=hsl(60,36,95), bg=hsl(210,7,12), }, -- Normal         xxx guifg=#f6f6ec guibg=#26292c
     NvimSpacing                            { Normal }, -- NvimSpacing    xxx links to Normal
     CopilotAnnotation                      { Normal }, -- CopilotAnnotation xxx links to Normal
     DiffviewNormal                         { Normal }, -- DiffviewNormal xxx links to Normal
@@ -416,7 +416,7 @@ local theme = lush(function(injected_functions)
     typescriptArrowFuncArg                 { PreProc }, -- typescriptArrowFuncArg xxx links to PreProc
     diffSubname                            { PreProc }, -- diffSubname    xxx links to PreProc
     diffIndexLine                          { PreProc }, -- diffIndexLine  xxx links to PreProc
-    diffChanged                            { PreProc }, -- diffChanged    xxx links to PreProc
+    diffChanged                            { fg=hsl(186,71, 69), bg=SignColumn.bg }, -- diffChanged    xxx links to PreProc
     DiffviewFolderSign                     { PreProc }, -- DiffviewFolderSign xxx links to PreProc
     typescriptOptionalMark                 { PreProc }, -- typescriptOptionalMark xxx links to PreProc
     typescriptParamImpl                    { PreProc }, -- typescriptParamImpl xxx links to PreProc
@@ -541,7 +541,7 @@ local theme = lush(function(injected_functions)
     TroubleSignHint                        { DiagnosticSignHint }, -- TroubleSignHint xxx links to DiagnosticSignHint
     sym"@text"                             { fg="#97e023", }, -- @text          xxx guifg=#97e023
     sym"@text.literal"                     { fg="#dfd561", }, -- @text.literal  xxx guifg=#dfd561
-    Comment                                { fg="#72696a", gui="italic", }, -- Comment        xxx ctermfg=14 gui=italic guifg=#72696a
+    Comment                                { fg=hsl(253, 1, 43), bg=Normal.bg }, -- Comment        xxx ctermfg=14 gui=italic guifg=#72696a
     WhichKeySeparator                      { Comment }, -- WhichKeySeparator xxx links to Comment
     NvimTreeGitIgnored                     { Comment }, -- NvimTreeGitIgnored xxx links to Comment
     TelescopeResultsComment                { Comment }, -- TelescopeResultsComment xxx links to Comment
@@ -567,7 +567,7 @@ local theme = lush(function(injected_functions)
     Underlined                             { gui="underline", }, -- Underlined     xxx cterm=underline ctermfg=81 gui=underline
     sym"@text.underline"                   { gui="underline", }, -- @text.underline xxx gui=underline
     sym"@text.todo"                        { fg="#78dce8", }, -- @text.todo     xxx guifg=#78dce8
-    sym"@comment"                          { fg="#72696a", gui="italic", }, -- @comment       xxx gui=italic guifg=#72696a
+    sym"@comment"                          { Comment }, -- @comment       xxx gui=italic guifg=#72696a
     sym"@constant"                         { fg="#78dce8", }, -- @constant      xxx guifg=#78dce8
     sym"@constant.builtin"                 { fg="#9c64fe", }, -- @constant.builtin xxx guifg=#9c64fe
     sym"@constant.macro"                   { fg="#9c64fe", }, -- @constant.macro xxx guifg=#9c64fe
@@ -678,7 +678,7 @@ local theme = lush(function(injected_functions)
     DiffviewStatusUnknown                  { diffRemoved }, -- DiffviewStatusUnknown xxx links to diffRemoved
     DiffviewFilePanelDeletions             { diffRemoved }, -- DiffviewFilePanelDeletions xxx links to diffRemoved
     diffAdded                              { fg="#97e023", }, -- diffAdded      xxx guifg=#97e023
-    GitSignsAdd                            { diffAdded }, -- GitSignsAdd    xxx links to diffAdded
+    GitSignsAdd                            { fg=diffAdded.fg, bg=SignColumn.bg }, -- GitSignsAdd    xxx links to diffAdded
     DiffviewStatusAdded                    { diffAdded }, -- DiffviewStatusAdded xxx links to diffAdded
     DiffviewStatusUntracked                { diffAdded }, -- DiffviewStatusUntracked xxx links to diffAdded
     DiffviewFilePanelInsertions            { diffAdded }, -- DiffviewFilePanelInsertions xxx links to diffAdded
