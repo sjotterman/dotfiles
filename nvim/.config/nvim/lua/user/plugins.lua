@@ -59,7 +59,6 @@ require("lazy").setup({
       { "nvim-treesitter/nvim-treesitter" }
     }
   },
-
   { "fatih/vim-go",            build = ":GoInstallBinaries" },
   {
     "folke/trouble.nvim",
@@ -76,10 +75,22 @@ require("lazy").setup({
   "olimorris/onedarkpro.nvim",
   "rebelot/kanagawa.nvim",
   "navarasu/onedark.nvim",
+  "olimorris/onedarkpro.nvim",
   "humanoid-colors/vim-humanoid-colorscheme",
   "VDuchauffour/neodark.nvim",
   "yonlu/omni.vim",
-  "cpea2506/one_monokai.nvim",
+  { "sjotterman/monokai-advanced",
+    dependencies = "rktjmp/lush.nvim"
+  },
+  {
+    "cpea2506/one_monokai.nvim",
+    config = function()
+      require("one_monokai").setup({
+        Normal = { bg = "#aeae09" }
+      })
+    end
+  },
+  'tanvirtin/monokai.nvim',
 
   -- cmp plugins
   "hrsh7th/nvim-cmp", -- The completion plugin
@@ -177,7 +188,7 @@ require("lazy").setup({
     event = { "BufReadPost", "BufNewFile" },
     config = function()
       require 'nvim-treesitter.configs'.setup {
-        ensure_installed = {"typescript", "vim", "json", "lua", "help", "python", "go", "javascript"}
+        ensure_installed = { "typescript", "vim", "json", "lua", "help", "python", "go", "javascript" }
       }
     end,
     build = ":TSUpdate",

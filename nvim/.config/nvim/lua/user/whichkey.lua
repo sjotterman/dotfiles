@@ -266,6 +266,7 @@ local mappings = {
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    H = { "<cmd>Telescope highlights<cr>", "Highlight groups" },
     m = { "<cmd>Telescope marks<cr>", "Man Pages" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     n = { "<cmd>:Telescope neoclip<CR>", "Neoclip" },
