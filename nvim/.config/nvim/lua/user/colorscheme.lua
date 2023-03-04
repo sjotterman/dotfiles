@@ -10,12 +10,12 @@ vim.cmd [[
 colorscheme monokai-advanced
 ]]
 
-require("one_monokai").setup({
-  transparent = false,
-  themes = function(colors)
-    return {
-      TabLineFill = { reverse = false, fg = colors.bg, bg = colors.bg },
-      Normal = { bg = colors.black },
-    }
-  end,
-})
+-- require("one_monokai").setup({
+--   transparent = false,
+--   themes = function(colors)
+--     return {
+--       TabLineFill = { reverse = false, fg = colors.bg, bg = colors.bg },
+--       Normal = { bg = colors.black },
+--     }
+--   end,
+-- })
