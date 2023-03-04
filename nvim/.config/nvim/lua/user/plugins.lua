@@ -21,11 +21,19 @@ require("lazy").setup({
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+  { 'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end
+  },
   "nathom/filetype.nvim", -- faster than the default filetype plugin
   "kyazdani42/nvim-web-devicons",
   "kyazdani42/nvim-tree.lua",
   "moll/vim-bbye",
-  "nvim-lualine/lualine.nvim",
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = "kyazdani42/nvim-web-devicons"
+  },
   { "akinsho/toggleterm.nvim", version = "v2.*" },
   "ahmedkhalf/project.nvim",
   "lewis6991/impatient.nvim",
