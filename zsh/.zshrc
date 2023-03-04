@@ -88,8 +88,6 @@ if ! zgenom saved; then
   zgenom save
 fi
 
-alias vim="nvim"
-
 export EDITOR="nvim"
 export KIT_EDITOR="nvim"
 export VISUAL="nvim"
