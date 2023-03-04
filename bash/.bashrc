@@ -123,8 +123,6 @@ export VISUAL="vim"
 # enable colored output of nosetests
 export NOSE_REDNOSE=1
 
-source ~/.bash-git-prompt/gitprompt.sh
-GIT_PROMPT_ONLY_IN_REPO=1
 export TERM=screen-256color
 
 
