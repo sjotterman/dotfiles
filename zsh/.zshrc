@@ -23,10 +23,13 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
-source /opt/homebrew/bin/virtualenvwrapper.sh
-
+if [ ! -f  /opt/homebrew/bin/virtualenvwrapper.sh ]; then
+  echo "Info: virtualenvwrapper.sh not found"
+  else
+    export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/bin/python3
+    export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
+    source /opt/homebrew/bin/virtualenvwrapper.sh
+fi
 # https://superuser.com/questions/602882/how-to-make-zsh-completion-like-bash
 setopt AUTO_LIST NO_MENUCOMPLETE
 
