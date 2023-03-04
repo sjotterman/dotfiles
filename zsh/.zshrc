@@ -240,11 +240,11 @@ compdef _gt_yargs_completions gt
 alias tea-remote="sh <(curl https://tea.xyz)"
 
 # sh <(curl https://tea.xyz)
-if type tea &> /dev/null; then
-  add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
-else
-  echo "tea not installed, skipping tea hook"
-fi
+# if type tea &> /dev/null; then
+#   add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
+# else
+#   echo "tea not installed, skipping tea hook"
+# fi
 
 if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
   # https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/#configure-your-shell
