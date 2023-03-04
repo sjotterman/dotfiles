@@ -232,6 +232,11 @@ _gt_yargs_completions()
 compdef _gt_yargs_completions gt
 ###-end-gt-completions-###
 
+# After a fresh install
+post_install() {
+  sh <(curl https://tea.xyz)
+  curl -sS https://starship.rs/install.sh | sh
+}
 
 # update tea or run it remotely
 
