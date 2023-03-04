@@ -248,12 +248,6 @@ post_install() {
 
 alias tea-remote="sh <(curl https://tea.xyz)"
 
-# sh <(curl https://tea.xyz)
-if type tea &> /dev/null; then
-  add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
-else
-  echo "tea not installed, skipping tea hook"
-fi
 
 if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
   # https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/#configure-your-shell
@@ -261,3 +255,5 @@ if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
   source /opt/homebrew/opt/chruby/share/chruby/auto.sh
   chruby ruby-3.1.3
 fi
+
+test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic=zsh --silent)
