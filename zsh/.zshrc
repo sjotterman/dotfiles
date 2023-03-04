@@ -53,6 +53,12 @@ fi
 # load zgenom
 source "${HOME}/.zgenom/zgenom.zsh"
 
+# This seems to break things on other shells
+# https://stackoverflow.com/a/66933509
+if [[ ! "$(uname -s)" = Darwin ]] then
+  DISABLE_AUTO_TITLE="true"
+fi
+
 # Check for plugin and zgenom updates every 7 days
 # This does not increase the startup time.
 zgenom autoupdate
