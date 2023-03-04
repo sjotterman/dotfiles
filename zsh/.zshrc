@@ -95,7 +95,7 @@ export VISUAL="nvim"
 alias upgrade-cask="brew cu"
 
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+[[ "$(uname -s)" = Darwin ]] && test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
