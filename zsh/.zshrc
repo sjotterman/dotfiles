@@ -41,7 +41,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 
 # First install zgenom:
-# git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
+if [ ! -f  "${HOME}/.zgenom/zgenom.zsh" ]; then
+  echo "zgenom is not installed"
+  echo "Attempting to install..."
+  git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
+fi
+
 # load zgenom
 source "${HOME}/.zgenom/zgenom.zsh"
 
