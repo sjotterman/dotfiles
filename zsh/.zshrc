@@ -247,6 +247,8 @@ post_install() {
 # update tea or run it remotely
 
 alias tea-remote="sh <(curl https://tea.xyz)"
+# Initial setup of a tea environment
+alias tea-sync-env="tea -SE && cd ."
 
 
 if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
