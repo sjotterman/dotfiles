@@ -1,10 +1,7 @@
 #! /usr/bin/env bash
 
 # gh extensions
-gh extension install dlvhdr/gh-prs
-gh extension install mislav/gh-branch
-gh extension install seachicken/gh-poi
-gh extension install joaom00/gh-b
+./install-gh-extensions.sh
 
 # npm packages
 npm i -g pyright
