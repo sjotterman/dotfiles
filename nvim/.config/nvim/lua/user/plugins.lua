@@ -99,6 +99,8 @@ require("lazy").setup({
     end
   },
   'tanvirtin/monokai.nvim',
+  '/ray-x/starry.nvim',
+  'haishanh/night-owl.vim',
 
   -- cmp plugins
   "hrsh7th/nvim-cmp", -- The completion plugin
@@ -153,7 +155,14 @@ require("lazy").setup({
       lsp.ensure_installed({
         'tsserver',
         'eslint',
+        'null-ls',
         "jsonls"
+      })
+      lsp.format_on_save({
+        servers = {
+          ['lua_ls'] = { 'lua' },
+          ['null-ls'] = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' }
+        }
       })
 
       lsp.configure('eslint', {
