@@ -46,7 +46,6 @@ require("lazy").setup({
   "gcmt/taboo.vim",
   "romainl/vim-qf",
   "editorconfig/editorconfig-vim",
-  "toppair/reach.nvim",
   "vim-test/vim-test",
   {
     "weilbith/nvim-code-action-menu",
@@ -109,7 +108,6 @@ require("lazy").setup({
   "hrsh7th/cmp-cmdline", -- cmdline completions
   "saadparwaiz1/cmp_luasnip", -- snippet completions
   "hrsh7th/cmp-nvim-lsp",
-  "MunifTanjim/prettier.nvim",
 
   -- snippets
   "L3MON4D3/LuaSnip", --snippet engine
