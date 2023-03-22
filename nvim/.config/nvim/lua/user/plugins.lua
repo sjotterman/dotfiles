@@ -138,44 +138,6 @@ require("lazy").setup({
       { "L3MON4D3/LuaSnip" },
       { "rafamadriz/friendly-snippets" },
     },
-    config = function()
-      local lsp = require('lsp-zero').preset({
-        name = 'recommended',
-        set_lsp_keymaps = {
-          omit = { '<C-k>' },
-          preserve_mappings = false
-        }
-      })
-
-      -- (Optional) Configure lua language server for neovim
-      lsp.nvim_workspace()
-
-      lsp.setup()
-
-      lsp.ensure_installed({
-        'tsserver',
-        'eslint',
-        'null-ls',
-        "jsonls"
-      })
-      lsp.format_on_save({
-        servers = {
-          ['lua_ls'] = { 'lua' },
-          ['null-ls'] = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' }
-        }
-      })
-
-      lsp.configure('eslint', {
-        settings = {
-          workingDirectory = { mode = 'location' },
-          format = false,
-        },
-        root_dir = require 'lspconfig'.util.root_pattern(
-          '.eslintrc.js',
-          '.eslintrc.json'
-        ),
-      })
-    end,
   },
   "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
   "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
