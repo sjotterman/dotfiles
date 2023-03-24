@@ -105,7 +105,6 @@ local mappings = {
   --   "Find files",
   -- },
   ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
   P = {
     name = "Plugins",
@@ -192,7 +191,7 @@ local mappings = {
       "<cmd>Telescope diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>:LspZeroFormat<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format" },
     g = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature" },
     h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
     F = { "<cmd>lua vim.lsp.buf.range_formatting()<cr>", "Format selection" },
@@ -263,11 +262,10 @@ local mappings = {
     i = { "<cmd>Telescope lsp_implementations<cr>", "Implementations" },
     D = { "<cmd>Telescope lsp_type_definitions<cr>", "Type Definitions" },
     g = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     H = { "<cmd>Telescope highlights<cr>", "Highlight groups" },
-    m = { "<cmd>Telescope marks<cr>", "Man Pages" },
+    m = { "<cmd>Telescope marks<cr>", "Marks" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     n = { "<cmd>:Telescope neoclip<CR>", "Neoclip" },
     F = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
@@ -372,6 +370,9 @@ local visual_mappings = {
     f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function to File')<CR>", "Extract function to file" },
     v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract variable')<CR>", "Extract Variable" },
     i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
+    c = { '<cmd>lua require("react-extract").extract_to_current_file()<CR>', "react component - current file" },
+    C = { '<cmd>lua require("react-extract").extract_to_new_file()<CR>', "react component- new file" },
+
   },
 }
 

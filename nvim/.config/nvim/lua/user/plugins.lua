@@ -66,6 +66,12 @@ require("lazy").setup({
       { "nvim-treesitter/nvim-treesitter" }
     }
   },
+  {
+    "napmn/react-extract.nvim",
+    config = function()
+      require("react-extract").setup()
+    end,
+  },
   { "fatih/vim-go",            build = ":GoInstallBinaries" },
   {
     "folke/trouble.nvim",
