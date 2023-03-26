@@ -79,7 +79,7 @@ require("lazy").setup({
   },
   "https://github.com/alok/notational-fzf-vim",
   { "junegunn/fzf",           build = "fzf#install()" },
-  "junegunn/fzf.vim",
+  "junegunn/fzf",
   "christoomey/vim-tmux-navigator",
   'tpope/vim-commentary',
 

@@ -1,4 +1,4 @@
-  vim.cmd [[
+vim.cmd [[
   function! DeleteHiddenBuffers()
   let tpbl=[]
   let closed = 0
@@ -13,7 +13,7 @@
 endfunction
   ]]
 
-vim.cmd[[
+vim.cmd [[
 function! FullScreenToggle()
     if g:neovide_fullscreen
         let g:neovide_fullscreen = 0
@@ -23,19 +23,19 @@ function! FullScreenToggle()
 endfunction
 ]]
 
-vim.cmd[[
+vim.cmd [[
 command! W write
 ]]
 
-vim.cmd[[
+vim.cmd [[
 command! Wq wq
 ]]
 
-vim.cmd[[
+vim.cmd [[
 command! Wqall wqall
 ]]
 
-vim.cmd[[
+vim.cmd [[
 command! Vsp vsplit
 ]]
 

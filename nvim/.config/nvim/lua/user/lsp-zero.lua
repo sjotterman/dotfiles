@@ -16,7 +16,6 @@ lsp.setup()
 lsp.ensure_installed({
   'tsserver',
   'eslint',
-  'null-ls',
   "jsonls",
 })
 
