@@ -1,10 +1,12 @@
 local lsp = require('lsp-zero').preset({
   name = 'recommended',
   set_lsp_keymaps = {
-    omit = { '<C-k>' },
+    omit = { '<C-k>', 'gd' },
     preserve_mappings = false
   }
 })
+
+vim.keymap.set("n", "gd", "<cmd>lua my_goto_definition()<cr>")
 
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()

@@ -43,3 +43,13 @@ function _G.goto_neovim_config()
   vim.api.nvim_command("tcd ~/dotfiles/nvim/.config/nvim")
   require('telescope.builtin').find_files()
 end
+
+-- If in a typescript file, use the typescript.nvim plugin to go to definition,
+-- otherwise use the LSP
+function _G.my_goto_definition()
+  if vim.bo.filetype == "typescriptreact" or vim.bo.filetype == 'typescript' then
+    vim.api.nvim_command("TypescriptGoToSourceDefinition")
+  else
+    vim.lsp.buf.definition()
+  end
+end
