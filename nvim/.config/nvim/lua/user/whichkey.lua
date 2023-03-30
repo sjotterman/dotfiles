@@ -178,6 +178,7 @@ local mappings = {
     name = "LSP",
     A = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     a = { "<cmd>CodeActionMenu<cr>", "Regular Code Action" },
+    c = { "<cmd>Copilot panel<cr>", "Copilot Panel" },
     d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to Definition" },
     D = {
       "<cmd>Telescope diagnostics bufnr=0<cr>",
