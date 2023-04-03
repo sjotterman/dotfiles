@@ -252,9 +252,14 @@ local mappings = {
   },
   r = {
     name = "refactoring",
-    i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR><cr>", "Inline Variable" },
-    b = { "<Cmd>lua require('refactoring').refactor('Extract Block')<CR>", "Extract block" },
-    B = { "<Cmd>lua require('refactoring').refactor('Extract Block To File')<CR>", "Extract block to file" },
+
+    r = { "<Esc><Cmd>lua require('refactoring').select_refactor()<CR>", "Select Refactor" },
+    e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract function" },
+    f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function to File')<CR>", "Extract function to file" },
+    v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract variable')<CR>", "Extract Variable" },
+    i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
+    c = { '<cmd>lua require("react-extract").extract_to_current_file()<CR>', "react component - current file" },
+    C = { '<cmd>lua require("react-extract").extract_to_new_file()<CR>', "react component- new file" },
   },
   s = {
     name = "Search",
