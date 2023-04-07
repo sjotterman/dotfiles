@@ -1,12 +1,13 @@
 local M = {}
 
-local function create_function_component(component_name, jsx, local_variables)
+local function create_function_component(component_name, jsx, local_variables, is_tsx)
   local props_string = table.concat(local_variables, ", ")
+  local fc_type = is_tsx and ": React.FC" or ""
 
   return [[
 import React from 'react';
 
-export const ]] .. component_name .. [[ = ({ ]] .. props_string .. [[ }) => {
+export const ]] .. component_name .. [[ ]] .. fc_type .. [[ = ({ ]] .. props_string .. [[ }) => {
   return (
     ]] .. jsx .. [[
   );
@@ -44,6 +45,8 @@ end
 function M.extract_to_function_component()
   local bufnr = vim.api.nvim_get_current_buf()
   local component_name = "NewReactComponent"
+  local filetype = vim.bo.filetype
+  local is_tsx = filetype == "typescriptreact"
 
   local start_line, end_line = vim.fn.getpos("'<")[2] - 1, vim.fn.getpos("'>")[2] - 1
 
@@ -78,9 +81,23 @@ function M.extract_to_function_component()
   end
 
   -- Create the new component and insert it in the original file
-  local component_code = create_function_component(component_name, jsx, local_variables_array)
+  local component_code = create_function_component(component_name, jsx, local_variables_array, is_tsx)
   local component_lines = vim.split(component_code, "\n")
   vim.api.nvim_buf_set_lines(bufnr, insert_point, insert_point, false, component_lines)
+
+  -- Format the file if a formatter is available
+  local clients = vim.lsp.buf_get_clients(bufnr)
+  local has_formatter = false
+  for _, client in pairs(clients) do
+    if client.server_capabilities.documentFormattingProvider then
+      has_formatter = true
+      break
+    end
+  end
+
+  if has_formatter then
+    vim.lsp.buf.format()
+  end
 end
 
 return M
