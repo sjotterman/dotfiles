@@ -260,6 +260,7 @@ local mappings = {
     i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
     c = { '<cmd>lua require("react-extract").extract_to_current_file()<CR>', "react component - current file" },
     C = { '<cmd>lua require("react-extract").extract_to_new_file()<CR>', "react component- new file" },
+    x = { ':<C-u>lua require("user.extract-react-component").extract_to_function_component()<CR>', "extract JSX " },
   },
   s = {
     name = "Search",
