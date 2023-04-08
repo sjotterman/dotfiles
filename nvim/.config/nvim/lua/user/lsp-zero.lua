@@ -1,3 +1,4 @@
+require("neodev").setup()
 local lsp = require('lsp-zero').preset({
   name = 'recommended',
   set_lsp_keymaps = {
