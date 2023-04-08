@@ -6,6 +6,8 @@ PATH=$PATH:$HOME/Library/Python/3.7/bin
 export PATH=$PATH:~/Library/flutter/bin
 export PATH=$PATH:~/bin
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+# script kit
+export PATH="$PATH":"$HOME/.kenv/bin"
 export PATH
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
