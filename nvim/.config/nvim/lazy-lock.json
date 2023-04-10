@@ -30,6 +30,7 @@
   "monokai-advanced": { "branch": "main", "commit": "6f6b3107e9c5fcb6fb615a17fccea57f5106f892" },
   "monokai.nvim": { "branch": "master", "commit": "b8bd44d5796503173627d7a1fc51f77ec3a08a63" },
   "neodark.nvim": { "branch": "main", "commit": "016c54493278d23840e0a971c3dfd85893753f5e" },
+  "neodev.nvim": { "branch": "main", "commit": "864b35006d3de24c60e44b566de8018f919b13e6" },
   "neogen": { "branch": "main", "commit": "353c5ef8e51c14445cc85666d4d09e4cf98598b2" },
   "night-owl.vim": { "branch": "master", "commit": "783a41a27f7fe55ed91d1ec0f0351d06ae17fbc7" },
   "nlsp-settings.nvim": { "branch": "main", "commit": "c4c32c5be7d8c1c99cde2af1ade3bbd12f5464c6" },
