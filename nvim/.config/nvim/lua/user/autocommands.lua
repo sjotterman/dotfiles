@@ -33,6 +33,7 @@ vim.cmd [[
   augroup _go
     autocmd!
     autocmd FileType go setlocal nolist
+    autocmd BufNewFile,BufRead *.gohtml setfiletype gohtmltmpl
   augroup end
 
   augroup _term
