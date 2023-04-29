@@ -92,7 +92,7 @@ require("lazy").setup({
   "olimorris/onedarkpro.nvim",
   "humanoid-colors/vim-humanoid-colorscheme",
   "VDuchauffour/neodark.nvim",
-  "yonlu/omni.vim",
+  "sainnhe/sonokai",
   { "sjotterman/monokai-advanced",
     dependencies = "rktjmp/lush.nvim"
   },

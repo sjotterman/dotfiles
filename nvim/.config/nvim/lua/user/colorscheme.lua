@@ -1,13 +1,11 @@
 vim.cmd [[
 "   set background=dark
-" try
-"   " colorscheme humanoid
-"   colorscheme omni
-"   " colorscheme base16-ayu-dark
-" catch /^Vim\%((\a\+)\)\=:E185/
-"   colorscheme default
-" endtry
-colorscheme kanagawa
+try
+  colorscheme sonokai
+  let g:sonokai_style = 'atlantis'
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+endtry
 ]]
 
 -- require("one_monokai").setup({
