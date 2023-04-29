@@ -21,6 +21,8 @@ export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/go/bin
 
+[ -f ~/.config/export_chat_gpt_token.sh ] && source ~/.config/export_chat_gpt_token.sh
+
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
