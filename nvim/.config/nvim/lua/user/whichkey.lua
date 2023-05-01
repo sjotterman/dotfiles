@@ -81,7 +81,19 @@ local opts = {
 }
 
 local mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+  ["A"] = { "<cmd>Alpha<cr>", "Alpha" },
+  a = {
+    name = "NeoAI",
+    a = { "<cmd>:NeoAI<cr>", "AI (:NeoAI)" },
+    t = { "<cmd>:NeoAIToggle<cr>", "Toggle" },
+    T = { ":NeoAIToggle ", "Toggle (with Prompt)" },
+    o = { "<cmd>:NeoAIOpen<cr>", "Open" },
+    O = { ":NeoAIOpen ", "Open (with prompt)" },
+    c = { "<cmd>:NeoAIClose<cr>", "Close" },
+    C = { "<cmd>:NeoAIContext<cr>", "Context (buffer)" },
+    i = { "<cmd>:NeoAIInject<cr>", "Inject" },
+    I = { ":NeoAIInject", "Inject (with prompt)" },
+  },
   ["o"] = { "<C-W>o", "Close other windows" },
   d = {
     name = "DiffView",
@@ -181,8 +193,8 @@ local mappings = {
     A = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     a = { "<cmd>CodeActionMenu<cr>", "Regular Code Action" },
     c = { "<cmd>Copilot panel<cr>", "Copilot Panel" },
-    d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to Definition" },
-    D = {
+    D = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to Definition" },
+    d = {
       "<cmd>Telescope diagnostics bufnr=0<cr>",
       "Document Diagnostics",
     },
@@ -366,6 +378,10 @@ local visual_opts = {
 }
 
 local visual_mappings = {
+  a = {
+    name = "NeoAI",
+    C = { "<cmd>:NeoAIContext<cr>", "Context (selected)" },
+  },
   l = {
     name = "LSP",
     a = { "<cmd>CodeActionMenu<cr><esc>", "Advanced Code Action" },
