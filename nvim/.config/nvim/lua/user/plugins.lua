@@ -42,7 +42,7 @@ require("lazy").setup({
   "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
   "folke/which-key.nvim",
   "folke/neodev.nvim",
-  "tpope/vim-surround",
+  { 'echasnovski/mini.nvim',   version = '*' },
   "tpope/vim-unimpaired",
   "gcmt/taboo.vim",
   "romainl/vim-qf",
