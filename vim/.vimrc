@@ -8,6 +8,12 @@ filetype plugin indent on
 syntax on
 set termguicolors
 
+try
+    colorscheme ThemerVim
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme default
+endtry
+
 "
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -166,4 +172,3 @@ endif " has autocmd
 
 " Number of lines of autosuggestions
 set pumheight=7
-
