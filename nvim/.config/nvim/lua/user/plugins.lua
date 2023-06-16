@@ -182,9 +182,15 @@ require("lazy").setup({
   },
   "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
   "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
-  { "j-hui/fidget.nvim", config = function()
-    require("fidget").setup()
-  end },
+  {
+    "j-hui/fidget.nvim",
+    -- TODO: update when the new version is released
+    -- https://github.com/j-hui/fidget.nvim
+    tag = "legacy",
+    config = function()
+      require("fidget").setup()
+    end
+  },
   "AndrewRadev/tagalong.vim",
   "jose-elias-alvarez/typescript.nvim",
   {
