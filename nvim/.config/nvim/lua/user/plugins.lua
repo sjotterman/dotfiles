@@ -73,14 +73,14 @@ require("lazy").setup({
       require("react-extract").setup()
     end,
   },
-  { "fatih/vim-go",            build = ":GoInstallBinaries" },
+  { "fatih/vim-go", build = ":GoInstallBinaries" },
   {
     "folke/trouble.nvim",
     dependencies = "kyazdani42/nvim-web-devicons"
   },
   "https://github.com/alok/notational-fzf-vim",
-  { "junegunn/fzf",           build = "fzf#install()" },
-  "junegunn/fzf",
+  { "junegunn/fzf", build = "fzf#install()" },
+  "junegunn/fzf.vim",
   "christoomey/vim-tmux-navigator",
   'tpope/vim-commentary',
 
