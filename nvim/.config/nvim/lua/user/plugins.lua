@@ -109,12 +109,7 @@ require("lazy").setup({
   'haishanh/night-owl.vim',
 
   -- cmp plugins
-  "hrsh7th/nvim-cmp", -- The completion plugin
-  "hrsh7th/cmp-buffer", -- buffer completions
-  "hrsh7th/cmp-path", -- path completions
   "hrsh7th/cmp-cmdline", -- cmdline completions
-  "saadparwaiz1/cmp_luasnip", -- snippet completions
-  "hrsh7th/cmp-nvim-lsp",
   { 'dmmulroy/tsc.nvim',
     dependencies = {
       "rcarriga/nvim-notify",
@@ -153,26 +148,19 @@ require("lazy").setup({
   },
 
   -- snippets
-  "L3MON4D3/LuaSnip", --snippet engine
-  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
   -- LSP
-  "neovim/nvim-lspconfig", -- enable LSP
   { "williamboman/mason.nvim" },
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v1.x",
     dependencies = {
       -- LSP Support
-      { "williamboman/mason.nvim" },
-      { "williamboman/mason-lspconfig.nvim" },
-
       -- Autocompletion
       { "hrsh7th/nvim-cmp" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
       { "saadparwaiz1/cmp_luasnip" },
-      { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-nvim-lua" },
 
       -- Snippets
@@ -226,9 +214,5 @@ require("lazy").setup({
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
   -- todo: split out the setup function
-  { "akinsho/git-conflict.nvim", version = "*", config = function()
-    require("git-conflict").setup()
-  end },
-  { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
   "github/copilot.vim"
 })
