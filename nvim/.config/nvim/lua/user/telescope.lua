@@ -7,6 +7,15 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
+    file_ignore_patterns = {
+      "node_modules/",
+      ".git/",
+      ".github/",
+      "dist/",
+      "build/",
+      "yarn.lock",
+      "package-lock.json",
+    },
 
     prompt_prefix = " ",
     selection_caret = " ",
@@ -78,20 +87,20 @@ telescope.setup {
     },
   },
   pickers = {
-      buffers = {
-        show_all_buffers = true,
-        sort_lastused = true,
-        theme = "dropdown",
-        previewer = false,
-        mappings = {
-          n = {
-            ["<c-d>"] = "delete_buffer",
-          },
-          i = {
-            ["<c-d>"] = "delete_buffer",
-          }
+    buffers = {
+      show_all_buffers = true,
+      sort_lastused = true,
+      theme = "dropdown",
+      previewer = false,
+      mappings = {
+        n = {
+          ["<c-d>"] = "delete_buffer",
+        },
+        i = {
+          ["<c-d>"] = "delete_buffer",
         }
       }
+    }
   },
   extensions = {
     -- Your extension configuration goes here:
@@ -102,6 +111,7 @@ telescope.setup {
   },
 }
 require('neoclip').setup({
-default_register = '+'
+  default_register = '+'
 })
 telescope.load_extension "neoclip"
+telescope.load_extension "dir"
