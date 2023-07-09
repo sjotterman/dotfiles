@@ -106,7 +106,6 @@ require("lazy").setup({
   },
   'tanvirtin/monokai.nvim',
   '/ray-x/starry.nvim',
-  'haishanh/night-owl.vim',
 
   -- cmp plugins
   "hrsh7th/cmp-cmdline", -- cmdline completions
@@ -147,7 +146,6 @@ require("lazy").setup({
     end,
   },
 
-  -- snippets
 
   -- LSP
   { "williamboman/mason.nvim" },
@@ -156,8 +154,17 @@ require("lazy").setup({
     branch = "v1.x",
     dependencies = {
       -- LSP Support
+      { 'neovim/nvim-lspconfig' }, -- Required
+      { -- Optional
+        'williamboman/mason.nvim',
+        build = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
       -- Autocompletion
       { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
       { "saadparwaiz1/cmp_luasnip" },

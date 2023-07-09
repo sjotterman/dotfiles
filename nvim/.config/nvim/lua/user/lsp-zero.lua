@@ -65,20 +65,36 @@ local function filterReactDTS(value)
   return string.match(value.targetUri, 'react/index.d.ts') == nil
 end
 
-lsp.configure('tsserver', {
-  on_attach = function(client)
-    client.server_capabilities.documentFormattingProvider = false
+-- https://github.com/folke/dot/commit/aef729a076970e770ed84d817419551e82951d2c
+lsp.configure('tailwindcss', {
+  root_dir = function(...)
+    return require("lspconfig.util").root_pattern("package.json", ".git")(...)
   end,
-  handlers = {
-    ['textDocument/definition'] = function(err, result, method, ...)
-      if vim.tbl_islist(result) and #result > 1 then
-        local filtered_result = filter(result, filterReactDTS)
-        return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
-      end
+})
+-- integrate typescreipt.nvim with tsserver
+-- https://github.com/VonHeikemen/lsp-zero.nvim/discussions/39#discussioncomment-3311521
+require("typescript").setup({
+  go_to_source_definition = {
+    fallback = true, -- fall back to standard LSP definition on failure
+  },
+  server = lsp.build_options('tsserver', {
+    root_dir = function(...)
+      return require("lspconfig.util").root_pattern("package.json", ".git")(...)
+    end,
+    on_attach = function(client)
+      client.server_capabilities.documentFormattingProvider = false
+    end,
+    handlers = {
+      ['textDocument/definition'] = function(err, result, method, ...)
+        if vim.tbl_islist(result) and #result > 1 then
+          local filtered_result = filter(result, filterReactDTS)
+          return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
+        end
 
-      vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
-    end
-  }
+        vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
+      end
+    }
+  })
 })
 
 vim.diagnostic.config({
