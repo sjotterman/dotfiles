@@ -214,5 +214,7 @@ require("lazy").setup({
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
   -- todo: split out the setup function
+  { "akinsho/git-conflict.nvim", version = "*",                         config = true },
+  { "sindrets/diffview.nvim",    dependencies = "nvim-lua/plenary.nvim" },
   "github/copilot.vim"
 })
