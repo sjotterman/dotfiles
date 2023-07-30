@@ -48,11 +48,11 @@ export XDG_CONFIG_HOME="$HOME/.config"
 alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 # alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
-alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
+alias nvim-astro="NVIM_APPNAME=astro nvim"
 
 function nvims() {
   # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
-  items=("default" "LazyVim" "NvChad" "AstroNvim")
+  items=("default" "LazyVim" "NvChad" "astro")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
@@ -64,6 +64,7 @@ function nvims() {
 }
 
 # bindkey -s ^a "nvims\n"
+
 
 # ohmyzsh plugins
 # plugins=(git npm zsh-autosuggestions z command-not-found react-native golang gh)
@@ -249,15 +250,15 @@ fi
 #
 # yargs command completion script
 #
-# Installation: /opt/homebrew/bin/gt completion >> ~/.zshrc
-#    or /opt/homebrew/bin/gt completion >> ~/.zprofile on OSX.
+# Installation: /Users/samuel/.local/bin/gt completion >> ~/.zshrc
+#    or /Users/samuel/.local/bin/gt completion >> ~/.zprofile on OSX.
 #
 _gt_yargs_completions()
 {
   local reply
   local si=$IFS
   IFS=$'
-' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" /opt/homebrew/bin/gt --get-yargs-completions "${words[@]}"))
+' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" /Users/samuel/.local/bin/gt --get-yargs-completions "${words[@]}"))
   IFS=$si
   _describe 'values' reply
 }
