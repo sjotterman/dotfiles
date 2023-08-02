@@ -20,6 +20,7 @@ return {
     ["<leader>b"] = { name = "Buffers" },
 
     ["<leader>gG"] = { "<cmd>:vertical Git<CR>", desc = "Fugitive Status"},
+    ["<leader>gq"] = { "<cmd>:vertical Git log --decorate<CR>", desc = "git log (pretty)" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     --Custom tasks
@@ -28,6 +29,14 @@ return {
     ["<leader>kgm"] = { "<cmd>TermExec size=80 direction=vertical cmd=\"z frontend && npm run generate && exit\"<cr>", desc = "Generate Mobile Types"},
     ["<leader>k"] = { name = "Keybinds" },
     ["<leader>kg"] = { name = "Generate types" },
+
+    ["<leader>lt"] = { name = "Typescript" },
+      ["<leader>ltd"] = { "<cmd>TypescriptGoToSourceDefinition<cr>",  desc = "Go to Source Definition" },
+      ["<leader>ltm"] = { "<cmd>TypescriptAddMissingImports<cr>",  desc = "Add Missing Imports" },
+      ["<leader>lto"] = { "<cmd>TypescriptOrganizeImports<cr>",  desc = "Organize Imports" },
+      ["<leader>ltr"] = { "<cmd>TypescriptRenameFile<cr>",  desc = "Rename File" },
+      ["<leader>ltu"] = { "<cmd>TypescriptRemoveUnused<cr>",  desc = "Remove Unused Variables" },
+      ["<leader>lte"] = { "<cmd>:EslintFixAll<cr>",  desc = "Eslint Fix All" },
   },
   t = {
     -- setting a mapping to false will disable it
