@@ -359,13 +359,13 @@ local mappings = {
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register({
-  ["]c"] = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next hunk" },
-  ["[c"] = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev hunk" },
-  ["]g"] = {
+  ["]g"] = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next hunk" },
+  ["[g"] = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev hunk" },
+  ["]d"] = {
     "<cmd>lua vim.diagnostic.goto_next()<CR>",
     "Next Diagnostic",
   },
-  ["[g"] = {
+  ["[d"] = {
     "<cmd>lua vim.diagnostic.goto_prev()<CR>",
     "Prev Diagnostic",
   }
