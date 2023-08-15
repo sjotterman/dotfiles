@@ -9,6 +9,6 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
-  {"tpope/vim-fugitive", lazy = false},
+  { "tpope/vim-fugitive", lazy = false },
   "tpope/vim-rhubarb",
 }

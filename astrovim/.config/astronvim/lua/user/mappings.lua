@@ -40,6 +40,9 @@ return {
       ["<leader>ltu"] = { "<cmd>TypescriptRemoveUnused<cr>",  desc = "Remove Unused Variables" },
       ["<leader>lte"] = { "<cmd>:EslintFixAll<cr>",  desc = "Eslint Fix All" },
   },
+  v = {
+    ["<leader>r"] = { name = "Refactor" },
+  },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,

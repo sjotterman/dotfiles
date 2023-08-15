@@ -1,4 +1,4 @@
-return  {
+return {
   -- customize alpha options
   {
     "goolord/alpha-nvim",
@@ -20,13 +20,14 @@ return  {
       return opts
     end,
   },
-     {
-      "rebelot/heirline.nvim",
-      opts = function(_, opts)
-        opts.winbar = nil
-        return opts
-      end
-    },
+  {
+    "rebelot/heirline.nvim",
+    opts = function(_, opts)
+      opts.winbar = nil
+      return opts
+    end,
+  },
+  -- { "", enabled = false },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --
