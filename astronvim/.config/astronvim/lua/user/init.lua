@@ -48,6 +48,7 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
+      -- "prettier"
       -- "pyright"
     },
   },
@@ -79,10 +80,8 @@ return {
     -- }
     --
     -- is this the best place for this?
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, {
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       update_in_insert = false,
-    }
-    )
+    })
   end,
 }
