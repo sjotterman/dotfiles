@@ -9,6 +9,7 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  {"Yazeed1s/minimal.nvim"},
   { "tpope/vim-fugitive", lazy = false },
   "tpope/vim-rhubarb",
 }

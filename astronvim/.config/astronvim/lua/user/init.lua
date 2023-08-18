@@ -17,7 +17,10 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  -- colorscheme = "astrodark",
+  colorscheme = "tokyonight-night",
+  -- colorscheme = "minimal",
+  -- colorscheme = "nvim-juliana",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -79,6 +82,24 @@ return {
     --   },
     -- }
     --
+    --
+    --
+
+    vim.cmd [[
+    command! W write
+    ]]
+
+    vim.cmd [[
+    command! Wq wq
+    ]]
+
+    vim.cmd [[
+    command! Wqall wqall
+    ]]
+
+    vim.cmd [[
+    command! Vsp vsplit
+    ]]
     -- is this the best place for this?
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       update_in_insert = false,

@@ -49,7 +49,7 @@ defaults:
       assignees:
         width: 20
         hidden: true
-  refetchIntervalMinutes: 15
+  refetchIntervalMinutes: 10
 keybindings:
   issues: []
   prs: []

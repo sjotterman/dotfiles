@@ -8,7 +8,8 @@ return {
     signcolumn = "yes:1",
     wrap = true, -- sets vim.opt.wrap
     winbar="%f %m ",
-    wildmode="full:longest"
+    wildmode="full:longest",
+    foldcolumn="0"
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
