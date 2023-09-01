@@ -156,44 +156,8 @@ go-test-cover () {
         && unlink $t
 }
 
-check-github-notifications () {
-  lines=`gh notify -s | wc -l`
-
-  if ((lines < 1))
-  then
-    echo "No notifications!"
-  else
-    gh notify
-  fi
-}
-
-count-github-notifications () {
-  lines=`gh notify -s | wc -l`
-  RED='\033[0;31m'
-  GREEN='\033[0;32m'
-  PURPLE='\033[0;35m'
-  NC='\033[0m' # No Color
-
-  if ((lines < 1))
-  then
-    printf "${GREEN}$lines notifications!${NC}\n"
-  else
-    printf "${PURPLE}$lines notifications${NC}\n"
-  fi
-}
-
-gn-watch () {
-  while :;
-    do
-    clear
-    date
-    count-github-notifications
-    sleep 120
-  done
-}
 
 alias grr="go run main.go"
-alias gn="check-github-notifications"
 alias :q="exit"
 alias gg="lazygit"
 alias lzn='lazynpm'
