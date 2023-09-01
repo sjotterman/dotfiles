@@ -18,7 +18,7 @@ return {
   },
   -- Set colorscheme to use
   -- colorscheme = "astrodark",
-  colorscheme = "tokyonight-night",
+  colorscheme = "darcubox",
   -- colorscheme = "minimal",
   -- colorscheme = "nvim-juliana",
 
