@@ -32,6 +32,7 @@ return {
     ["<leader>k"] = { name = "Keybinds" },
     ["<leader>kg"] = { name = "Generate types" },
 
+    ["<leader>r"] = { name = "Refactor" },
     ["<leader>lt"] = { name = "Typescript" },
       ["<leader>ltd"] = { "<cmd>TypescriptGoToSourceDefinition<cr>",  desc = "Go to Source Definition" },
       ["<leader>ltm"] = { "<cmd>TypescriptAddMissingImports<cr>",  desc = "Add Missing Imports" },
