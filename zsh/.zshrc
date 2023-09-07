@@ -240,6 +240,8 @@ post_install() {
 alias tea-remote="sh <(curl https://tea.xyz)"
 # Initial setup of a tea environment
 alias tea-sync-env="tea -SE && cd ."
+alias tea-magic-unload="source <(tea --magic=unload)"
+alias tea-magic-load="source <(tea --magic)"
 
 
 if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
@@ -249,4 +251,4 @@ if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
   chruby ruby-3.1.3
 fi
 
-test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic=zsh --silent)
+test -d "$HOME/.tea" && tea-magic-load
