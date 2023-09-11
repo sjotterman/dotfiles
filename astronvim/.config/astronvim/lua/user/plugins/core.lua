@@ -27,6 +27,17 @@ return {
       return opts
     end,
   },
+  {
+  "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      opts.autotag = {
+      -- HACK: remove when https://github.com/windwp/nvim-ts-autotag/issues/125 closed.
+         enable_close_on_slash = false
+      }
+      return opts
+    end,
+  },
+
   -- { "", enabled = false },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },

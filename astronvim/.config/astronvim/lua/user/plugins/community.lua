@@ -15,6 +15,14 @@ return {
   { import = "astrocommunity.motion.mini-bracketed" },
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.motion.harpoon" },
+  {
+    'ThePrimeagen/harpoon',
+    opts = {
+      global_settings = {
+        tabline = true,
+      }
+    }
+  },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.refactoring-nvim" },
   { import = "astrocommunity.editing-support.vim-move" },
