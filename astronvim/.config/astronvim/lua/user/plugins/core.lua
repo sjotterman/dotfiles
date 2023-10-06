@@ -37,6 +37,7 @@ return {
       return opts
     end,
   },
+  {"lukas-reineke/indent-blankline.nvim", enabled = false}
 
   -- { "", enabled = false },
   -- You can disable default plugins as follows:

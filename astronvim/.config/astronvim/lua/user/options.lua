@@ -9,7 +9,8 @@ return {
     wrap = true, -- sets vim.opt.wrap
     winbar="%f %m ",
     wildmode="full:longest",
-    foldcolumn="0"
+    foldcolumn="0",
+    scrolloff=8
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
