@@ -98,6 +98,10 @@ return {
     ]]
 
     vim.cmd [[
+    command! Qall qall
+    ]]
+
+    vim.cmd [[
     command! Vsp vsplit
     ]]
     -- is this the best place for this?

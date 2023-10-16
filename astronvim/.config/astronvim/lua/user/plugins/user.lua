@@ -10,8 +10,18 @@ return {
   --   end,
   -- },
   { "tpope/vim-fugitive", lazy = false },
-  "tpope/vim-rhubarb",
+  { "tpope/vim-rhubarb", lazy = false },
   {
     "dotsilas/darcubox-nvim",
+  },
+  {
+    "ThePrimeagen/harpoon",
+    config = function()
+      require("harpoon").setup {
+        menu = {
+          width = math.max(75, vim.api.nvim_win_get_width(0) - 4),
+        },
+      }
+    end,
   },
 }
