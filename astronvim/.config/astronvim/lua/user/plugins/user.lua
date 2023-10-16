@@ -9,8 +9,8 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
-  { "tpope/vim-fugitive", lazy = false },
-  { "tpope/vim-rhubarb", lazy = false },
+  { "tpope/vim-fugitive", event = "User AstroGitFile" },
+  { "tpope/vim-rhubarb", event = "User AstroGitFile" },
   {
     "dotsilas/darcubox-nvim",
   },
