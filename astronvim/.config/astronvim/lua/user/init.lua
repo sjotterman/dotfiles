@@ -30,6 +30,13 @@ return {
   lsp = {
     -- customize lsp formatting options
     formatting = {
+      -- use prettier, not tsserver, to format
+      -- https://docs.astronvim.com/recipes/advanced_lsp/
+      -- https://github.com/AstroNvim/AstroNvim/issues/1440#issuecomment-1348491819
+      filter = function(client)
+        if client.name == "tsserver" then return false end
+        return true
+      end,
       -- control auto formatting on save
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
