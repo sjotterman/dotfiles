@@ -214,15 +214,15 @@ fi
 #
 # yargs command completion script
 #
-# Installation: /Users/samuel/.local/bin/gt completion >> ~/.zshrc
-#    or /Users/samuel/.local/bin/gt completion >> ~/.zprofile on OSX.
+# Installation: gt completion >> ~/.zshrc
+#    or gt completion >> ~/.zprofile on OSX.
 #
 _gt_yargs_completions()
 {
   local reply
   local si=$IFS
   IFS=$'
-' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" /Users/samuel/.local/bin/gt --get-yargs-completions "${words[@]}"))
+' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" gt --get-yargs-completions "${words[@]}"))
   IFS=$si
   _describe 'values' reply
 }
@@ -237,7 +237,6 @@ post_install() {
 
 # update tea or run it remotely
 
-# Initial setup of a tea environment
 
 
 if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
@@ -247,4 +246,4 @@ if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
   chruby ruby-3.1.3
 fi
 
-test -d "$HOME/.tea" && tea-magic-load
+source <(pkgx --shellcode)  #docs.pkgx.sh/shellcode
