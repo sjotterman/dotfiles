@@ -17,8 +17,9 @@ return {
     },
   },
   -- Set colorscheme to use
-  -- colorscheme = "astrodark",
-  colorscheme = "darcubox",
+  colorscheme = "astrodark",
+  -- colorscheme = "darcubox",
+  -- colorscheme = "onedark",
   -- colorscheme = "minimal",
   -- colorscheme = "nvim-juliana",
 

@@ -3,12 +3,11 @@ return {
   "AstroNvim/astrocommunity",
   -- example of imporing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
-
-  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.sonokai" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.git.diffview-nvim" },
@@ -16,12 +15,12 @@ return {
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.motion.harpoon" },
   {
-    'ThePrimeagen/harpoon',
+    "ThePrimeagen/harpoon",
     opts = {
       global_settings = {
         tabline = true,
-      }
-    }
+      },
+    },
   },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.refactoring-nvim" },
