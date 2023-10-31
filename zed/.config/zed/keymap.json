@@ -1,0 +1,25 @@
+[
+{
+  "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+  "bindings": {
+    // put key-bindings here if you want them to work only in normal mode
+    "shift-k": "editor::Hover",
+    "ctrl-h": [
+        "workspace::ActivatePaneInDirection",
+        "Left"
+      ],
+      "ctrl-l": [
+        "workspace::ActivatePaneInDirection",
+        "Right"
+      ]
+      "ctrl-k": [
+        "workspace::ActivatePaneInDirection",
+        "Up"
+      ],
+      "ctrl-j": [
+        "workspace::ActivatePaneInDirection",
+        "Down"
+      ]
+  }
+}
+]
