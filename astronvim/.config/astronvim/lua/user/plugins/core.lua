@@ -37,7 +37,15 @@ return {
       return opts
     end,
   },
-  {"lukas-reineke/indent-blankline.nvim", enabled = false}
+  { "lukas-reineke/indent-blankline.nvim", enabled = false },
+  {
+    "akinsho/toggleterm.nvim",
+    opts = {
+      float_opts = {
+        height = 9999,
+      },
+    },
+  },
 
   -- { "", enabled = false },
   -- You can disable default plugins as follows:
