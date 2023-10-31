@@ -11,13 +11,29 @@
       "ctrl-l": [
         "workspace::ActivatePaneInDirection",
         "Right"
-      ]
+      ],
       "ctrl-k": [
         "workspace::ActivatePaneInDirection",
         "Up"
       ],
       "ctrl-j": [
         "workspace::ActivatePaneInDirection",
+        "Down"
+      ],
+      "] g": [
+        "editor::GoToHunk",
+        "Down"
+      ],
+      "[ g": [
+        "editor::GoToPrevHunk",
+        "Down"
+      ],
+      "] d": [
+        "editor::GoToDiagnostic",
+        "Down"
+      ],
+      "[ d": [
+        "editor::GoToPrevDiagnostic",
         "Down"
       ]
   }
