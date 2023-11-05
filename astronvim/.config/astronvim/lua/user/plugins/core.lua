@@ -28,11 +28,11 @@ return {
     end,
   },
   {
-  "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       opts.autotag = {
-      -- HACK: remove when https://github.com/windwp/nvim-ts-autotag/issues/125 closed.
-         enable_close_on_slash = false
+        -- HACK: remove when https://github.com/windwp/nvim-ts-autotag/issues/125 closed.
+        enable_close_on_slash = false,
       }
       return opts
     end,

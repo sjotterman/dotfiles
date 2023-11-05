@@ -4,6 +4,8 @@
   "bindings": {
     // put key-bindings here if you want them to work only in normal mode
     "shift-k": "editor::Hover",
+    "space f f": "file_finder::Toggle",
+    "space f w": "workspace::NewSearch",
     "ctrl-h": [
         "workspace::ActivatePaneInDirection",
         "Left"
@@ -35,7 +37,10 @@
       "[ d": [
         "editor::GoToPrevDiagnostic",
         "Down"
-      ]
+      ],
+      // unsure about these
+      "] q": "search::SelectNextMatch",
+      "[ q": "search::SelectPrevMatch"
   }
 }
 ]
