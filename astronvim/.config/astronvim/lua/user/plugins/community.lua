@@ -8,6 +8,7 @@ return {
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.git.diffview-nvim" },

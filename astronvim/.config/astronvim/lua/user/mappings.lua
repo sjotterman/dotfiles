@@ -19,6 +19,7 @@ return {
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
 
+    ["<leader>F"] = { "<cmd>Telescope flutter commands<cr>", desc = "Flutter" },
     ["<leader>gG"] = { "<cmd>:vertical Git<CR>", desc = "Fugitive Status"},
     ["<leader>gq"] = { "<cmd>:vertical Git log --decorate<CR>", desc = "git log (pretty)" },
     -- I don't use the default gL, which opens a popup with blame info

@@ -41,7 +41,7 @@ setopt AUTO_LIST NO_MENUCOMPLETE
 # https://github.com/dlvhdr/gh-prs/issues/82
 # once this issue is closed, this line can be deleted
 export XDG_CONFIG_HOME="$HOME/.config"
-
+alias metro='dart run nylo_framework:main'
 # neovim config switcher
 # https://www.youtube.com/watch?v=LkHjJlSgKZY&t=269s
 # https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
