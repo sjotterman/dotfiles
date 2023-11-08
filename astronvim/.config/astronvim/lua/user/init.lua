@@ -29,6 +29,10 @@ return {
     underline = true,
   },
   lsp = {
+    mappings = function(table)
+      table.n.gd = { "<cmd>lua My_go_to_definition()<cr>", desc = "Go to definition" }
+      return table
+    end,
     -- customize lsp formatting options
     formatting = {
       -- use prettier, not tsserver, to format
@@ -92,6 +96,15 @@ return {
     --
     --
     --
+    --- If we're in a TS file, use the TypeScript go to source definition, which skips
+    --- the generated d.ts files
+    function My_go_to_definition()
+      if vim.bo.filetype == "typescript" or vim.bo.filetype == "typescriptreact" then
+        vim.cmd "TypescriptGoToSourceDefinition"
+      else
+        vim.lsp.buf.definition()
+      end
+    end
 
     vim.cmd [[
     command! W write
