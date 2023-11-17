@@ -9,6 +9,7 @@ return {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+    ["<leader>bh"] = { "<cmd>call DeleteHiddenBuffers()<cr>", desc = "Close Hidden buffers" },
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
@@ -20,7 +21,7 @@ return {
     ["<leader>b"] = { name = "Buffers" },
 
     ["<leader>F"] = { "<cmd>Telescope flutter commands<cr>", desc = "Flutter" },
-    ["<leader>gG"] = { "<cmd>:vertical Git<CR>", desc = "Fugitive Status"},
+    ["<leader>gG"] = { "<cmd>:vertical Git<CR>", desc = "Fugitive Status" },
     ["<leader>gq"] = { "<cmd>:vertical Git log --decorate<CR>", desc = "git log (pretty)" },
     -- I don't use the default gL, which opens a popup with blame info
     ["<leader>gL"] = { "<cmd>:Git blame<CR>", desc = "Git Blame (by line)" },
