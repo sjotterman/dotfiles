@@ -23,25 +23,35 @@ return {
     ["<leader>F"] = { "<cmd>Telescope flutter commands<cr>", desc = "Flutter" },
     ["<leader>gG"] = { "<cmd>:vertical Git<CR>", desc = "Fugitive Status" },
     ["<leader>gq"] = { "<cmd>:vertical Git log --decorate<CR>", desc = "git log (pretty)" },
+    ["<leader>gT"] = { "<cmd>:Gitsigns<CR>", desc = "Gitsigns commands" },
     -- I don't use the default gL, which opens a popup with blame info
     ["<leader>gL"] = { "<cmd>:Git blame<CR>", desc = "Git Blame (by line)" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     --Custom tasks
-    ["<leader>kc"] = { "<cmd>TermExec size=80 direction=vertical cmd=\"z django && make clean-run-backend && exit\"<cr>", desc = "make clean-run-backend"},
-    ["<leader>kgw"] = { "<cmd>TermExec size=80 direction=vertical cmd=\"z web && yarn generate && exit\"<cr>", desc = "Generate Web Types"},
-    ["<leader>kgm"] = { "<cmd>TermExec size=80 direction=vertical cmd=\"z frontend && npm run generate && exit\"<cr>", desc = "Generate Mobile Types"},
+    ["<leader>kc"] = {
+      '<cmd>TermExec size=80 direction=vertical cmd="z django && make clean-run-backend && exit"<cr>',
+      desc = "make clean-run-backend",
+    },
+    ["<leader>kgw"] = {
+      '<cmd>TermExec size=80 direction=vertical cmd="z web && yarn generate && exit"<cr>',
+      desc = "Generate Web Types",
+    },
+    ["<leader>kgm"] = {
+      '<cmd>TermExec size=80 direction=vertical cmd="z frontend && npm run generate && exit"<cr>',
+      desc = "Generate Mobile Types",
+    },
     ["<leader>k"] = { name = "Keybinds" },
     ["<leader>kg"] = { name = "Generate types" },
 
     ["<leader>r"] = { name = "Refactor" },
     ["<leader>lt"] = { name = "Typescript" },
-      ["<leader>ltd"] = { "<cmd>TypescriptGoToSourceDefinition<cr>",  desc = "Go to Source Definition" },
-      ["<leader>ltm"] = { "<cmd>TypescriptAddMissingImports<cr>",  desc = "Add Missing Imports" },
-      ["<leader>lto"] = { "<cmd>TypescriptOrganizeImports<cr>",  desc = "Organize Imports" },
-      ["<leader>ltr"] = { "<cmd>TypescriptRenameFile<cr>",  desc = "Rename File" },
-      ["<leader>ltu"] = { "<cmd>TypescriptRemoveUnused<cr>",  desc = "Remove Unused Variables" },
-      ["<leader>lte"] = { "<cmd>:EslintFixAll<cr>",  desc = "Eslint Fix All" },
+    ["<leader>ltd"] = { "<cmd>TypescriptGoToSourceDefinition<cr>", desc = "Go to Source Definition" },
+    ["<leader>ltm"] = { "<cmd>TypescriptAddMissingImports<cr>", desc = "Add Missing Imports" },
+    ["<leader>lto"] = { "<cmd>TypescriptOrganizeImports<cr>", desc = "Organize Imports" },
+    ["<leader>ltr"] = { "<cmd>TypescriptRenameFile<cr>", desc = "Rename File" },
+    ["<leader>ltu"] = { "<cmd>TypescriptRemoveUnused<cr>", desc = "Remove Unused Variables" },
+    ["<leader>lte"] = { "<cmd>:EslintFixAll<cr>", desc = "Eslint Fix All" },
   },
   v = {
     ["<leader>r"] = { name = "Refactor" },
