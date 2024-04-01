@@ -12,7 +12,9 @@ return {
     ["<leader>bh"] = { "<cmd>call DeleteHiddenBuffers()<cr>", desc = "Close Hidden buffers" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
@@ -33,10 +35,22 @@ return {
       '<cmd>TermExec size=80 direction=vertical cmd="z django && make clean-run-backend && exit"<cr>',
       desc = "make clean-run-backend",
     },
+    ["<leader>ks"] = {
+      '<cmd>TermExec size=80 direction=vertical cmd="z django && make generate-schema && exit"<cr>',
+      desc = "generate django schema",
+    },
     ["<leader>kgw"] = {
       '<cmd>TermExec size=80 direction=vertical cmd="z web && yarn generate && exit"<cr>',
       desc = "Generate Web Types",
     },
+    ["<leader>kt"] = {
+      '<cmd>TermExec size=80 direction=vertical cmd="z capabuild && xc schema-update && exit"<cr>',
+      desc = "generate all types",
+    },
+    -- ["<leader>kx"] = {
+    --   '<cmd>TermExec size=80 direction=vertical cmd="z capabuild && xc_help.sh && exit"<cr>',
+    --   desc = "xc help",
+    -- },
     ["<leader>kgm"] = {
       '<cmd>TermExec size=80 direction=vertical cmd="z frontend && npm run generate && exit"<cr>',
       desc = "Generate Mobile Types",
@@ -52,6 +66,10 @@ return {
     ["<leader>ltr"] = { "<cmd>TypescriptRenameFile<cr>", desc = "Rename File" },
     ["<leader>ltu"] = { "<cmd>TypescriptRemoveUnused<cr>", desc = "Remove Unused Variables" },
     ["<leader>lte"] = { "<cmd>:EslintFixAll<cr>", desc = "Eslint Fix All" },
+    ["<leader>ltw"] = {
+      "<cmd>:DiagWindowShow<cr>",
+      desc = "Show diagnostic window",
+    },
   },
   v = {
     ["<leader>r"] = { name = "Refactor" },

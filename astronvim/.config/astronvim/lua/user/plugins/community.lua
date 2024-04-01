@@ -22,7 +22,16 @@ return {
         tabline = true,
       },
     },
+    config = function()
+      require("harpoon").setup {
+        menu = {
+          width = math.max(75, vim.api.nvim_win_get_width(0) - 4),
+        },
+      }
+    end
   },
+  { import = "astrocommunity.lsp.garbage-day-nvim" },
+  { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.refactoring-nvim" },
   { import = "astrocommunity.editing-support.vim-move" },
