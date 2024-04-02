@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -27,16 +25,23 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
-        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-        wrap = false, -- sets vim.opt.wrap
+        signcolumn = "yes:1",
+        wrap = true, -- sets vim.opt.wrap
+        -- winbar="%f %m ",
+        wildmode="full:longest",
+        foldcolumn="0",
+        scrolloff=8
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        cmp_enabled = true, -- enable completion at start
+        autopairs_enabled = true, -- enable autopairs at start
+        diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -70,6 +75,53 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+        ["<leader>bh"] = { "<cmd>call DeleteHiddenBuffers()<cr>", desc = "Close Hidden buffers" },
+        ["<leader>bD"] = {
+          function()
+            require("astronvim.utils.status").heirline.buffer_picker(
+              function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+            )
+          end,
+          desc = "Pick to close",
+        },
+        -- tables with the `name` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        ["<leader>b"] = { name = "Buffers" },
+
+        ["<leader>F"] = { "<cmd>Telescope flutter commands<cr>", desc = "Flutter" },
+        ["<leader>gG"] = { "<cmd>:vertical Git<CR>", desc = "Fugitive Status" },
+        ["<leader>gq"] = { "<cmd>:vertical Git log --decorate<CR>", desc = "git log (pretty)" },
+        ["<leader>gT"] = { "<cmd>:Gitsigns<CR>", desc = "Gitsigns commands" },
+        -- I don't use the default gL, which opens a popup with blame info
+        ["<leader>gL"] = { "<cmd>:Git blame<CR>", desc = "Git Blame (by line)" },
+        --Custom tasks
+        ["<leader>kc"] = {
+          '<cmd>TermExec size=80 direction=vertical cmd="z django && make clean-run-backend && exit"<cr>',
+          desc = "make clean-run-backend",
+        },
+        ["<leader>ks"] = {
+          '<cmd>TermExec size=80 direction=vertical cmd="z django && make generate-schema && exit"<cr>',
+          desc = "generate django schema",
+        },
+        ["<leader>kgw"] = {
+          '<cmd>TermExec size=80 direction=vertical cmd="z web && yarn generate && exit"<cr>',
+          desc = "Generate Web Types",
+        },
+        ["<leader>kt"] = {
+          '<cmd>TermExec size=80 direction=vertical cmd="z capabuild && xc schema-update && exit"<cr>',
+          desc = "generate all types",
+        },
+        -- ["<leader>kx"] = {
+        --   '<cmd>TermExec size=80 direction=vertical cmd="z capabuild && xc_help.sh && exit"<cr>',
+        --   desc = "xc help",
+        -- },
+        ["<leader>kgm"] = {
+          '<cmd>TermExec size=80 direction=vertical cmd="z frontend && npm run generate && exit"<cr>',
+          desc = "Generate Mobile Types",
+        },
+        ["<leader>k"] = { name = "Keybinds" },
+        ["<leader>kg"] = { name = "Generate types" },
       },
       t = {
         -- setting a mapping to false will disable it
