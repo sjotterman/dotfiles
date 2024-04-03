@@ -6,10 +6,32 @@ return {
 
   -- == Examples of Adding Plugins ==
 
+  { "tpope/vim-fugitive", event = "User AstroGitFile" },
+  { "tpope/vim-rhubarb", event = "User AstroGitFile" },
 
   -- == Examples of Overriding Plugins ==
 
   -- customize alpha options
+  -- {
+  --   "goolord/alpha-nvim",
+  --   opts = function(_, opts)
+  --     -- customize the dashboard header
+  --     opts.section.header.val = {
+  --       " █████  ███████ ████████ ██████   ██████",
+  --       "██   ██ ██         ██    ██   ██ ██    ██",
+  --       "███████ ███████    ██    ██████  ██    ██",
+  --       "██   ██      ██    ██    ██   ██ ██    ██",
+  --       "██   ██ ███████    ██    ██   ██  ██████",
+  --       " ",
+  --       "    ███    ██ ██    ██ ██ ███    ███",
+  --       "    ████   ██ ██    ██ ██ ████  ████",
+  --       "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
+  --       "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
+  --       "    ██   ████   ████   ██ ██      ██",
+  --     }
+  --     return opts
+  --   end,
+  -- },
 
   -- You can disable default plugins as follows:
 
