@@ -31,9 +31,9 @@ return {
         signcolumn = "yes:1",
         wrap = true, -- sets vim.opt.wrap
         -- winbar="%f %m ",
-        wildmode="full:longest",
-        foldcolumn="0",
-        scrolloff=8
+        wildmode = "full:longest",
+        foldcolumn = "0",
+        scrolloff = 8,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -122,6 +122,20 @@ return {
         },
         ["<leader>k"] = { name = "Keybinds" },
         ["<leader>kg"] = { name = "Generate types" },
+        ["<leader>lt"] = { name = "Typescript" },
+        ["<leader>ltd"] = { "<cmd>TSToolsGoToSourceDefinition<cr>", desc = "Go to Source Definition" },
+        ["<leader>ltm"] = { "<cmd>TSToolsAddMissingImports<cr>", desc = "Add Missing Imports" },
+        ["<leader>lto"] = { "<cmd>TSToolsOrganizeImports<cr>", desc = "Organize Imports" },
+        ["<leader>ltf"] = { "<cmd>TSToolsFixAll<cr>", desc = "TS Fix All" },
+        ["<leader>ltr"] = { "<cmd>TSToolsRenameFile<cr>", desc = "Rename File" },
+        ["<leader>ltu"] = { "<cmd>TSToolsRemoveUnused<cr>", desc = "Remove Unused Variables" },
+        ["<leader>ltU"] = { "<cmd>TSToolsRemoveUnusedImports<cr>", desc = "Remove Unused Imports" },
+        ["<leader>ltR"] = { "<cmd>TSToolsFileReferences<cr>", desc = "File References" },
+        ["<leader>lte"] = { "<cmd>:EslintFixAll<cr>", desc = "Eslint Fix All" },
+        ["<leader>ltw"] = {
+          "<cmd>:DiagWindowShow<cr>",
+          desc = "Show diagnostic window",
+        },
       },
       t = {
         -- setting a mapping to false will disable it

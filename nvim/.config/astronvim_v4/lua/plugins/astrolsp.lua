@@ -3,6 +3,16 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+--- If we're in a TS file, use the TypeScript go to source definition, which skips
+--- the generated d.ts files
+function My_go_to_definition()
+  if vim.bo.filetype == "typescript" or vim.bo.filetype == "typescriptreact" then
+    vim.cmd "TSToolsGoToSourceDefinition"
+  else
+    vim.lsp.buf.definition()
+  end
+end
+
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -86,6 +96,7 @@ return {
     mappings = {
       n = {
         gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+        gd = { function() My_go_to_definition() end, desc = "Go to definition" },
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
         -- gD = {
         --   function() vim.lsp.buf.declaration() end,
