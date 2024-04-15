@@ -37,11 +37,10 @@ return {
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
 
-    {
-"nvim-neo-tree/neo-tree.nvim",
-    config = function(plugin, opts)
-      require "astronvim.plugins.configs.neo-tree"(plugin, opts) -- include the default astronvim config that calls the setup call
-      opts.open_files_do_not_replace_types = {"terminal", "trouble", "qf", "fugitive"}
-    end,
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      open_files_do_not_replace_types = { "terminal", "trouble", "qf", "fugitive" },
+    },
   },
 }
