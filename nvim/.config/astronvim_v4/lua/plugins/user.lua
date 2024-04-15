@@ -39,8 +39,9 @@ return {
 
   {
     "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      open_files_do_not_replace_types = { "terminal", "trouble", "qf", "fugitive" },
-    },
+    opts = function(_, opts)
+      opts.enable_git_status = true
+      opts.open_files_do_not_replace_types = { "terminal", "trouble", "qf", "fugitive" }
+    end,
   },
 }
