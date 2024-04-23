@@ -41,6 +41,9 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts)
       opts.enable_git_status = true
+      -- I think this is what fixes an issue with Fugituve (neo-tree auto opens
+      -- on opening Fugitive status)
+      opts.follow_current_file = false
       opts.open_files_do_not_replace_types = { "terminal", "trouble", "qf", "fugitive" }
     end,
   },
