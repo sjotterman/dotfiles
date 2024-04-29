@@ -45,7 +45,7 @@ return {
       -- on opening Fugitive status)
       opts.follow_current_file = false
       opts.open_files_do_not_replace_types = { "terminal", "trouble", "qf", "fugitive" }
-      opts.hijack_netrw_behavior = false
+      opts.hijack_netrw_behavior = "disabled"
     end,
   },
 }
