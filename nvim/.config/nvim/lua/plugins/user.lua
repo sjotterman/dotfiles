@@ -4,6 +4,7 @@
 ---@type LazySpec
 return {
 
+  { "rebelot/heirline.nvim", opts = function(_, opts) opts.winbar = nil end },
   -- == Examples of Adding Plugins ==
 
   { "tpope/vim-fugitive", event = "User AstroGitFile" },

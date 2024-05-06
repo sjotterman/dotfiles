@@ -31,7 +31,7 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes:1",
         wrap = true, -- sets vim.opt.wrap
-        -- winbar="%f %m ",
+        winbar = "%f %m ",
         wildmode = "full:longest",
         foldcolumn = "0",
         scrolloff = 8,
