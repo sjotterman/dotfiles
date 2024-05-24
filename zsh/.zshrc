@@ -21,6 +21,8 @@ export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/go/bin
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+
 [ -f ~/.config/export_chat_gpt_token.sh ] && source ~/.config/export_chat_gpt_token.sh
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -231,11 +233,8 @@ compdef _gt_yargs_completions gt
 
 # After a fresh install
 post_install() {
-  sh <(curl https://tea.xyz)
   curl -sS https://starship.rs/install.sh | sh
 }
-
-# update tea or run it remotely
 
 
 
@@ -246,4 +245,3 @@ if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
   chruby ruby-3.1.3
 fi
 
-source <(pkgx --shellcode)  #docs.pkgx.sh/shellcode
