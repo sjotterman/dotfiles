@@ -90,7 +90,6 @@ return {
         -- this is useful for naming menus
         ["<leader>b"] = { name = "Buffers" },
 
-        ["<leader>F"] = { "<cmd>Telescope flutter commands<cr>", desc = "Flutter" },
         ["<leader>gG"] = { "<cmd>:vertical Git<CR>", desc = "Fugitive Status" },
         ["<leader>gq"] = { "<cmd>:vertical Git log --decorate<CR>", desc = "git log (pretty)" },
         ["<leader>gT"] = { "<cmd>:Gitsigns<CR>", desc = "Gitsigns commands" },
@@ -113,10 +112,6 @@ return {
           '<cmd>TermExec size=80 direction=vertical cmd="z capabuild && xc schema-update && exit"<cr>',
           desc = "generate all types",
         },
-        -- ["<leader>kx"] = {
-        --   '<cmd>TermExec size=80 direction=vertical cmd="z capabuild && xc_help.sh && exit"<cr>',
-        --   desc = "xc help",
-        -- },
         ["<leader>kgm"] = {
           '<cmd>TermExec size=80 direction=vertical cmd="z frontend && npm run generate && exit"<cr>',
           desc = "Generate Mobile Types",
@@ -124,19 +119,15 @@ return {
         ["<leader>k"] = { name = "Keybinds" },
         ["<leader>kg"] = { name = "Generate types" },
         ["<leader>lt"] = { name = "Typescript" },
-        ["<leader>ltd"] = { "<cmd>TSToolsGoToSourceDefinition<cr>", desc = "Go to Source Definition" },
-        ["<leader>ltm"] = { "<cmd>TSToolsAddMissingImports<cr>", desc = "Add Missing Imports" },
-        ["<leader>lto"] = { "<cmd>TSToolsOrganizeImports<cr>", desc = "Organize Imports" },
-        ["<leader>ltf"] = { "<cmd>TSToolsFixAll<cr>", desc = "TS Fix All" },
-        ["<leader>ltr"] = { "<cmd>TSToolsRenameFile<cr>", desc = "Rename File" },
-        ["<leader>ltu"] = { "<cmd>TSToolsRemoveUnused<cr>", desc = "Remove Unused Variables" },
-        ["<leader>ltU"] = { "<cmd>TSToolsRemoveUnusedImports<cr>", desc = "Remove Unused Imports" },
-        ["<leader>ltR"] = { "<cmd>TSToolsFileReferences<cr>", desc = "File References" },
+        ["<leader>ltd"] = { "<cmd>VtsExec goto_source_definition<cr>", desc = "Go to Source Definition" },
+        ["<leader>ltm"] = { "<cmd>VtsExec add_missing_imports<cr>", desc = "Add Missing Imports" },
+        ["<leader>lto"] = { "<cmd>VtsExec organize_imports<cr>", desc = "Organize Imports" },
+        ["<leader>ltf"] = { "<cmd>VtsExec fix_all<cr>", desc = "TS Fix All" },
+        ["<leader>ltr"] = { "<cmd>VtsExec rename_file<cr>", desc = "Rename File" },
+        ["<leader>ltu"] = { "<cmd>VtsExec remove_unused<cr>", desc = "Remove Unused Variables" },
+        ["<leader>ltU"] = { "<cmd>VtsExec remove_unused_imports<cr>", desc = "Remove Unused Imports" },
+        ["<leader>ltR"] = { "<cmd>VtsExec file_references<cr>", desc = "File References" },
         ["<leader>lte"] = { "<cmd>:EslintFixAll<cr>", desc = "Eslint Fix All" },
-        ["<leader>ltw"] = {
-          "<cmd>:DiagWindowShow<cr>",
-          desc = "Show diagnostic window",
-        },
       },
       t = {
         -- setting a mapping to false will disable it
