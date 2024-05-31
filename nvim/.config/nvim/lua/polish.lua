@@ -5,5 +5,4 @@
 -- Set up custom filetypes
 vim.cmd [[command! Qa :qa]]
 vim.cmd [[command! Qall :qa]]
-vim.cmd [[command! Qall! :qa~]]
 vim.cmd [[command! Q :q]]

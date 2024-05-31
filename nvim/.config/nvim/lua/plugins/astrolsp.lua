@@ -7,7 +7,7 @@
 --- the generated d.ts files
 function My_go_to_definition()
   if vim.bo.filetype == "typescript" or vim.bo.filetype == "typescriptreact" then
-    vim.cmd "TSToolsGoToSourceDefinition"
+    vim.cmd "VtsExec goto_source_definition"
   else
     vim.lsp.buf.definition()
   end
