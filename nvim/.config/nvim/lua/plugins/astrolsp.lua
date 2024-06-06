@@ -42,6 +42,7 @@ return {
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         "pyright",
         "tsserver",
+        "vtsls",
         "eslint",
         "typescript-tools",
       },
