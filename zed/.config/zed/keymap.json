@@ -1,5 +1,14 @@
 [
 {
+  "context": "Dock",
+  "bindings": {
+    "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+    "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+    "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+    "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+  }
+},
+{
   "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
   "bindings": {
     // put key-bindings here if you want them to work only in normal mode
