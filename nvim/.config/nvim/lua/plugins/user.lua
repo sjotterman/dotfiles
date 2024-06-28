@@ -9,6 +9,15 @@ return {
 
   { "tpope/vim-fugitive", event = "User AstroGitFile" },
   { "tpope/vim-rhubarb", event = "User AstroGitFile" },
+  {
+    "akinsho/toggleterm.nvim",
+    opts = function(_, opts)
+      opts.float_opts = {
+        width = vim.o.columns,
+        height = vim.o.lines - 4,
+      }
+    end,
+  },
 
   -- == Examples of Overriding Plugins ==
 
