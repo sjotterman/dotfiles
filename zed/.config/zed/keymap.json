@@ -1,55 +1,56 @@
 [
-{
-  "context": "Dock",
-  "bindings": {
-    "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-    "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-    "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-    "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
-  }
-},
-{
-  "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
-  "bindings": {
-    // put key-bindings here if you want them to work only in normal mode
-    "shift-k": "editor::Hover",
-    "space f f": "file_finder::Toggle",
-    "space f w": "workspace::NewSearch",
-    "ctrl-h": [
-        "workspace::ActivatePaneInDirection",
-        "Left"
-      ],
-      "ctrl-l": [
-        "workspace::ActivatePaneInDirection",
-        "Right"
-      ],
-      "ctrl-k": [
-        "workspace::ActivatePaneInDirection",
-        "Up"
-      ],
-      "ctrl-j": [
-        "workspace::ActivatePaneInDirection",
-        "Down"
-      ],
-      "] g": [
-        "editor::GoToHunk",
-        "Down"
-      ],
-      "[ g": [
-        "editor::GoToPrevHunk",
-        "Down"
-      ],
-      "] d": [
-        "editor::GoToDiagnostic",
-        "Down"
-      ],
-      "[ d": [
-        "editor::GoToPrevDiagnostic",
-        "Down"
-      ],
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work only in normal mode
+      "shift-k": "editor::Hover",
+      "space f f": "file_finder::Toggle",
+      "space f w": "workspace::NewSearch",
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      // "] g": [
+      //   "editor::GoToHunk",
+      //   "Down"
+      // ],
+      // "[ g": [
+      //   "editor::GoToPrevHunk",
+      //   "Down"
+      // ],
+      // "] d": [
+      //   "editor::GoToDiagnostic",
+      //   "Down"
+      // ],
+      // "[ d": [
+      //   "editor::GoToPrevDiagnostic",
+      //   "Down"
+      // ],
       // unsure about these
       "] q": "search::SelectNextMatch",
       "[ q": "search::SelectPrevMatch"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": ["terminal::SendKeystroke", "ctrl-h"],
+      "ctrl-l": ["terminal::SendKeystroke", "ctrl-l"]
+    }
   }
-}
 ]
