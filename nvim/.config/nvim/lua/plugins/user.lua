@@ -7,6 +7,7 @@ return {
   { "rebelot/heirline.nvim", opts = function(_, opts) opts.winbar = nil end },
   -- == Examples of Adding Plugins ==
 
+  { "max397574/better-escape.nvim", enabled = false },
   { "tpope/vim-fugitive", event = "User AstroGitFile" },
   { "tpope/vim-rhubarb", event = "User AstroGitFile" },
   {
