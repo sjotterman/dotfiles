@@ -59,4 +59,15 @@ return {
       opts.hijack_netrw_behavior = "disabled"
     end,
   },
+  {
+    "ThePrimeagen/harpoon",
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("harpoon").setup {
+        settings = {
+          save_on_toggle = true,
+        },
+      }
+    end,
+  },
 }
