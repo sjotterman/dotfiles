@@ -3,10 +3,37 @@ name = "go"
 auto-format = true
 formatter = { command = "goimports" }
 
+
+[language-server.eslint]
+args = ["--stdio"] # should come by def with helix
+command = "vscode-eslint-language-server"
+
+[language-server.eslint.config]
+nodePath = "" # seems redundant, why do we need to override this, should get detected autom.
+validate = "on" # I assume this enabled eslit to validate the file, which now shows me counts for errors, warnings, etc in helix
+experimental = { useFlatConfig = false } # not sure why this is here
+rulesCustomizations = []
+run = "onType"
+problems = { shortenToSingleLine = false}
+codeAction = { disableRuleComment = { enable = "true" } }
+
+
+[language-server.eslint.config.workingDirectory]
+mode = "auto" # do we need to override this?
+
 [[language]]
 name = "typescript"
-auto-format = true
+roots = ["yarn.lock", "package-lock.json"]
+language-servers = [{ except-features = ["format"], name = "typescript-language-server" }, "eslint"] # shouldn't need to override this
+# formatter = { command = "prettier" }
+# auto-format = true
 
 [[language]]
 name = "tsx"
-auto-format = true
+roots = ["yarn.lock", "package-lock.json"]
+language-servers = [{ except-features = ["format"], name = "typescript-language-server" }, "eslint"] # shouldn't need to override this
+# roots = [ "tsconfig.json", ".prettierrc.json"] # shouldn't need to override this!
+# formatter = { command = "prettier" } # works without any args, the modifications end up in the buffer, unsaved
+# auto-format = true
+
+
