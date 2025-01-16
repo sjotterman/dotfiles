@@ -26,15 +26,15 @@ mode = "auto" # do we need to override this?
 name = "typescript"
 roots = ["yarn.lock", "package-lock.json"]
 language-servers = [{ except-features = ["format"], name = "typescript-language-server" }, "eslint"] # shouldn't need to override this
-# formatter = { command = "prettier" }
-# auto-format = true
+formatter = { command = "prettier", args = ["--parser", "typescript"] } # works without any args, the modifications end up in the buffer, unsaved
+auto-format = true
 
 [[language]]
 name = "tsx"
 roots = ["yarn.lock", "package-lock.json"]
 language-servers = [{ except-features = ["format"], name = "typescript-language-server" }, "eslint"] # shouldn't need to override this
 # roots = [ "tsconfig.json", ".prettierrc.json"] # shouldn't need to override this!
-# formatter = { command = "prettier" } # works without any args, the modifications end up in the buffer, unsaved
-# auto-format = true
+formatter = { command = "prettier", args = ["--parser", "typescript"] } # works without any args, the modifications end up in the buffer, unsaved
+auto-format = true
 
 
