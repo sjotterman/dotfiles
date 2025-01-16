@@ -15,7 +15,8 @@ experimental = { useFlatConfig = false } # not sure why this is here
 rulesCustomizations = []
 run = "onType"
 problems = { shortenToSingleLine = false}
-codeAction = { disableRuleComment = { enable = "true" } }
+codeAction = { disableRuleComment = { enable = true, location = "separateLine" }, showDocumentation = { enable = true } }
+
 
 
 [language-server.eslint.config.workingDirectory]
