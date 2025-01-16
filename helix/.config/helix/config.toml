@@ -5,3 +5,15 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.soft-wrap]
+enable = true
+
+[editor]
+end-of-line-diagnostics = "disable"
+
+[editor.inline-diagnostics]
+# The allowed values for cursor-line and other-lines are: error, warning, info, hint.
+cursor-line = "hint"
+other-lines = "disable"
+
+
