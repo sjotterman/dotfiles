@@ -15,6 +15,8 @@ return {
   { import = "astrocommunity.motion.mini-bracketed" },
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.motion.harpoon" },
-  { import = "astrocommunity.lsp.garbage-day-nvim" },
+  { import = "astrocommunity.colorscheme.cyberdream-nvim" },
+  { import = "astrocommunity.colorscheme.github-nvim-theme" },
+  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   -- import/override with your plugins folder
 }

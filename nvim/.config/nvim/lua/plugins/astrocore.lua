@@ -129,6 +129,13 @@ return {
         ["<leader>ltU"] = { "<cmd>VtsExec remove_unused_imports<cr>", desc = "Remove Unused Imports" },
         ["<leader>ltR"] = { "<cmd>VtsExec file_references<cr>", desc = "File References" },
         ["<leader>lte"] = { "<cmd>:EslintFixAll<cr>", desc = "Eslint Fix All" },
+        ["<leader>j"] = { name = "Notes" },
+        ["<leader>jh"] = { "<cmd>:Telekasten new_note<cr>", desc = "new note" },
+        ["<leader>jd"] = { "<cmd>:Telekasten goto_today<cr>", desc = "daily note" },
+        ["<leader>js"] = { "<cmd>:Telekasten search_notes<cr>", desc = "search" },
+        ["<leader>jp"] = { "<cmd>:Telekasten panel<cr>", desc = "panel" },
+        ["<leader>jf"] = { "<cmd>:Telekasten find_notes<cr>", desc = "find" },
+        ["<leader>j<cr>"] = { "<cmd>:Telekasten toggle_todo<cr>", desc = "toggle_todo" },
       },
       t = {
         -- setting a mapping to false will disable it

@@ -11,6 +11,18 @@ return {
   { "tpope/vim-fugitive", event = "User AstroGitFile" },
   { "tpope/vim-rhubarb", event = "User AstroGitFile" },
   {
+    "prochri/telescope-all-recent.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "kkharji/sqlite.lua",
+      -- optional, if using telescope for vim.ui.select
+      "stevearc/dressing.nvim",
+    },
+    opts = {
+      -- your config goes here
+    },
+  },
+  {
     "akinsho/toggleterm.nvim",
     opts = function(_, opts)
       opts.float_opts = {
@@ -57,6 +69,16 @@ return {
       opts.follow_current_file = false
       opts.open_files_do_not_replace_types = { "terminal", "trouble", "qf", "fugitive" }
       opts.hijack_netrw_behavior = "disabled"
+    end,
+  },
+  {
+    "renerocksai/telekasten.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("telekasten").setup {
+        home = vim.fn.expand "~/Dropbox/notes",
+      }
     end,
   },
   {
