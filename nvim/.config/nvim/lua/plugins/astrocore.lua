@@ -135,6 +135,7 @@ return {
         ["<leader>js"] = { "<cmd>:Telekasten search_notes<cr>", desc = "search" },
         ["<leader>jp"] = { "<cmd>:Telekasten panel<cr>", desc = "panel" },
         ["<leader>jf"] = { "<cmd>:Telekasten find_notes<cr>", desc = "find" },
+        ["<leader>jg"] = { "<cmd>:Telekasten follow_link<cr>", desc = "Go to link" },
         ["<leader>j<cr>"] = { "<cmd>:Telekasten toggle_todo<cr>", desc = "toggle_todo" },
       },
       t = {
