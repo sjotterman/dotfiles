@@ -141,4 +141,14 @@ return {
       }
     end,
   },
+  {
+    "srcery-colors/srcery-vim",
+    lazy = false,
+    config = function()
+      require("notify").setup {
+        merge_duplicates = false,
+        background_colour = "#111111",
+      }
+    end,
+  },
 }
