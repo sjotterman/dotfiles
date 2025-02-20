@@ -1,7 +1,9 @@
 # dotfiles
+
 Manage my dotfiles using GNU Stow
 
 ## Requirements
+
 - Clone this repository as a subdirectory of $HOME
 - Install GNU Stow:
 
@@ -9,10 +11,9 @@ Manage my dotfiles using GNU Stow
 
 `brew install stow`
 
-### Ubunto Installation
+### Ubuntu Installation
 
 `sudo apt install stow`
-
 
 ## Usage
 
