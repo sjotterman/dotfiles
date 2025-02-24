@@ -1,6 +1,6 @@
 [tools]
 node = "20"
-neovim = "0.10.2"
+neovim = "0.10.4"
 "npm:eslint" = "^8.0"
 "npm:vscode-langservers-extracted" = "~4.8.0"
 
