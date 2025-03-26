@@ -23,10 +23,17 @@ return {
     },
   },
   {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      file_types = { "markdown", "Avante" },
+    },
+    ft = { "markdown", "Avante" },
+  },
+  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
-    version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+    version = false,
     opts = {
       -- add any opts here
     },
@@ -151,4 +158,7 @@ return {
       }
     end,
   },
+  { "glepnir/oceanic-material" },
+  { "NTBBloodbath/doom-one.nvim" },
+  { "ayu-theme/ayu-vim" },
 }
