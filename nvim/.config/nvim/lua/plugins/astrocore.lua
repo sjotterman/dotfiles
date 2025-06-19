@@ -10,10 +10,10 @@ return {
   opts = {
     -- Configure core features of AstroNvim
     features = {
-      large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
+      large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
       cmp = true, -- enable completion at start
-      diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
+      diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic settings on startup
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
@@ -21,7 +21,6 @@ return {
     diagnostics = {
       virtual_text = true,
       underline = true,
-      update_in_insert = false,
     },
     -- vim options can be configured here
     options = {
@@ -29,21 +28,16 @@ return {
         relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
-        signcolumn = "yes:1",
-        wrap = true, -- sets vim.opt.wrap
-        winbar = "%f %m ",
+        signcolumn = "yes", -- sets vim.opt.signcolumn to yes
+        wrap = false, -- sets vim.opt.wrap
         wildmode = "full:longest",
         foldcolumn = "0",
         scrolloff = 8,
-        showtabline = 0,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
-        cmp_enabled = true, -- enable completion at start
-        autopairs_enabled = true, -- enable autopairs at start
-        diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -53,43 +47,21 @@ return {
       n = {
         -- second key is the lefthand side of the map
 
-        -- navigate buffer tabs with `H` and `L`
-        -- L = {
-        --   function() require("astrocore.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-        --   desc = "Next buffer",
-        -- },
-        -- H = {
-        --   function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-        --   desc = "Previous buffer",
-        -- },
+        -- navigate buffer tabs
+        ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
-        ["<Leader>bD"] = {
+        ["<Leader>bd"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
               function(bufnr) require("astrocore.buffer").close(bufnr) end
             )
           end,
-          desc = "Pick to close",
+          desc = "Close buffer from tabline",
         },
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        ["<Leader>b"] = { desc = "Buffers" },
-        -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
         ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
         ["<leader>bh"] = { "<cmd>call DeleteHiddenBuffers()<cr>", desc = "Close Hidden buffers" },
-        ["<leader>bD"] = {
-          function()
-            require("astronvim.utils.status").heirline.buffer_picker(
-              function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
-            )
-          end,
-          desc = "Pick to close",
-        },
-        -- tables with the `name` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        ["<leader>b"] = { name = "Buffers" },
 
         ["<leader>gG"] = { "<cmd>:vertical Git<CR>", desc = "Fugitive Status" },
         ["<leader>gq"] = { "<cmd>:vertical Git log --decorate<CR>", desc = "git log (pretty)" },
@@ -137,10 +109,12 @@ return {
         ["<leader>jf"] = { "<cmd>:Telekasten find_notes<cr>", desc = "find" },
         ["<leader>jg"] = { "<cmd>:Telekasten follow_link<cr>", desc = "Go to link" },
         ["<leader>j<cr>"] = { "<cmd>:Telekasten toggle_todo<cr>", desc = "toggle_todo" },
-      },
-      t = {
+        -- tables with just a `desc` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        -- ["<Leader>b"] = { desc = "Buffers" },
+
         -- setting a mapping to false will disable it
-        -- ["<esc>"] = false,
+        -- ["<C-S>"] = false,
       },
     },
   },

@@ -1,20 +1,18 @@
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 -- This will run last in the setup process and is a good place to configure
--- things like custom filetypes. This just pure lua so anything that doesn't
+-- things like custom filetypes. This is just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
 
 -- Set up custom filetypes
-vim.cmd [[command! Qa :qa]]
-vim.cmd [[command! Qall :qa]]
-vim.cmd [[command! Q :q]]
-
-vim.cmd [[
-augroup jslint
-  autocmd!
-  au BufNewFile,BufRead *.js set makeprg=yarn\ lint\ --format\ unix\ 2>&1\ \\\|\ grep\ -E\ '^[^\ ].*:[0-9]+:[0-9]+:'
-  au BufNewFile,BufRead *.jsx set makeprg=yarn\ lint\ --format\ unix\ 2>&1\ \\\|\ grep\ -E\ '^[^\ ].*:[0-9]+:[0-9]+:'
-  au BufNewFile,BufRead *.ts set makeprg=yarn\ lint\ --format\ unix\ 2>&1\ \\\|\ grep\ -E\ '^[^\ ].*:[0-9]+:[0-9]+:'
-  au BufNewFile,BufRead *.tsx set makeprg=yarn\ lint\ --format\ unix\ 2>&1\ \\\|\ grep\ -E\ '^[^\ ].*:[0-9]+:[0-9]+:'
-augroup END
-
-command! -nargs=0 Lint :make <bar> copen
-]]
+vim.filetype.add {
+  extension = {
+    foo = "fooscript",
+  },
+  filename = {
+    ["Foofile"] = "fooscript",
+  },
+  pattern = {
+    ["~/%.config/foo/.*"] = "fooscript",
+  },
+}
