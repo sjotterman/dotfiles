@@ -33,6 +33,7 @@ return {
         wildmode = "full:longest",
         foldcolumn = "0",
         scrolloff = 8,
+        winbar = "%f %m ",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
