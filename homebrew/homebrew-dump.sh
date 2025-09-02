@@ -1,2 +1,2 @@
 #! /usr/bin/env bash
-brew bundle dump -f ~/Brewfile
+brew bundle dump --file ~/Brewfile
