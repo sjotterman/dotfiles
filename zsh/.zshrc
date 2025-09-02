@@ -237,4 +237,4 @@ if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
   source /opt/homebrew/opt/chruby/share/chruby/auto.sh
   chruby ruby-3.1.3
 fi
-eval "$(/opt/homebrew/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
