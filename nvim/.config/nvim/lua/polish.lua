@@ -2,14 +2,14 @@ vim.cmd [[command! Qa :qa]]
 vim.cmd [[command! Qall :qa]]
 vim.cmd [[command! Q :q]]
 
-vim.cmd [[
-augroup jslint
-  autocmd!
-  au BufNewFile,BufRead *.js set makeprg=yarn\ lint\ --format\ unix\ 2>&1\ \\\|\ grep\ -E\ '^[^\ ].*:[0-9]+:[0-9]+:'
-  au BufNewFile,BufRead *.jsx set makeprg=yarn\ lint\ --format\ unix\ 2>&1\ \\\|\ grep\ -E\ '^[^\ ].*:[0-9]+:[0-9]+:'
-  au BufNewFile,BufRead *.ts set makeprg=yarn\ lint\ --format\ unix\ 2>&1\ \\\|\ grep\ -E\ '^[^\ ].*:[0-9]+:[0-9]+:'
-  au BufNewFile,BufRead *.tsx set makeprg=yarn\ lint\ --format\ unix\ 2>&1\ \\\|\ grep\ -E\ '^[^\ ].*:[0-9]+:[0-9]+:'
-augroup END
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+  callback = function() vim.cmd "compiler eslint" end,
+})
 
-command! -nargs=0 Lint :make <bar> copen
-]]
+-- Custom :Lint command (runs make and opens quickfix only if there are items)
+vim.api.nvim_create_user_command("Lint", function()
+  vim.cmd "make"
+  -- Only open quickfix if there are items to display
+  if vim.fn.len(vim.fn.getqflist()) > 0 then vim.cmd "copen" end
+end, {})
