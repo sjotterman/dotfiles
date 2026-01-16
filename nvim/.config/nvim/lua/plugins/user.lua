@@ -31,6 +31,61 @@ return {
       },
     },
   },
+  {
+    "folke/sidekick.nvim",
+    opts = {
+      -- add any options here
+      cli = {
+        -- mux = {
+        --   backend = "tmux",
+        --   enabled = true,
+        -- },
+      },
+    },
+    keys = {
+      {
+        "<tab>",
+        function()
+          -- if there is a next edit, jump to it, otherwise apply it if any
+          if not require("sidekick").nes_jump_or_apply() then
+            return "<Tab>" -- fallback to normal tab
+          end
+        end,
+        expr = true,
+        desc = "Goto/Apply Next Edit Suggestion",
+      },
+      {
+        "<c-.>",
+        function() require("sidekick.cli").focus() end,
+        mode = { "n", "x", "i", "t" },
+        desc = "Sidekick Switch Focus",
+      },
+      {
+        "<leader>aa",
+        function() require("sidekick.cli").toggle { focus = true } end,
+        desc = "Sidekick Toggle CLI",
+        mode = { "n", "v" },
+      },
+      {
+        "<leader>ac",
+        function() require("sidekick.cli").toggle { name = "claude", focus = true } end,
+        desc = "Sidekick Claude Toggle",
+        mode = { "n", "v" },
+      },
+      {
+        "<leader>ag",
+        function() require("sidekick.cli").toggle { name = "grok", focus = true } end,
+        desc = "Sidekick Grok Toggle",
+        mode = { "n", "v" },
+      },
+      {
+        "<leader>ap",
+        function() require("sidekick.cli").select_prompt() end,
+        desc = "Sidekick Ask Prompt",
+        mode = { "n", "v" },
+      },
+    },
+  },
 
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
@@ -52,8 +107,18 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
       file_types = { "markdown", "Avante" },
+      mode = "legacy",
     },
     ft = { "markdown", "Avante" },
+  },
+  {
+    "hoscarcito/cursor-nvim-plugin",
+    opts = {
+      lazy = false,
+    },
+    config = function()
+      -- Optional configuration
+    end,
   },
   -- {
   --   "yetone/avante.nvim",
@@ -113,6 +178,18 @@ return {
       }
     end,
   },
+  -- {
+  --   "swaits/zellij-nav.nvim",
+  --   lazy = true,
+  --   event = "VeryLazy",
+  --   keys = {
+  --     { "<c-h>", "<cmd>ZellijNavigateLeftTab<cr>", { silent = true, desc = "navigate left or tab" } },
+  --     { "<c-j>", "<cmd>ZellijNavigateDown<cr>", { silent = true, desc = "navigate down" } },
+  --     { "<c-k>", "<cmd>ZellijNavigateUp<cr>", { silent = true, desc = "navigate up" } },
+  --     { "<c-l>", "<cmd>ZellijNavigateRightTab<cr>", { silent = true, desc = "navigate right or tab" } },
+  --   },
+  --   opts = {},
+  -- },
 
   -- == Examples of Overriding Plugins ==
 

@@ -1,0 +1,14 @@
+-- return {
+--   "AstroNvim/astrolsp",
+--   ---@type AstroLSPOpts
+--   opts = {
+--     formatting = {
+--       disabled = {
+--         "prettierd",
+--         "vtsls",
+--         "eslint",
+--         "tsserver",
+--       },
+--     },
+--   },
+-- }

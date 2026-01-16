@@ -30,7 +30,8 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = true, -- sets vim.opt.wrap
-        wildmode = "full:longest",
+        wildmenu = true,
+        wildmode = "longest,list,full",
         foldcolumn = "0",
         scrolloff = 8,
         winbar = "%f %m ",
@@ -78,17 +79,9 @@ return {
           '<cmd>TermExec size=80 direction=vertical cmd="z django && make generate-schema && exit"<cr>',
           desc = "generate django schema",
         },
-        ["<leader>kgw"] = {
-          '<cmd>TermExec size=80 direction=vertical cmd="z web && yarn generate && exit"<cr>',
-          desc = "Generate Web Types",
-        },
-        ["<leader>kt"] = {
-          '<cmd>TermExec size=80 direction=vertical cmd="z capabuild && xc schema-update && exit"<cr>',
-          desc = "generate all types",
-        },
-        ["<leader>kgm"] = {
-          '<cmd>TermExec size=80 direction=vertical cmd="z frontend && npm run generate && exit"<cr>',
-          desc = "Generate Mobile Types",
+        ["<leader>ta"] = {
+          '<cmd>TermExec size=80 direction=vertical cmd="cursor-agent"<cr>',
+          desc = "Cursor in terminal",
         },
         ["<leader>k"] = { name = "Keybinds" },
         ["<leader>kg"] = { name = "Generate types" },
