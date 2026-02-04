@@ -6,7 +6,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
+  -- { import = "astrocommunity.lsp.ts-error-translator-nvim" }, -- disabled: causes nil callback error with aerial.nvim
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.eslint" },
   { import = "astrocommunity.pack.python" },
