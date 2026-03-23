@@ -158,6 +158,7 @@ return {
         height = vim.o.lines - 4,
       }
     end,
+  },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
