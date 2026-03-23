@@ -62,23 +62,16 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
-        ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
         ["<leader>bh"] = { "<cmd>call DeleteHiddenBuffers()<cr>", desc = "Close Hidden buffers" },
 
         ["<leader>gG"] = { "<cmd>:vertical Git<CR>", desc = "Fugitive Status" },
+        ["<leader>gm"] = { "<cmd>:Git mergetool<CR>", desc = "Fugitive Mergetool" },
+        ["<leader>gD"] = { "<cmd>:Gdiffsplit!<CR>", desc = "Fugitive Diff" },
         ["<leader>gq"] = { "<cmd>:vertical Git log --decorate<CR>", desc = "git log (pretty)" },
         ["<leader>gT"] = { "<cmd>:Gitsigns<CR>", desc = "Gitsigns commands" },
         -- I don't use the default gL, which opens a popup with blame info
         ["<leader>gL"] = { "<cmd>:Git blame<CR>", desc = "Git Blame (by line)" },
         --Custom tasks
-        ["<leader>kc"] = {
-          '<cmd>TermExec size=80 direction=vertical cmd="z django && make clean-run-backend && exit"<cr>',
-          desc = "make clean-run-backend",
-        },
-        ["<leader>ks"] = {
-          '<cmd>TermExec size=80 direction=vertical cmd="z django && make generate-schema && exit"<cr>',
-          desc = "generate django schema",
-        },
         ["<leader>ta"] = {
           '<cmd>TermExec size=80 direction=vertical cmd="cursor-agent"<cr>',
           desc = "Cursor in terminal",
@@ -95,14 +88,6 @@ return {
         ["<leader>ltU"] = { "<cmd>VtsExec remove_unused_imports<cr>", desc = "Remove Unused Imports" },
         ["<leader>ltR"] = { "<cmd>VtsExec file_references<cr>", desc = "File References" },
         ["<leader>lte"] = { "<cmd>:EslintFixAll<cr>", desc = "Eslint Fix All" },
-        ["<leader>j"] = { name = "Notes" },
-        ["<leader>jh"] = { "<cmd>:Telekasten new_note<cr>", desc = "new note" },
-        ["<leader>jd"] = { "<cmd>:Telekasten goto_today<cr>", desc = "daily note" },
-        ["<leader>js"] = { "<cmd>:Telekasten search_notes<cr>", desc = "search" },
-        ["<leader>jp"] = { "<cmd>:Telekasten panel<cr>", desc = "panel" },
-        ["<leader>jf"] = { "<cmd>:Telekasten find_notes<cr>", desc = "find" },
-        ["<leader>jg"] = { "<cmd>:Telekasten follow_link<cr>", desc = "Go to link" },
-        ["<leader>j<cr>"] = { "<cmd>:Telekasten toggle_todo<cr>", desc = "toggle_todo" },
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },

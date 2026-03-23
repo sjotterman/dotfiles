@@ -32,57 +32,39 @@ return {
     },
   },
   {
-    "folke/sidekick.nvim",
+    "carlos-algms/agentic.nvim",
+
     opts = {
-      -- add any options here
-      cli = {
-        -- mux = {
-        --   backend = "tmux",
-        --   enabled = true,
-        -- },
-      },
+      -- Available by default: "claude-acp" | "gemini-acp" | "codex-acp" | "opencode-acp" | "cursor-acp" | "auggie-acp"
+      provider = "cursor-acp", -- setting the name here is all you need to get started
     },
+
+    -- these are just suggested keymaps; customize as desired
     keys = {
       {
-        "<tab>",
-        function()
-          -- if there is a next edit, jump to it, otherwise apply it if any
-          if not require("sidekick").nes_jump_or_apply() then
-            return "<Tab>" -- fallback to normal tab
-          end
-        end,
-        expr = true,
-        desc = "Goto/Apply Next Edit Suggestion",
+        "<C-\\>",
+        function() require("agentic").toggle() end,
+        mode = { "n", "v", "i" },
+        desc = "Toggle Agentic Chat",
       },
       {
-        "<c-.>",
-        function() require("sidekick.cli").focus() end,
-        mode = { "n", "x", "i", "t" },
-        desc = "Sidekick Switch Focus",
-      },
-      {
-        "<leader>aa",
-        function() require("sidekick.cli").toggle { focus = true } end,
-        desc = "Sidekick Toggle CLI",
+        "<C-'>",
+        function() require("agentic").add_selection_or_file_to_context() end,
         mode = { "n", "v" },
+        desc = "Add file or selection to Agentic to Context",
       },
       {
-        "<leader>ac",
-        function() require("sidekick.cli").toggle { name = "claude", focus = true } end,
-        desc = "Sidekick Claude Toggle",
-        mode = { "n", "v" },
+        "<C-,>",
+        function() require("agentic").new_session() end,
+        mode = { "n", "v", "i" },
+        desc = "New Agentic Session",
       },
       {
-        "<leader>ag",
-        function() require("sidekick.cli").toggle { name = "grok", focus = true } end,
-        desc = "Sidekick Grok Toggle",
-        mode = { "n", "v" },
-      },
-      {
-        "<leader>ap",
-        function() require("sidekick.cli").select_prompt() end,
-        desc = "Sidekick Ask Prompt",
-        mode = { "n", "v" },
+        "<A-i>r", -- ai Restore
+        function() require("agentic").restore_session() end,
+        desc = "Agentic Restore session",
+        silent = true,
+        mode = { "n", "v", "i" },
       },
     },
   },
@@ -106,16 +88,15 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
-      file_types = { "markdown", "Avante" },
+      file_types = { "markdown", "avante" },
       mode = "legacy",
     },
-    ft = { "markdown", "Avante" },
+    ft = { "markdown", "avante" },
   },
   {
     "hoscarcito/cursor-nvim-plugin",
-    opts = {
-      lazy = false,
-    },
+    lazy = false,
+    opts = {},
     config = function()
       -- Optional configuration
     end,
@@ -177,19 +158,21 @@ return {
         height = vim.o.lines - 4,
       }
     end,
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    requires = {
+      "copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
+    },
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        server = {
+          type = "binary",
+        },
+      }
+    end,
   },
-  -- {
-  --   "swaits/zellij-nav.nvim",
-  --   lazy = true,
-  --   event = "VeryLazy",
-  --   keys = {
-  --     { "<c-h>", "<cmd>ZellijNavigateLeftTab<cr>", { silent = true, desc = "navigate left or tab" } },
-  --     { "<c-j>", "<cmd>ZellijNavigateDown<cr>", { silent = true, desc = "navigate down" } },
-  --     { "<c-k>", "<cmd>ZellijNavigateUp<cr>", { silent = true, desc = "navigate up" } },
-  --     { "<c-l>", "<cmd>ZellijNavigateRightTab<cr>", { silent = true, desc = "navigate right or tab" } },
-  --   },
-  --   opts = {},
-  -- },
 
   -- == Examples of Overriding Plugins ==
 
