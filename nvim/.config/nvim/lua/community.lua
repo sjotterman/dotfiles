@@ -18,5 +18,4 @@ return {
   { import = "astrocommunity.motion.harpoon" },
   { import = "astrocommunity.colorscheme.github-nvim-theme" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
-  { import = "astrocommunity.lsp.garbage-day-nvim" },
 }
