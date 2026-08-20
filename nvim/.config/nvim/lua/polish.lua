@@ -13,3 +13,7 @@ vim.api.nvim_create_user_command("Lint", function()
   -- Only open quickfix if there are items to display
   if vim.fn.len(vim.fn.getqflist()) > 0 then vim.cmd "copen" end
 end, {})
+
+-- Disable automatic comment wrapping and insertion of comment leaders
+vim.cmd "autocmd BufEnter * set formatoptions-=cro"
+vim.cmd "autocmd BufEnter * setlocal formatoptions-=cro"

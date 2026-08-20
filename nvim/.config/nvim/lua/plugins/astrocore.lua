@@ -31,10 +31,11 @@ return {
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = true, -- sets vim.opt.wrap
         wildmenu = true,
-        wildmode = "longest,list,full",
+        wildmode = "list:longest",
         foldcolumn = "0",
         scrolloff = 8,
         winbar = "%f %m ",
+        showtabline = 0,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
