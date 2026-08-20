@@ -7,11 +7,29 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "git": {
+    "inline_blame": {
+      "delay_ms": 1000,
+    },
+    "gutter_debounce": 500,
+  },
+  "which_key": {
+    "delay_ms": 1000,
+    "enabled": true,
+  },
+  "features": {
+    "edit_prediction_provider": "copilot",
+  },
   "base_keymap": "VSCode",
-  "theme": "Modest Dark",
+  "theme": "Sonokai Shusia",
   "buffer_font_size": 19,
   "buffer_font_family": "Hack Nerd Font Mono",
   "vim_mode": true,
   "cursor_blink": false,
-  "soft_wrap": "editor_width"
+  "soft_wrap": "editor_width",
 }
