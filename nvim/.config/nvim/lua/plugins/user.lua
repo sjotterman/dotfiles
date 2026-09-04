@@ -32,6 +32,10 @@ return {
     },
   },
   {
+    "esmuellert/nvim-eslint",
+    config = function() require("nvim-eslint").setup {} end,
+  },
+  {
     "carlos-algms/agentic.nvim",
 
     opts = {

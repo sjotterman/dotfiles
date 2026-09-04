@@ -3,7 +3,7 @@ vim.cmd [[command! Qall :qa]]
 vim.cmd [[command! Q :q]]
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue" },
   callback = function() vim.cmd "compiler eslint" end,
 })
 

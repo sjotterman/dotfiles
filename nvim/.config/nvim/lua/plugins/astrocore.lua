@@ -48,6 +48,40 @@ return {
     mappings = {
       -- first key is the mode
       n = {
+        ["<leader>gr"] = { name = "LSP" },
+        ["<leader>a"] = { name = "AI" },
+        ["<leader>aa"] = {
+          function() require("agentic").add_selection_or_file_to_context() end,
+          desc = "Add to Agentic to Context",
+        },
+        ["<leader>ad"] = {
+          function() require("agentic").add_current_line_diagnostics() end,
+          desc = "Add Diagnostics for current line",
+        },
+        ["<leader>aD"] = {
+          function() require("agentic").add_current_line_diagnostics() end,
+          desc = "Add Diagnostics for current buffer",
+        },
+        ["<leader>an"] = {
+          function() require("agentic").new_session() end,
+          desc = "New Session",
+        },
+        ["<leader>as"] = {
+          function() require("agentic").stop_generation() end,
+          desc = "Stop generation",
+        },
+        ["<leader>ar"] = {
+          function() require("agentic").restore_session() end,
+          desc = "Restore session",
+        },
+        ["<leader>ap"] = {
+          function() require("agentic").switch_provider() end,
+          desc = "Switch ACP provider",
+        },
+        ["<leader>al"] = {
+          function() require("agentic").rotate_layout() end,
+          desc = "Layout rotate",
+        },
         -- second key is the lefthand side of the map
 
         -- navigate buffer tabs
@@ -95,6 +129,17 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+      v = {
+        ["<leader>a"] = { name = "AI" },
+        ["<leader>aa"] = {
+          function() require("agentic").add_selection_or_file_to_context() end,
+          desc = "Add to Agentic to Context",
+        },
+        ["<leader>ad"] = {
+          function() require("agentic").add_current_line_diagnostics() end,
+          desc = "Add Diagnostics for current line",
+        },
       },
     },
   },
