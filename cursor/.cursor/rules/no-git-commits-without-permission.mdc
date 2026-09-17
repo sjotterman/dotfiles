@@ -1,0 +1,23 @@
+---
+description: Never commit to git without explicit user approval
+alwaysApply: true
+---
+
+# Git Commits Require Explicit User Approval
+
+**Never run `git commit` (or any command that creates a commit) without Samuel explicitly asking you to commit.**
+
+This applies to every project, every plan, and every context — no exceptions.
+
+## What to do instead
+
+- Write or edit files freely.
+- Stage files with `git add` only if the user asks.
+- When implementation is complete, tell the user the work is ready and **ask** whether they want to commit, and if so what message to use.
+
+## What counts as a violation
+
+- Running `git commit` as part of implementing a task.
+- Running `git commit` "to finish off" a step.
+- Wrapping a commit in the same tool call as a file write.
+- Any commit made without a direct instruction like "commit this", "go ahead and commit", or equivalent.
