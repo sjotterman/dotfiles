@@ -5,7 +5,25 @@
 ---@type LazySpec
 return {
 
-  { "rebelot/heirline.nvim", opts = function(_, opts) opts.winbar = nil end },
+  {
+    "rebelot/heirline.nvim",
+    opts = function(_, opts) opts.tabline = nil end,
+  },
+  {
+    "jdearmas/taboo",
+    config = function()
+      require("taboo").setup {
+        taboo_tabline = 1,
+        -- taboo_tab_format = " %f%m ",
+        taboo_tab_format = " %p",
+        taboo_renamed_tab_format = " [%l]%m ",
+        taboo_modified_tab_flag = "*",
+        taboo_close_tabs_label = "",
+        taboo_close_tab_label = "x",
+        taboo_unnamed_tab_label = "[no name]",
+      }
+    end,
+  },
   -- == Examples of Overriding Plugins ==
 
   -- customize dashboard options
@@ -104,6 +122,13 @@ return {
         width = vim.o.columns,
         height = vim.o.lines - 4,
       }
+    end,
+  },
+  {
+    "samjwill/nvim-unception",
+    init = function()
+      -- Optional settings go here!
+      -- e.g.) vim.g.unception_open_buffer_in_new_tab = true
     end,
   },
 

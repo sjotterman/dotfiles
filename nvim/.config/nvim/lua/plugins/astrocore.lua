@@ -35,7 +35,7 @@ return {
         foldcolumn = "0",
         scrolloff = 8,
         winbar = "%f %m ",
-        showtabline = 0,
+        showtabline = 2,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -48,6 +48,21 @@ return {
     mappings = {
       -- first key is the mode
       n = {
+        ["<leader>fP"] = {
+          function()
+            require("snacks").picker.files {
+              cwd = vim.fn.expand "~/.cursor/plans",
+              matcher = { sort_empty = true },
+              transform = function(item)
+                local path = require("snacks.picker.util").path(item)
+                local stat = path and vim.uv.fs_stat(path)
+                item.mtime = stat and stat.mtime.sec or 0
+              end,
+              sort = { fields = { "score:desc", "mtime:desc" } },
+            }
+          end,
+          desc = "Find Cursor Plans",
+        },
         ["<leader>gr"] = { name = "LSP" },
         ["<leader>a"] = { name = "AI" },
         ["<leader>aa"] = {
@@ -110,6 +125,23 @@ return {
         ["<leader>ta"] = {
           '<cmd>TermExec size=80 direction=vertical cmd="cursor-agent"<cr>',
           desc = "Cursor in terminal",
+        },
+        ["<leader>tt"] = {
+          "<cmd>ToggleTerm<cr>",
+          desc = "Toggle",
+        },
+        ["<leader>T"] = { name = "Tabs" },
+        ["<leader>Tr"] = {
+          ":TabooRename<Space>",
+          desc = "Rename",
+        },
+        ["<leader>TR"] = {
+          ":TabooReset<Space>",
+          desc = "Reset name",
+        },
+        ["<leader>To"] = {
+          ":TabooOpen<Space>",
+          desc = "Open with name",
         },
         ["<leader>k"] = { name = "Keybinds" },
         ["<leader>kg"] = { name = "Generate types" },
