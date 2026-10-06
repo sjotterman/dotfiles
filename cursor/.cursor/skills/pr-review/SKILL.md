@@ -66,7 +66,8 @@ still belongs in the primary comment when it is on changed code.
    by likelihood of user-facing bugs, unintended behavior, or a later change
    missing one of the copies. Maintainability items come after correctness items.
 5. Default deliverable: one pasteable GitHub **conversation** comment (not
-   Files-changed inlines unless asked). Action, then where, then why.
+   Files-changed inlines unless asked). Action, then where, then **why it is
+   called out** (incorrect behavior, harder to read/track, future miss).
 6. **Then run a normal PR review.** After the checks above, do the other review
    work you would do without this skill (tests, regressions, security-adjacent
    issues in the diff, API/contract breaks, missing coverage, obvious
@@ -117,7 +118,13 @@ correctness. Judge this section by cognitive load: can a reader follow the
 logic, and would a later edit still do what that reader meant? This includes
 but is not limited to:
 
-- Clear and concise naming
+- Clear and concise naming. A good name is a simple way to make the code easier to understand, so names of functions, variables, and types should be accurate and concise. The examples below are not exhaustive.
+  - The name has to make sense for the values it actually takes. `isEqual(user, date)` is a bad name: it does not make sense to check equality of a user and a date. If that operation is real, name the operation.
+  - A parameter or local name that is only a type does not say which value it is. `value`, `data`, `item`, `flag`, and `obj` are the usual cases. `sameResource(decoded, value)` is one: the second argument is a resource id, and `decoded` is only read for `resourceId`.
+  - Do not bake a negative into the name. `isNotReady` and `disableUnless` make the caller write `!isNotReady`, and the next edit inverts the wrong half. Prefer the positive name and negate it at the call.
+  - A read-shaped name should not write. `get`, `is`, `has`, and `check` should not be the name of a function whose main job is to save, delete, or send a response. If it does that work, use an imperative verb.
+  - Follow a consistent pattern for what the function does. Boolean functions look like `isValid()`, `isAdmin()`, `isError()`, and the same shape for `has` and `can`. An imperative verb (`save`, `delete`, `emit`) means the function performs an action. `getNoun()` returns that noun and should not have side effects.
+  - Extracting a complex conditional into a named variable or a well-named function is self-documenting in two ways: the caller is easier to read, and you only open the variable or function when you need to change the condition itself. A function also allows an early return per case, which is easier to follow than one expression.
 - Complex conditionals. Avoid a condition that is hard to read. The more
   complex it is, the more likely a later change will not do what the developer
   intends. Flag an expression that does several of these at once:
@@ -220,9 +227,20 @@ When the finding is a hard-to-follow expression, state the combination the
 reader has to simulate and what a mistaken edit would do. Do not make the
 author reconstruct it.
 
-Each item: **what to change**, then **where**, then **why**. Bake in a caveat
-if the claim is inferred. Repeated issue: one location + a few more + "and
-more" — never a full inventory.
+Each item: **what to change**, then **where**, then **why it is called out**. Be
+brief and specific:
+
+- If there is a potential for **incorrect behavior** (wrong data, dropped
+  filters, swallowed errors, a later edit compiling then doing the wrong
+  thing), say so.
+- If a grab-bag type, tangled conditional, or extra source of truth makes the
+  code **harder to read and harder to track**, say that. Example: one type with
+  many optional fields forces every caller to re-check which fields apply.
+- If the risk is **future** (a new union member, a missed copy of a contract),
+  say that.
+
+Bake in a caveat if the claim is inferred. Repeated issue: one location + a
+few more + "and more" — never a full inventory.
 
 ```markdown
 ## Primary
@@ -231,7 +249,7 @@ more" — never a full inventory.
 
 In [`path`](url) <what to change>. Same in `a.ts`, `b.ts`, and more.
 
-<why, including what could or would go wrong. Caveat if inferred.>
+<why it is called out: incorrect behavior, harder to read/track, and/or a later change will miss this. Caveat if inferred.>
 
 ### 2. <action>
 ...
