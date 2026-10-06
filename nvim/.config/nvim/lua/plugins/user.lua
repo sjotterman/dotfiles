@@ -7,7 +7,10 @@ return {
 
   {
     "rebelot/heirline.nvim",
-    opts = function(_, opts) opts.tabline = nil end,
+    opts = function(_, opts)
+      opts.tabline = nil
+      opts.winbar = nil
+    end,
   },
   {
     "jdearmas/taboo",
@@ -15,7 +18,7 @@ return {
       require("taboo").setup {
         taboo_tabline = 1,
         -- taboo_tab_format = " %f%m ",
-        taboo_tab_format = " %p",
+        taboo_tab_format = " %S",
         taboo_renamed_tab_format = " [%l]%m ",
         taboo_modified_tab_flag = "*",
         taboo_close_tabs_label = "",
@@ -93,8 +96,8 @@ return {
 
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
-  { "tpope/vim-fugitive", event = "User AstroGitFile" },
-  { "tpope/vim-rhubarb", event = "User AstroGitFile" },
+  { "tpope/vim-fugitive",           event = "User AstroGitFile" },
+  { "tpope/vim-rhubarb",            event = "User AstroGitFile" },
   -- {
   --   "prochri/telescope-all-recent.nvim",
   --   dependencies = {

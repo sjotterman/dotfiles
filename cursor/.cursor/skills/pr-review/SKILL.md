@@ -169,6 +169,31 @@ but is not limited to:
   used in some situations instead of `as`. Prefer `unknown` over `any`. If
   `any` is unavoidable, comment **that binding**, not the whole file. No
   file-level `eslint-disable` (especially `no-explicit-any`)
+- Types with many optional fields are a code smell: an indicator that one type
+  is trying to do too much. If we need a type to cover multiple scenarios, a
+  discriminated union might be a good fit. Prefer **named** variant types (and
+  a named base for truly shared fields) over anonymous objects in the union.
+  Optional fields that only apply to some `kind`/`type` values belong on those
+  variants, not on everyone. Prefer types (such as discriminated unions) that
+  allow using control-flow narrowing of types, rather than having to check for
+  specific fields every time (`if (x.options)`, `if (x.columns)`). After
+  `if (x.type === 'select')`, `options` should be in the type, not guessed at.
+- Non-null assertions (`value!`) are the same bug as `as NarrowerType`: they tell
+  the compiler a value is present when it might not be. Prefer a narrow
+  (`if (!x) return`) over `!`
+- Unions that cannot be exhausted: after a `switch` on a discriminant, a
+  `default` that is not `never` (or a missing case) means a later variant
+  compiles and then does the wrong thing at runtime. This is the other half of
+  preferring types that narrow
+- Type predicates that lie: `function isFoo(x: unknown): x is Foo` that does
+  not actually prove `Foo` is `as` with a nicer name. Same family as throwing
+  away type information
+- `Partial<T>` / `Record<string, …>` as the **domain** type. They recreate the
+  bag of optionals: every field is optional or every key is allowed. Fine at a
+  parse boundary; bad as the type the rest of the app uses
+- Unnarrowed values at the boundary: `JSON.parse`, `catch (e)`, `event.target`,
+  query params are `unknown` (or effectively `any`) until you check. Using
+  `.message` or passing them through as a typed object is a hidden `as`
 - ESLint rules should always be followed except in two cases: (1) code that had
   linting issues before the PR, where we don't want to change behavior; (2) code
   that technically breaks a rule, but is actually the best way to do a task.
