@@ -1,0 +1,29 @@
+---
+description: Never run repo-wide commands that rewrite source without asking
+alwaysApply: true
+---
+
+# Repo-wide source rewrites require explicit approval
+
+**Never run a repo-wide command that changes source code without Samuel explicitly asking for that command.**
+
+This applies to every project, every plan, and every context — no exceptions.
+
+## Commands that require a yes first
+
+- `eslint --fix` on a directory or the whole repo, including `eslint --fix .` and `eslint --fix src/`
+- `prettier --write`, `prettier --format`, or any Prettier invocation that rewrites files across a tree
+- `npm run lint` or any other script when that script itself runs a fixer such as `eslint --fix`
+- Codemods, `sed`/`perl` rewrites, or formatters applied across many files
+
+## What to do instead
+
+- Edit the specific files the task requires.
+- Run linters and formatters in check-only mode (`eslint`, `prettier --check`) and report the results.
+- If a fixer would clean things up, stop and ask before running it. Name the command and which files it would change.
+
+## What counts as a violation
+
+- Running `eslint --fix` or Prettier write/format to make a new config pass.
+- "Fixing" a batch of lint or format findings by rewriting the tree.
+- Hiding a fixer inside a larger install, typecheck, or lint step.

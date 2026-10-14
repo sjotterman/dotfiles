@@ -1,0 +1,56 @@
+---
+description: Prefer names and straightforward code a reader can follow. Applies to generated code in every repo unless a repo rule conflicts. A chat-only exception does not change the rule.
+alwaysApply: true
+---
+
+# Code clarity
+
+Write code a reader can understand months later without having this library open in the meantime. A repo that budgets near-zero comments still requires the name to carry the meaning; omit the comment.
+
+## Scope
+
+This rule applies to code you add or edit, in every repository.
+
+A repository `AGENTS.md` or `.cursor/rules` file wins only where it conflicts.
+
+If Samuel says not to follow this guideline, that applies only to the current chat. Do not write that exception into a repo rule, `AGENTS.md`, or a comment that a later session would treat as the default.
+
+Before finishing generated code, check the names and comments you added against this rule. Also read the Correctness and Maintainability sections of `~/.cursor/skills/pr-review/SKILL.md` and fix those issues in the code you added or edited. Do not run that skill's review workflow, and do not write a review. The same scope rules above apply. A later addition to those two sections applies to generation too.
+
+Prefer a name that says what the code does. Use the plain operation, not the jargon of a tool the reader rarely touches. A boolean reads as a boolean (`isShutdownLogStarted`, not `loggingRecorded`). A file name matches what the file contains.
+
+A comment is fine when it adds a detail the name cannot hold: a why, a constraint, a gotcha, or anything else that would not fit in the name. Do not restate the function name. If a comment would only repeat the code, rename the code and delete the comment.
+
+Write every comment for a reader who was not in the conversation that produced it. Name the function, file, or nearby line the comment is about. A comment that only makes sense if the reader remembers a chat, a review, or a plan does not belong in the code.
+
+```typescript
+// The name hides the operation, and the comment only repeats it.
+/** Flushes pending spans. */
+await flushLogs();
+
+// The call site says what happens. No comment needed.
+await sendHeldAuditRecords();
+await closeLogConnection();
+
+// The fatal path does not close the log connection. That is visible
+// because closeLogConnection is absent. Comment the gotcha the name
+// cannot carry: the flag is set when logging starts, so a failed send
+// still blocks a second attempt.
+let isShutdownLogStarted = false;
+
+// "The callback" is whoever was in the chat. The file does not say which one.
+// A failed bind is emitted here. listen()'s callback is only the success path.
+
+// The listen() call is in another file, so the comment names it.
+// listen() in api/index.ts does not receive a bind failure. Node emits that failure here.
+```
+
+## Straightforward code
+
+Ease of reading and maintenance comes before saving characters or lines. Prefer the ordinary form of a pattern when a shorter form is harder to follow.
+
+An async IIFE needs a reason. When a named async function can hold the work, call that function and store its promise. IIFEs are not banned.
+
+A ternary is fine when it stays easy to read. A ternary that spans several lines, or a nested ternary, should be an `if` or a named intermediate. A short ternary in a return or an assignment can stay.
+
+Name a complex expression before using it. That includes a nested call passed as an argument, and an object field set to a long expression. The intermediate is the piece a later edit changes.

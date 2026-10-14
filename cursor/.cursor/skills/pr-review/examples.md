@@ -1,8 +1,8 @@
 # Comment tone
 
-Read this only if unsure how to write an item. The GitHub comment should be
-easy to follow for the PR author and the reviewer. Do not paste these samples
-into a review.
+Read this only if unsure how to write an item. The chat suggestions, and the
+markdown comment if one is requested, should be easy to follow for the PR
+author and the reviewer. Do not paste these samples into a review.
 
 ## Good — repeated issue, once
 

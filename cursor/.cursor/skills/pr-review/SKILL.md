@@ -3,10 +3,12 @@ name: pr-review
 description: >-
   Reviews a PR or branch diff using Samuel's personal review bar: changed
   code must work as intended; then maintainability, clarity, and preventing
-  future issues. Augments a normal PR review rather than replacing it. Use
-  only when explicitly named (e.g. /pr-review, "run my PR review skill",
-  "personal PR review"). Never self-invoke for ordinary coding or generic
-  review requests. For Harmoni evidence-first reviews, use harmoni-pr-review.
+  future issues. Augments a normal PR review rather than replacing it. The
+  review workflow runs only when explicitly named (e.g. /pr-review, "run my
+  PR review skill", "personal PR review"). The Correctness and
+  Maintainability sections are also the bar for code you write: read them
+  when generating or editing code. For Harmoni evidence-first reviews, use
+  harmoni-pr-review.
 disable-model-invocation: true
 ---
 
@@ -18,6 +20,14 @@ Do not skip those because this file has its own lists. Do not load
 `harmoni-pr-review` snapshot/ledger machinery unless the user named that skill.
 
 If unsure of comment tone, read [examples.md](examples.md).
+
+## When writing code
+
+The Correctness and Maintainability sections below are the bar for code you add or edit, in every repository. Read them before you finish that code, and fix those issues in the code. Do not run the review workflow while writing: no GitHub comment, no review writeup, and no secondary note.
+
+A repository `AGENTS.md` or `.cursor/rules` file wins only where it conflicts. If Samuel says not to follow this, that applies only to the current chat. Do not write that exception into a repo rule, `AGENTS.md`, or a comment that a later session would treat as the default.
+
+The review workflow still runs only when this skill is explicitly named.
 
 ## Goals
 
@@ -61,21 +71,27 @@ still belongs in the primary comment when it is on changed code.
    say there are more. Do not enumerate every instance. The owner should have
    enough to find and fix the class of issue without reading a long list. A
    one-off stays a single-location item.
-4. Split the pasteable comment: **primary** (issues in new or modified code) vs
+4. Split the suggestions: **primary** (issues in new or modified code) vs
    **secondary note** (bugs in unchanged code). Within the primary section, order
    by likelihood of user-facing bugs, unintended behavior, or a later change
    missing one of the copies. Maintainability items come after correctness items.
-5. Default deliverable: one pasteable GitHub **conversation** comment (not
-   Files-changed inlines unless asked). Action, then where, then **why it is
-   called out** (incorrect behavior, harder to read/track, future miss).
+   Mark an item as a **suggestion** when it is optional. Leave it unmarked when
+   it is a required change.
+5. Default deliverable: those suggestions **in chat**, so Samuel can read them
+   before anything is formatted for GitHub. Each one: action, then where, then
+   **why it is called out** (incorrect behavior, harder to read/track, future
+   miss). After the suggestions, offer two follow-ups and wait: a **plan** for
+   the changes, or a pasteable GitHub **conversation** comment in markdown.
+   Do not write the plan or the markdown comment until he picks one. Not
+   Files-changed inlines unless asked.
 6. **Then run a normal PR review.** After the checks above, do the other review
    work you would do without this skill (tests, regressions, security-adjacent
    issues in the diff, API/contract breaks, missing coverage, obvious
    performance or UX problems, and anything else a thorough review would catch).
-   Merge those findings into the same comment using the same split, ordering,
-   and "comment once" rules. This skill's lists are extra, not a cap.
+   Merge those findings into the same chat suggestions using the same split,
+   ordering, and "comment once" rules. This skill's lists are extra, not a cap.
 7. On a later pull: for each primary item, report unchanged / partial / fully
-   addressed. Partial means related code moved but the original issue remains.
+   addressed, in chat. Partial means related code moved but the original issue remains.
 8. **Grow the skill** (in the chat, not the GitHub comment). See below.
 
 ## Correctness
@@ -125,6 +141,8 @@ but is not limited to:
   - A read-shaped name should not write. `get`, `is`, `has`, and `check` should not be the name of a function whose main job is to save, delete, or send a response. If it does that work, use an imperative verb.
   - Follow a consistent pattern for what the function does. Boolean functions look like `isValid()`, `isAdmin()`, `isError()`, and the same shape for `has` and `can`. An imperative verb (`save`, `delete`, `emit`) means the function performs an action. `getNoun()` returns that noun and should not have side effects.
   - Extracting a complex conditional into a named variable or a well-named function is self-documenting in two ways: the caller is easier to read, and you only open the variable or function when you need to change the condition itself. A function also allows an early return per case, which is easier to follow than one expression.
+  - Prefer a name that says the operation in plain words. A reader who has not opened this code in months should not need the jargon of a library to tell what it does. `sendHeldAuditRecords` says the operation; `flushLogs` does not. A boolean reads as a boolean (`isShutdownLogStarted`, not `loggingRecorded`). A file name matches what the file contains.
+- Comments are fine when they add a detail the name cannot hold. That includes a why, a constraint, a gotcha, or any other fact that would not fit in the name, such as when to call the function or what a short name leaves out. They do not restate the function name or narrate the next line. If a comment would only repeat the code, rename the code and delete the comment. A flag set before a send finishes, so a failed send still blocks a second attempt, is a detail worth a comment. `/** Sends held records. */` on `sendHeldAuditRecords` is not. Every comment, including JSDoc, has to make sense without the conversation, review, or plan that produced it. Flag one that says "the callback" or "the success path" when the code it means is not named, or that refers to a chat. The comment has to name the function, file, or nearby line a later reader can see.
 - Complex conditionals. Avoid a condition that is hard to read. The more
   complex it is, the more likely a later change will not do what the developer
   intends. Flag an expression that does several of these at once:
@@ -164,6 +182,16 @@ but is not limited to:
   returns, code that is read top to bottom instead of nested function calls).
   Deep nesting and stacked operators raise cognitive load the same way a
   complex conditional does
+- Clever compression. Flag changed code that saves a few lines by being harder
+  to follow. Prefer the ordinary form of a pattern. The goal is ease of
+  reading and maintenance.
+  - An async IIFE where a named async function would hold the same work. Call
+    that function and store its promise. An IIFE is fine when there is a
+    reason a name does not fit. IIFEs are not banned.
+  - A ternary that spans several lines, or a nested ternary. A short readable
+    ternary can stay.
+  - A nested call, or an object field set to a complex expression, where an
+    intermediate variable would name the value.
 - When using TypeScript, proper and robust use of the type system. Types should
   represent the data or logic without being overly broad (e.g. a field that can
   be string, number, or boolean is bad). If possible, make it impossible to
@@ -198,9 +226,18 @@ but is not limited to:
 - `Partial<T>` / `Record<string, …>` as the **domain** type. They recreate the
   bag of optionals: every field is optional or every key is allowed. Fine at a
   parse boundary; bad as the type the rest of the app uses
-- Unnarrowed values at the boundary: `JSON.parse`, `catch (e)`, `event.target`,
-  query params are `unknown` (or effectively `any`) until you check. Using
-  `.message` or passing them through as a typed object is a hidden `as`
+- Declared `any` that is really `unknown`: `JSON.parse`, `Response.json()` /
+  `response.json()`, and other helpers with the same shape are declared as
+  `any` or `Promise<any>`. The runtime value is `unknown` until it is checked.
+  Annotating the result (`const data: Foo = await response.json()`), returning
+  it as `T`, or reading a property off it typechecks, because `any` is
+  assignable. A clean typecheck is not evidence the body was validated. Treat
+  that the same as `as Foo`. Bind the result as `unknown` and narrow it before
+  use. If the project remaps these to `unknown`, the annotation becomes a
+  compile error. If it does not, still flag the assumption. `catch (e)`,
+  `event.target`, and query params are the same hole: they are `unknown` until
+  checked, and using `.message` or passing them through as a typed object is a
+  hidden `as`
 - ESLint rules should always be followed except in two cases: (1) code that had
   linting issues before the PR, where we don't want to change behavior; (2) code
   that technically breaks a rule, but is actually the best way to do a task.
@@ -208,9 +245,10 @@ but is not limited to:
   hook's dependency array because to include it would cause unnecessary
   re-renders. These are just two examples, and are not exhaustive. A short
   why-comment on the disable is helpful, not required
-- JSDoc on symbols is fine when it adds information. Prefer JSDoc over a nearby
-  inline comment. Do not strip useful docs in cleanup. Delete leftover/noise
-  comments
+- JSDoc on symbols is fine when it adds a detail the name and signature
+  cannot hold. Prefer JSDoc over a nearby inline comment.
+  Do not strip useful docs in cleanup. Delete leftover comments, and delete a
+  comment that only restates the name.
 - Unused code, such as exports that are not imported anywhere, dead functions,
   and unused imports. For new or leftover exports, search the repo (and sibling
   packages in a workspace) for importers. Caveat public package entrypoints and
@@ -219,7 +257,10 @@ but is not limited to:
 
 ## Comment format
 
-The generated review must be easy to understand for **both the reviewer and the
+Use this shape for the chat suggestions, and again for the markdown comment
+if Samuel asks for one. The plan, if he asks, is the same items as steps.
+
+The suggestions must be easy to understand for **both the reviewer and the
 PR author**. Plain language. Enough context to see the problem without already
 knowing the review. No unexplained jargon or internal shorthand. Agents should
 still be able to follow it, but that must not make it harder for the humans.
