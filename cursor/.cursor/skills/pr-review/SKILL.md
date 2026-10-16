@@ -194,16 +194,26 @@ but is not limited to:
     intermediate variable would name the value.
 - When using TypeScript, proper and robust use of the type system. Types should
   represent the data or logic without being overly broad (e.g. a field that can
-  be string, number, or boolean is bad). If possible, make it impossible to
-  represent state that should never happen (e.g. instead of using several
-  boolean flags that should never be true at the same time, use one union
-  field). Types are a great way to understand what the code can and should do,
-  so good types are something we should strive for. Throwing away type
-  information by using `as any` or `as NarrowerType` is very bad, because it
-  hides potential bugs. If using a TS version that has it, `satisfies` can be
-  used in some situations instead of `as`. Prefer `unknown` over `any`. If
-  `any` is unavoidable, comment **that binding**, not the whole file. No
-  file-level `eslint-disable` (especially `no-explicit-any`)
+  be string, number, or boolean is bad). Types are a great way to understand
+  what the code can and should do, so good types are something we should strive
+  for. Throwing away type information by using `as any` or `as NarrowerType` is
+  very bad, because it hides potential bugs. If using a TS version that has it,
+  `satisfies` can be used in some situations instead of `as`. Prefer `unknown`
+  over `any`. If `any` is unavoidable, comment **that binding**, not the whole
+  file. No file-level `eslint-disable` (especially `no-explicit-any`)
+- Make illegal combinations unrepresentable. A variable, especially one that is
+  updated often such as React state, should not be settable to a combination
+  that should never happen or that would do something undefined or undesired.
+  The common case is several boolean `useState` values for phases that are
+  mutually exclusive. A union (usually a discriminant such as `status`) is
+  often the better type: one update replaces the whole phase, and a reader does
+  not have to simulate which flags can be true together. The point is fewer
+  bugs and easier reading. It is not a reason to delete lines. Judge it with
+  the other rules in this skill and in the code-clarity guideline. Do not
+  introduce a union that is harder to follow than the booleans. If one phase
+  only exists after another has settled, nest it on that variant instead of
+  adding a sibling that copies the settled fields. Name each variant for what
+  the value actually is.
 - Types with many optional fields are a code smell: an indicator that one type
   is trying to do too much. If we need a type to cover multiple scenarios, a
   discriminated union might be a good fit. Prefer **named** variant types (and
