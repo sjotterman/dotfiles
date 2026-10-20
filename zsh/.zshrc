@@ -233,9 +233,11 @@ post_install() {
 # notes 
 n() (
   cd ~/Dropbox/notes || return
-  local search='rg --follow --smart-case --line-number --no-heading --with-filename --color=always --type md --sortr modified "\S"'
+  local search='{ rg --files --follow --type md --sortr modified | sed -E "s/^(.*)\.md$/&:1:# │ \1/"; rg --follow --smart-case --line-number --no-heading --with-filename --type md --sortr modified "\S" | sed -E "s/^([^:]*):([^:]*):/\1:\2:\1 │ /"; }'
   eval "$search" |
-    fzf --ansi --exact --delimiter : \
+    fzf --exact --delimiter ':| │ ' \
+      --with-nth=3.. \
+      --nth=2.. \
       --no-sort \
       --height=100% \
       --style full \
