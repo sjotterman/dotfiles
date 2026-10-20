@@ -230,6 +230,46 @@ post_install() {
   curl -sS https://starship.rs/install.sh | sh
 }
 
+# notes 
+n() (
+  cd ~/Dropbox/notes || return
+  local search='rg --follow --smart-case --line-number --no-heading --with-filename --color=always --type md --sortr modified "\S"'
+  eval "$search" |
+    fzf --ansi --exact --delimiter : \
+      --no-sort \
+      --height=100% \
+      --style full \
+      --border=bold \
+      --preview-border=bold \
+      --input-border=bold \
+      --header-border=bold \
+      --list-border=bold \
+      --layout=reverse \
+      --query "$*" \
+      --header 'enter: open · ctrl-x: new note · ctrl-d: delete' \
+      --preview 'bat --color=always --style=numbers --highlight-line {2} {1}' \
+      --preview-window 'right,60%,+{2}+3/3' \
+      --border-label ' Notes ' --input-label ' Input ' --header-label ' Key bindings ' \
+      --color 'border:#aaaaaa,label:#cccccc' \
+      --color 'preview-border:#9999cc,preview-label:#ccccff' \
+      --color 'list-border:#669966,list-label:#99cc99' \
+      --color 'input-border:#B8860B,input-label:#F0E68C' \
+      --color 'header-border:#6699cc,header-label:#99ccff' \
+      --bind 'enter:become(nvim {1} +{2})' \
+      --bind 'ctrl-x:become(nvim {q}.md)' \
+      --bind "ctrl-d:execute(rm -i {1})+reload($search)"
+)
+#
+# notes (fuzzy search)
+nf() (
+  cd ~/Dropbox/notes || return
+  rg --follow --smart-case --line-number --no-heading --with-filename --color=always --type md "\S" |
+    fzf --ansi --delimiter : \
+      --query "$*" \
+      --preview 'bat --color=always --style=numbers --highlight-line {2} {1}' \
+      --preview-window 'right,60%,+{2}+3/3' \
+      --bind 'enter:become(nvim {1} +{2})'
+)
 
 
 if [ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ]; then
