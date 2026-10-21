@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": "./hooks/maintainability-check.py",
+        "loop_limit": null
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "./hooks/maintainability-check.py"
+      }
+    ]
+  }
+}

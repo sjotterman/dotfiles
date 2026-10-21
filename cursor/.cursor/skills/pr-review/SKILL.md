@@ -23,7 +23,9 @@ If unsure of comment tone, read [examples.md](examples.md).
 
 ## When writing code
 
-The Correctness and Maintainability sections below are the bar for code you add or edit, in every repository. Read them before you finish that code, and fix those issues in the code. Do not run the review workflow while writing: no GitHub comment, no review writeup, and no secondary note.
+The Correctness and Maintainability sections below are the bar for every change you add or edit, in every repository, in every chat. Read them before that change is finished, and fix those issues in the code. Do not run the review workflow while writing: no GitHub comment, no review writeup, and no secondary note.
+
+Matching this bar is part of writing the change. It is not a follow-up. Do not call the change complete, tell the user it is done, or move on while code you added or edited still misses it. Passing tests, a working feature, or confirmation of the behavior does not waive the check. Do not leave a mismatch so a later cleanup can fix it.
 
 A repository `AGENTS.md` or `.cursor/rules` file wins only where it conflicts. If Samuel says not to follow this, that applies only to the current chat. Do not write that exception into a repo rule, `AGENTS.md`, or a comment that a later session would treat as the default.
 
@@ -129,9 +131,13 @@ cause issues. Non-exhaustive list:
 
 ## Maintainability, clarity, future issues
 
+Code you add or edit must be maintainable. A reader, and a person updating it later, should be able to understand it. Follow best practices whenever possible.
+
 Still in the **primary** comment when they are on changed code; after
 correctness. Judge this section by cognitive load: can a reader follow the
-logic, and would a later edit still do what that reader meant? This includes
+logic, and would a later edit still do what that reader meant?
+
+The list below is examples, not a closed set. During this check, also fix any other change that would make the code easier to read or to update. This includes
 but is not limited to:
 
 - Clear and concise naming. A good name is a simple way to make the code easier to understand, so names of functions, variables, and types should be accurate and concise. The examples below are not exhaustive.
@@ -173,11 +179,18 @@ but is not limited to:
   statements, or complexity, but a function that is hundreds of lines long, has
   deeply nested code, or tries to do many only loosely related things is a sign
   that things should be simplified
-- Avoid unnecessary abstraction. No hard and fast rules, but while extracting a
-  function that is used in 3 places is good, and extracting a function that is
-  only used once or twice can also be good if it aids in maintainability and
-  readability, it might overcomplicate things to have a lot of small small
-  functions that exist only so that the call sites have fewer lines
+- Extract a function to remove duplicated code, or to name an abstraction a
+  reader can use. A function used in several places is the usual case. One
+  used once or twice can still be worth extracting when the name makes the
+  caller easier to follow. Skip the extraction when it does not add much. A
+  body that is only one line, or a function that needs many parameters because
+  it is coupled to its caller, is usually better left inline. Those are
+  examples; the same judgment applies to other extractions that do not earn
+  their name. A pile of small functions that exist only so the call sites have
+  fewer lines is the same problem
+- Logic duplicated across repositories. When the same logic appears in more
+  than one repository, note it in the chat or the plan so a better solution
+  can be discussed. Do not put that note in the code unless Samuel asks for it
 - Logical and easy to follow control flow (e.g. avoiding nesting by using early
   returns, code that is read top to bottom instead of nested function calls).
   Deep nesting and stacked operators raise cognitive load the same way a

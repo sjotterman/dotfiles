@@ -9,19 +9,31 @@ Write code a reader can understand months later without having this library open
 
 ## Scope
 
-This rule applies to code you add or edit, in every repository.
+This rule applies to every change you add or edit, in every repository, in every chat.
 
-A repository `AGENTS.md` or `.cursor/rules` file wins only where it conflicts.
+A repository `AGENTS.md` or `.cursor/rules` file wins only where it conflicts. When that repository has a comment policy, the finish check includes it for comments you add.
 
 If Samuel says not to follow this guideline, that applies only to the current chat. Do not write that exception into a repo rule, `AGENTS.md`, or a comment that a later session would treat as the default.
 
-Before finishing generated code, check the names and comments you added against this rule. Also read the Correctness and Maintainability sections of `~/.cursor/skills/pr-review/SKILL.md` and fix those issues in the code you added or edited. Do not run that skill's review workflow, and do not write a review. The same scope rules above apply. A later addition to those two sections applies to generation too.
+Matching this rule is part of writing the change. It is not a follow-up. Before you call a change complete, tell the user it is done, or move on to the next step, check the names and comments you added against this rule. Also read the Correctness and Maintainability sections of `~/.cursor/skills/pr-review/SKILL.md` and fix those issues in the code you added or edited. Do not run that skill's review workflow, and do not write a review. The same scope rules above apply. A later addition to those two sections applies to generation too.
+
+Passing tests, a working feature, or confirmation of the behavior does not waive this check. Do not leave a mismatch in code you added or edited so a later cleanup can fix it. If you notice one, fix it before the change is finished.
 
 Prefer a name that says what the code does. Use the plain operation, not the jargon of a tool the reader rarely touches. A boolean reads as a boolean (`isShutdownLogStarted`, not `loggingRecorded`). A file name matches what the file contains.
 
 A comment is fine when it adds a detail the name cannot hold: a why, a constraint, a gotcha, or anything else that would not fit in the name. Do not restate the function name. If a comment would only repeat the code, rename the code and delete the comment.
 
-Write every comment for a reader who was not in the conversation that produced it. Name the function, file, or nearby line the comment is about. A comment that only makes sense if the reader remembers a chat, a review, or a plan does not belong in the code.
+When a comment describes a variable or a function, prefer a docstring over a line comment. A docstring shows when the reader hovers the name. In JavaScript and TypeScript that is a JSDoc comment (`/** ... */`). Not every comment is a docstring. A line comment still belongs on a statement, a branch, or a constraint that is not the declaration. Deprecating a declaration is one place a docstring fits: `@deprecated` plus the fact a reader needs from the code as it is.
+
+```typescript
+/**
+ * @deprecated Portal password check for an Authorization Basic header.
+ * A match mints a session token. Bearer requests skip this.
+ */
+const basicAuthHandler = async () => {};
+```
+
+Write every comment for a reader who has only the code. Name the function, file, or nearby line the comment is about. A comment that needs an agent chat, a review, or a plan does not belong in the code. Do not write what the code will do later, or what it used to do, unless that fact is useful without that context. Add a comment about new behavior when the code that does it is added.
 
 ```typescript
 // The name hides the operation, and the comment only repeats it.
