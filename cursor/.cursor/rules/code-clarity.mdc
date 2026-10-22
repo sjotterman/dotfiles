@@ -23,7 +23,7 @@ Prefer a name that says what the code does. Use the plain operation, not the jar
 
 A comment is fine when it adds a detail the name cannot hold: a why, a constraint, a gotcha, or anything else that would not fit in the name. Do not restate the function name. If a comment would only repeat the code, rename the code and delete the comment.
 
-When a comment describes a variable or a function, prefer a docstring over a line comment. A docstring shows when the reader hovers the name. In JavaScript and TypeScript that is a JSDoc comment (`/** ... */`). Not every comment is a docstring. A line comment still belongs on a statement, a branch, or a constraint that is not the declaration. Deprecating a declaration is one place a docstring fits: `@deprecated` plus the fact a reader needs from the code as it is.
+When a comment describes a variable or a function, prefer a docstring over a line comment. A docstring shows when the reader hovers the name. In JavaScript and TypeScript that is a JSDoc comment (`/** ... */`). A JSDoc comment is useful when the caller needs that detail. Do not use one for an implementation detail the caller does not need. That detail belongs on the statement or branch it explains. Not every comment is a docstring. A line comment still belongs on a statement, a branch, or a constraint that is not the declaration. Deprecating a declaration is one place a docstring fits: `@deprecated` plus the fact a reader needs from the code as it is.
 
 ```typescript
 /**
