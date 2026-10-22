@@ -242,23 +242,24 @@ n() (
       --height=100% \
       --style full \
       --border=bold \
-      --preview-border=bold \
-      --input-border=bold \
-      --header-border=bold \
-      --list-border=bold \
+      --preview-border=rounded \
+      --input-border=rounded \
+      --header-border=dashed \
+      --list-border=rounded \
       --layout=reverse \
       --query "$*" \
-      --header 'enter: open · ctrl-x: new note · ctrl-d: delete' \
+      --header 'enter: open · ctrl-l: clear query · ctrl-x: new note · ctrl-d: delete · esc: quit' \
       --preview 'bat --color=always --style=numbers --highlight-line {2} {1}' \
       --preview-window 'right,60%,+{2}+3/3' \
-      --border-label ' Notes ' --input-label ' Input ' --header-label ' Key bindings ' \
+      --border-label ' Notes ' --input-label ' Search / Create ' --header-label ' Key bindings ' \
       --color 'border:#aaaaaa,label:#cccccc' \
-      --color 'preview-border:#9999cc,preview-label:#ccccff' \
-      --color 'list-border:#669966,list-label:#99cc99' \
+      --color 'preview-border:#6699cc,preview-label:#99ccff' \
+      --color 'list-border:#6699cc,list-label:#99ccff' \
       --color 'input-border:#B8860B,input-label:#F0E68C' \
       --color 'header-border:#6699cc,header-label:#99ccff' \
-      --bind 'enter:become(nvim {1} +{2})' \
-      --bind 'ctrl-x:become(nvim {q}.md)' \
+      --bind "enter:execute(nvim {1} +{2})+reload($search)" \
+      --bind "ctrl-x:execute([ -n {q} ] && nvim {q}.md)+reload($search)" \
+      --bind 'ctrl-l:clear-query' \
       --bind "ctrl-d:execute(rm -i {1})+reload($search)"
 )
 #
